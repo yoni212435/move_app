@@ -1,0 +1,41 @@
+
+
+*{
+    box-sizing: border-box;
+}
+.all_sign_in{
+ 
+ max-width: 100%;
+    min-height: 660px;
+   background-image:url(bg_sign.jpg);
+   background-size: cover;
+   background-position: center;
+
+  display: flex;
+  align-items: center;
+  
+}
+.sun_sign_in{
+
+max-width: 50%;
+margin: 0 auto;
+
+background-color: black;
+opacity: 0.8;
+color:white;
+
+
+
+}
+.form_all{
+    color: white;
+}
+/* .name{
+    color: white;
+}
+.inp_name{
+    background-color: aliceblue;
+} */
+.btn_sign{
+    margin-bottom: 6px;
+}
