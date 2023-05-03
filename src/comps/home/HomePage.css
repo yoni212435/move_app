@@ -5,23 +5,43 @@
 .nav_all{
     display: flex;
    justify-content: space-between;
-
-  background-color: black;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+width: 100%;
   min-height: 100px;
 align-items: center;
-    padding: 16px;
+    padding: 20px;
 }
 .btn_log{
-    border-radius: 16px;
-    padding: 16px;
-    background-color: red;
+    background-color: #d02d2d;
+    border: none;
+    color: #fff;
+    padding: 11px 34px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 24px;
+    margin: 4px 24px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 .inpSearch{
 padding: 8px;
 }
-.p_name{
-margin-left: 16px;
-    color: white;
+.btn_profil{
+    background-color: #049c2a;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    right: 5%;
 }
 .nav_btn{
     display: flex;

@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main_car {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(9, 3, 36);
+    height: 280px;
+    margin-top: -5px;
+padding: 5px;
+}
+.bg_carusela{
+    background-color: blue;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 50px ;
+    
+}
+
+.item_carusela {
+
+    width: 228px;
+    height: 255px;
+}
+
+.slick-prev {
+    left: -43px;
+}
+
+.slick-next {
+    right: -18px;
+}
+
+.slick-next .slick-prev{
+
+background-color: brown !important;
+}
+
+.slick-next:before, .slick-prev:before {
+    height: 50px !important;
+    font-size: 40px !important;
+    line-height:1 !important;
+    
+    opacity: .75 !important;
+    color: #bf2222 !important;
+}
+
+.slick-list, .slick-slider, .slick-track {
+    position: relative;
+    display: block;
+    /* top: 50px; */
+    /* right: 80px; */
+    left: 6px;
+}
+
+
