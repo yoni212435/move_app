@@ -4,57 +4,104 @@
     padding: 0;
 }
 
-.main_car {
+/* .main_car {
     width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: rgb(9, 3, 36);
     height: 280px;
     margin-top: -5px;
-padding: 5px;
-}
-.bg_carusela{
-    background-color: blue;
+    padding: 5px;
+} */
+
+.main_slider {
+    background-color: rgb(2, 2, 32);
     max-width: 100%;
-    margin: 0;
-    padding: 0 50px ;
-    
+    margin: 0px;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; */
+    /* right: 10%; */
+}
+
+.main_slider_tow{
+    /* position: absolute; */
+    /* margin: 16px; */
+}
+
+.sliderA{
+    /* text-align: center; */
+    /* margin: 0 auto; */
+    /* z-index: 100%; */
+    /* margin: 16px; */
+}
+
+.category{
+    color: white;
 }
 
 .item_carusela {
 
-    width: 228px;
-    height: 255px;
+    /* width: 228px; */
+    /* height: 255px; */
+    margin-top: 24px;
+    /* position: relative; */
 }
 
 .slick-prev {
-    left: -43px;
+    /* left: -43px; */
 }
 
 .slick-next {
-    right: -18px;
+    /* right: -18px; */
 }
 
-.slick-next .slick-prev{
+/* .slick-next .slick-prev{
 
-background-color: brown !important;
-}
+background-color:#22bf4e !important;
+} */
 
-.slick-next:before, .slick-prev:before {
+/* .slick-next:before, .slick-prev:before {
     height: 50px !important;
     font-size: 40px !important;
-    line-height:1 !important;
-    
+    line-height: 1 !important;
+
     opacity: .75 !important;
-    color: #bf2222 !important;
-}
+    color: #22bf4e !important;
+} */
+
+
+/* .slick-next, .slick-prev {
+    font-size: 0;
+    line-height: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: 0;
+    background: 0 0;
+} */
 
 .slick-list, .slick-slider, .slick-track {
-    position: relative;
-    display: block;
+    /* position: relative; */
+    /* display: block; */
     /* top: 50px; */
     /* right: 80px; */
-    left: 6px;
+    /* left: 6px; */
 }
 
+
+
+.btn_add_my_list {
+    /* position: absolute; */
+    /* top: 1%;
+    left: 5%; */
+    /* margin-bottom: 24px ; */
+}
 

@@ -3,52 +3,52 @@ import React from 'react'
 export default function Test(props) {
     let arr_data = props?.data;
     // console.log(props?.data?.[i].genres);
-
-    let Drama_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Drama'))
+console.log(arr_data);
+    let Drama_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Drama'))
     console.log(Drama_arr);
-    let  Science_Fiction_arr = arr_data?.filter((e)=>e.genres.find(v=>v==' Science-Fiction'))
+    let  Science_Fiction_arr = arr_data?.filter((e)=>e.genres?.find(v=>v==' Science-Fiction'))
     console.log(Science_Fiction_arr);
-    let Thriller_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Thriller'))
+    let Thriller_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Thriller'))
     console.log(Thriller_arr);
-    let Action_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Action'))
+    let Action_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Action'))
     console.log(Action_arr);
-    let Crime_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Crime'))
+    let Crime_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Crime'))
     console.log(Crime_arr);
-    let Horror_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Horror'))
+    let Horror_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Horror'))
     console.log(Horror_arr);
-    let Romance_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Romance'))
+    let Romance_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Romance'))
     console.log(Romance_arr);
-    let Adventure_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Adventure'))
+    let Adventure_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Adventure'))
     console.log(Adventure_arr);
-    let Espionage_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Espionage'))
+    let Espionage_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Espionage'))
     console.log(Espionage_arr);
-    let Music_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Music'))
+    let Music_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Music'))
     console.log(Music_arr);
-    let Supernatural_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Supernatural'))
+    let Supernatural_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Supernatural'))
     console.log(Supernatural_arr);
-    let Fantasy_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Fantasy'))
+    let Fantasy_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Fantasy'))
     console.log(Fantasy_arr);
-    let Family_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Family'))
+    let Family_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Family'))
     console.log(Family_arr);
-    let Anime_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Anime'))
+    let Anime_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Anime'))
     console.log(Anime_arr );
-    let History_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='History'))
+    let History_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='History'))
     console.log(History_arr);
-    let Comedy_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Comedy'))
+    let Comedy_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Comedy'))
     console.log(Comedy_arr);
-    let Mystery_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Mystery'))
+    let Mystery_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Mystery'))
     console.log(Mystery_arr);
-    let Medical_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Medical'))
+    let Medical_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Medical'))
     
-    let Western_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Western'))
+    let Western_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Western'))
     
-    let Legal_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Legal'))
+    let Legal_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Legal'))
     
-    let War_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='War'))
+    let War_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='War'))
     
-    let Sports_arr = arr_data?.filter((e)=>e.genres.find(v=>v=='Sports'))
+    let Sports_arr = arr_data?.filter((e)=>e.genres?.find(v=>v=='Sports'))
     
-    
+    // לתת למתמש אופציה של בחירת קטגוריות ואופציה לשינו בחירתו (יהיה בתוך דף הגדרות)
     
 
    

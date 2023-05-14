@@ -3,13 +3,22 @@ import './App.css';
 import SimpleSlider from './SimpleSlider';
 import SignIn from './comps/sign/SignIn';
 import Movie from './movie';
+import {BrowserRouter as Router, Route,Routes,Link} from 'react-router-dom'
+import Profile from './navBar/Profile';
+import MyList from './navBar/MyList';
 
 function App() {
   return (
-    <div className="App">
-      <Movie/>
+    <Router>
+      <Routes>
+<Route path='/' element={<Movie/>}/>
+<Route path='/profile' element={<Profile/>}/>
+<Route path='/myList' element={<MyList/>}/>
+
+      </Routes>
+    
   
-    </div>
+    </Router>
   );
 }
 

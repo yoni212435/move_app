@@ -1,35 +1,81 @@
-*{
+* {
     box-sizing: border-box;
+}
 
-}
-.nav_all{
-    display: flex;
-   justify-content: space-between;
-   position: absolute;
-   top: 0%;
-   left: 0%;
-width: 100%;
-  min-height: 100px;
-align-items: center;
+.nav_all {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* align-items: end; */
+    position: absolute;
+    /* width: 100%; */
+    min-height: 100px;
+    align-items: center;
     padding: 20px;
+    /* position: relative; */
 }
-.btn_log{
-    background-color: #d02d2d;
+
+.drop{
+    position: absolute;
+    top: 45%;
+    /* right: 100px; */
+    left: 720%;
+    /* margin-left: 900px; */
+    /* padding: 900px; */
+}
+
+.nav_btn {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* background: browqwen; */
+    /* padding: 0px 0px; */
+    height: 40px;
+    position: relative;
+}
+
+.btn_log {
+    background-color: brown;
     border: none;
     color: #fff;
-    padding: 11px 34px;
-    text-align: center;
-    text-decoration: none;
-    /* display: inline-block; */
+    /* padding: 8px 8px; */
     font-size: 24px;
-    margin: 4px 24px;
-    cursor: pointer;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    position: absolute;
+    display: flex;
+    padding: 4px 8px;
+    top: 900%;
+    align-items: center;
 }
-.inpSearch{
-padding: 8px;
+
+.logo_logout {
+    color: #fff;
+    font-size: 24px;
+    /* top: 30%; */
+    /* margin-top: 300px; */
+    /* position: absolute; */
+    /* top: 1000px; */
 }
-.btn_profil{
+
+
+
+.logo_out {
+    font-size: 70px;
+}
+
+.nav_search {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inpSearch {
+    padding: 8px;
+    border: none;
+}
+
+/* .btn_profil{
     background-color: #049c2a;
     border: none;
     color: #fff;
@@ -42,8 +88,4 @@ padding: 8px;
     cursor: pointer;
     border-radius: 50%;
     right: 5%;
-}
-.nav_btn{
-    display: flex;
-  
-}
+} */
