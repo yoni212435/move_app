@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import "./MainMovie.css";
 import Nav from "./Nav";
-import Carusela from "./Carusela";
+// import Carusela from "./Carusela";
 import { AiOutlinePlayCircle, AiOutlineInfoCircle } from "react-icons/ai";
 import Info from "../info/Info";
 import { IoMdLogOut } from "react-icons/io";
 // import {BrowserRouter as router, Route,Switch,Link, Router} from 'react-router-dom'
 
 export default function MainMovie(props) {
-  let img = props?.data?.[props.j]?.image?.original;
+  // let img = props?.data?.[props.j]?.image?.original;
   // let img1 = props.data;
   // let summary = props?.data?.[props.i]?.summary;
   const [over, setOver] = useState(false);
@@ -24,7 +24,7 @@ export default function MainMovie(props) {
     <div className="main_all">
       <Nav />
       <div className="main_watch_info">
-        <img src={img} className="img_all" />
+        {/* <img src={img} className="img_all" /> */}
         <div className="btn_div_watch">
           <button
             className="btn_watch"

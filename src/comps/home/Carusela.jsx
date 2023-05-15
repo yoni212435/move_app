@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+// import React, { useContext, useState } from "react";
 import "./carusela.css";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 // import MainMovie from "./MainMovie";
 import Slider from "react-slick";
-import { APIContext } from "../../movie";
+// import { APIContext } from "../../movie";
 
 export default function Carusela(props) {
   var settings = {
@@ -16,7 +16,7 @@ export default function Carusela(props) {
   };
   // const [i, setI] = useState(0);
   // const data = useContext(APIContext);
-  function bg_main() {}
+  // function bg_main() {}
 // console.log(props.data);
   return (
     <div className="main_slider">
