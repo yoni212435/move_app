@@ -31,8 +31,8 @@ setOver(!over);
      </button>
    <div className='menu_catgeris' style={{display: over? 'flex': 'none' }}>  <ul className='ul_categorys' style={{display: over? 'flex': 'none' }}>
  {
-  zhaner_arr.map(ele=> 
-    <li className='li_categorys'><button  className='btn_li_cat'>{ele}</button></li>)
+  zhaner_arr.map((ele,i)=> 
+    <li key={i} className='li_categorys'><button  className='btn_li_cat'>{ele}</button></li>)
  }
  
 </ul>

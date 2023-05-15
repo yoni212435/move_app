@@ -14,9 +14,7 @@ export default function Nav() {
         <div className="drop">
       <DropDownMenu/>
       </div>
-        <button className="btn_log">
-          <IoMdLogOut className="logo_out1" /> LOG OUT
-        </button>
+        
         <div>{/* <button className='btn_profil'>profil</button> */}</div>
       </div>
       <div className="nav_search">

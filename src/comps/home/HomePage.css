@@ -34,13 +34,13 @@
     position: relative;
 }
 
-.btn_log {
+/* .btn_log {
     background-color: brown;
     border: none;
     color: #fff;
-    /* padding: 8px 8px; */
+    padding: 8px 8px;
     font-size: 24px;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     position: absolute;
     display: flex;
     padding: 4px 8px;
@@ -51,17 +51,17 @@
 .logo_logout {
     color: #fff;
     font-size: 24px;
-    /* top: 30%; */
-    /* margin-top: 300px; */
-    /* position: absolute; */
-    /* top: 1000px; */
+    top: 30%;
+    margin-top: 300px;
+    position: absolute;
+    top: 1000px;
 }
 
 
 
 .logo_out {
     font-size: 70px;
-}
+} */
 
 .nav_search {
     background: white;
