@@ -4,15 +4,15 @@ import Nav from "./Nav";
 // import Carusela from "./Carusela";
 import { AiOutlinePlayCircle, AiOutlineInfoCircle } from "react-icons/ai";
 import Info from "../info/Info";
-import { IoMdLogOut } from "react-icons/io";
+// import { IoMdLogOut } from "react-icons/io";
 // import {BrowserRouter as router, Route,Switch,Link, Router} from 'react-router-dom'
-
+// import { useNavigate } from "react-router-dom";
 export default function MainMovie(props) {
-  // let img = props?.data?.[props.j]?.image?.original;
+  let img = props?.data?.[props.j]?.image?.original;
   // let img1 = props.data;
   // let summary = props?.data?.[props.i]?.summary;
   const [over, setOver] = useState(false);
-
+  // const naviget = useNavigate();
   let list_ar = [];
   // list_ar.push(7)
   // console.log(list_ar);
@@ -24,7 +24,7 @@ export default function MainMovie(props) {
     <div className="main_all">
       <Nav />
       <div className="main_watch_info">
-        {/* <img src={img} className="img_all" /> */}
+        <img src={img} className="img_all" />
         <div className="btn_div_watch">
           <button
             className="btn_watch"
@@ -41,9 +41,9 @@ export default function MainMovie(props) {
             <AiOutlineInfoCircle /> INFO
           </button>
         </div>
-      <button className="btn_log">
+      {/* <button className="btn_log" onClick={()=>naviget('/')}>
           <IoMdLogOut className="logo_logout" /> LOG OUT
-        </button>
+        </button> */}
       </div>
       <div className="info_comp" style={{ display: over ? "block" : "none" }}>
         <Info i={props.i} />

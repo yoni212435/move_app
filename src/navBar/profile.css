@@ -1,8 +1,21 @@
-h1{
-    /* color: blue; */
+*{
+    box-sizing: border-box;
 }
-.all_profil{
-    /* width: 1000px; */
-    /* height: 100%; */
-    /* position: absolute; */
+.main_profile{
+    background-color: rgb(5, 5, 35);
+    color: white;
+}
+.list_catgeris{
+    background-color:#10071e;
+    height: 1055px;
+}
+.back_home {
+    color: blanchedalmond;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 8px;
+position: absolute;
+top: 86%;
+left: 3%;
 }
