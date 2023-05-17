@@ -29,10 +29,7 @@ export default function Carusela(props) {
                 <button
                   onClick={() => {
                     props.changI(e.id);
-                    props.changeJ(i);
-                    console.log(e.id);
-                    console.log(i);
-                    
+                    props.changeJ(i);          
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />
@@ -49,6 +46,7 @@ export default function Carusela(props) {
                 <button
                   onClick={() => {
                     props.changI(e.id);
+                    props.changeJ(i);
                     
                   }}
                 >
@@ -65,8 +63,8 @@ export default function Carusela(props) {
               <div className="item_carusela" key={e.id}>
                 <button
                   onClick={() => {
-                    props.changI(i);
-                    
+                    props.changI(e.id);
+                    props.changeJ(i);
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />

@@ -5,7 +5,7 @@ import './Search.css';
 
 export default function Search() {
 const [searchResult,setSearchResult] = useState('');
-let data = useContext(APIContext)
+let {data} = useContext(APIContext)
 const [filteredData,setFilteredData] = useState([])
 const [over,setOver] = useState(false);
 // console.log(data);

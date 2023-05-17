@@ -7,16 +7,18 @@ import {BrowserRouter as Router, Route,Routes} from 'react-router-dom'
 import Profile from './navBar/Profile';
 import MyList from './navBar/MyList';
 import SignUp from './comps/sign/SignUp';
+import { useState } from 'react';
 
 function App() {
+  const [listAr, setListAr] = useState([])
   return (
     <Router>
       <Routes>
-<Route path='/' element={<Movie/>}/>
+<Route path='/' element={<Movie listAr={listAr}/>}/>
 <Route path='/sign' element={<SignIn/>}/>
 <Route path='/ragister' element={<SignUp/>}/>
 <Route path='/profile' element={<Profile/>}/>
-<Route path='/myList' element={<MyList/>}/>
+<Route path='/myList' element={<MyList listAr={listAr}/>}/>
 
       </Routes>
     
