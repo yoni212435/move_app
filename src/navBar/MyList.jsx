@@ -1,6 +1,6 @@
 import React from 'react'
-import { createContext } from 'react'
-import { APIContext } from '../movie'
+// import { createContext } from 'react'
+// import { APIContext } from '../movie'
 import Slider from "react-slick";
 
 
