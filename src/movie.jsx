@@ -1,40 +1,57 @@
-import React, { useEffect, useState, createContext } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 import axios from "axios";
 import MainMovie from "./comps/home/MainMovie";
 import Carusela from "./comps/home/Carusela";
 import "./movie.css";
-
-export const APIContext = createContext();
+import { APIContext } from "./App";
 
 export default function Movie(props) {
-  let [data, setData] = useState();
+  let [data, setData] = useState([]);
   const [i, setI] = useState(1);
   const [j, setJ] = useState(0);
-  // const [listAr, setListAr] = useState([])
-  // const [listArIndex, setListArIndex] = useState([])
+  const [zaner,setZaner] = useState([]);
+let {setDataApp ,updateToMyList, user} = useContext(APIContext)
+  function sendIndex(id) {
+    let index = data.findIndex(element => element.id === id);
+    if(index > -1){
+      setJ(index);
+    }
+  }
 
-  function changI(num) {
-    setI(num);
+  function changeI(num){
+    setI(num)
   }
 
   function changeJ(num) {
     setJ(num);
   }
 
-  useEffect(() => {
-    getData();
-  }, []);
+  
+
   async function getData() {
     const { data } = await axios.get("https://api.tvmaze.com/shows");
     setData(data);
+    setDataApp(data);
   }
 
+  useEffect(() => {
+    getData();
+  }, []);
+  
+  useEffect(()=>{
+    if(user.zhaner){
+      setZaner(user.zhaner)
+    }
+  },[user.zhaner])
+
   return (
-    <APIContext.Provider value={{data}}>
+    <div>
       <div>
-        <MainMovie data={data} i={i - 1} j={j} listAr={props.listAr} />
-        <Carusela data={data} changI={changI} changeJ={changeJ} />
+        <MainMovie data={data} i={i - 1} j={j} listAr={props.listAr} sendIndex={sendIndex}  changeI={changeI} changeJ={changeJ} />
+        {
+          zaner.length > 0 && zaner.map((ele ,i) =>  <Carusela key={i} data={data} sendIndex={sendIndex} changeJ={changeJ} category={ele}/>)
+        }
       </div>
-    </APIContext.Provider>
+    </div>
   );
 }

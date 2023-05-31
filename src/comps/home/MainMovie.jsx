@@ -1,18 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./MainMovie.css";
 import Nav from "./Nav";
 import {AiOutlinePlayCircle, AiOutlineInfoCircle,AiOutlinePlusCircle,} from "react-icons/ai";
 import Info from "../info/Info";
-import { APIContext } from "../../movie";
-// import {BrowserRouter as router, Route,Switch,Link, Router,useNavigate} from 'react-router-dom'
+import { APIContext } from "../../App";
 export default function MainMovie(props) {
-  
+ 
   let img = props?.data?.[props.j]?.image?.original;
   const [over, setOver] = useState(false);
   const [ShowIconAdd, setShowIconAdd] = useState(false);
-  // const naviget = useNavigate();
-  // const { listAr  } = useContext(APIContext);
+  const [user, setUser] = useState({});
+  const {handelUserObjFirebase , user:userContext , updateToMyList} = useContext(APIContext);
+  
+  function changeTheMainMovie(num){
 
+  }
   function changeInfo() {
     setOver(!over);
   }
@@ -22,16 +24,26 @@ export default function MainMovie(props) {
   }
 
   function addToMyList() {
-    if (!props.listAr.includes(props.data[props.j])) {
+   let listArFilter = props.listAr.find(ele=>props.data[props.j].id === ele.id)
+
+
+    if (!listArFilter) {
       props.listAr.push(props.data[props.j])
+      updateToMyList([...props.listAr,props.data[props.j]]);
     }
-    
-    console.log(props.listAr);
+
   }
+
+  useEffect(()=>{
+    handelUserObjFirebase();
+  
+  },[userContext?.id])
+
+  
 
   return (
     <div className="main_all">
-      <Nav />
+      <Nav changeI={props.changeI} changeJ={props.changeJ}  />
       <div className="main_watch_info">
          {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={img} className="img_all" />
@@ -48,7 +60,7 @@ export default function MainMovie(props) {
         </div>
       </div>
       <div className="info_comp" style={{ display: over ? "block" : "none" }}>
-        <Info i={props.i} />
+        <Info j={props.j} data={props.data} />
       </div>
       <div className="div_add" onMouseOver={changeAdd} onClick={addToMyList}>
         <AiOutlinePlusCircle className="icon_add" />

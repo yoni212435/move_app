@@ -76,3 +76,21 @@
     top: 70px;
     left: 180px;
 }
+
+.div_add{
+    position: absolute;
+    top: 71%;
+    left: 89%;
+    /* font-size: 16px; */
+    display: flex;
+    align-items: center;
+}
+
+.icon_add{
+    font-size: 48px;
+    color: wheat;
+}
+
+.div_masseg_add{
+    color: antiquewhite;
+}

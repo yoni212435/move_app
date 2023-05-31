@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+.main_my_list{
+    background-color: rgb(4, 4, 60);
+    height: 100vh;
+    width: 1550px;
+}
+
+.div_my_list{
+    display: flex;
+    width: 100%;
+flex-wrap: wrap;
+}
+
+.item_my_list{
+    /* display: flex; */
+}

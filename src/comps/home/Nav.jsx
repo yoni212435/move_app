@@ -2,10 +2,10 @@ import React from "react";
 import "./HomePage.css";
 // import { IoMdLogOut } from "react-icons/io";
 // import {BrowserRouter as router, Route,Switch,Link} from 'react-router-dom'
-import DropDownMenu from "../../navBar/DropDownMenu";
-import Search from "../../navBar/Search";
+import DropDownMenu from "../navBar/DropDownMenu";
+import Search from "../navBar/Search";
 
-export default function Nav() {
+export default function Nav(props) {
   return (
     
     <div className="nav_all">
@@ -18,7 +18,7 @@ export default function Nav() {
         <div>{/* <button className='btn_profil'>profil</button> */}</div>
       </div>
       <div className="nav_search">
-       <Search/>
+       <Search changeI={props.changeI} changeJ={props.changeJ} />
       </div>
     </div>
   );

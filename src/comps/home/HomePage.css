@@ -90,20 +90,3 @@
     right: 5%;
 } */
 
-.div_add{
-    position: absolute;
-    top: 70%;
-    left: 8%;
-    /* font-size: 16px; */
-    display: flex;
-    align-items: center;
-}
-
-.icon_add{
-    font-size: 48px;
-    color: wheat;
-}
-
-.div_masseg_add{
-    color: antiquewhite;
-}
