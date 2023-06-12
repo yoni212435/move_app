@@ -1,9 +1,9 @@
-import React, { useContext ,useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Allcategory.css";
 import { Link } from "react-router-dom";
 import { APIContext } from "../../App";
 
-export default function AllCategory() {
+export default function AllCategory(props) {
   const zhaner_arr = [
     "Drama",
     "Science-Fiction",
@@ -28,27 +28,25 @@ export default function AllCategory() {
     "War",
     "Sports",
   ];
-  let {dataApp} = useContext(APIContext)
-  const [over, setOver] = useState(false);
-  const [over1,setOver1] = useState(false);
-  const [category,setCategory] = useState();
-  const [filterData, setFilterData] = useState([])
+  let { dataApp } = useContext(APIContext);
+  // const [over, setOver] = useState(false);
+  const [over1, setOver1] = useState(false);
+  const [category, setCategory] = useState();
+  const [filterData, setFilterData] = useState([]);
 
-  function change() {
-    setOver(!over);
-  }
-
+  
   function showCategory(category) {
-    setCategory(category)
-    let filterData1 = dataApp.filter(element => element.genres.includes(category));
-    setFilterData(filterData1)
-     setOver1(!over1);
+    setCategory(category);
+    let filterData1 = dataApp.filter((element) =>
+      element.genres.includes(category)
+    );
+    setFilterData(filterData1);
+    setOver1(!over1);
   }
 
   return (
     <div>
       <div className="menu_catgeris">
-        
         <ul className="ul_categorys">
           {zhaner_arr.map((ele, i) => (
             <li key={i} className="li_categorys">
@@ -59,10 +57,13 @@ export default function AllCategory() {
           ))}
         </ul>
       </div>
-      <div style={{display:over1?'block':'none'}}>
-{
-  filterData?.map(element => <div>{element.name}</div>)
-}
+      <div style={{ display: over1 ? "flex" : "none" }} className="div_parent_list_catgory">
+        {filterData?.map((element) => (
+          <button className="div_list_allcatgory" >
+            <div>{element.name}</div>
+            <img src={element.image.medium} alt="" className="img_allcatgory" />
+          </button>
+        ))}
       </div>
     </div>
   );

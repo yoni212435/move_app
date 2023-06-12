@@ -10,6 +10,7 @@
     background-position: center;
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .sun_sign_in {
@@ -18,6 +19,7 @@
     background-color: black;
     opacity: 0.8;
     color: white;
+
 }
 
 .form_all {
@@ -48,6 +50,14 @@
     /* text-align: center; */
     
 }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .btn_sign{
+        
+    }
+}
+
+
 
 /* .name{
     color: white;
@@ -55,3 +65,5 @@
 .inp_name{
     background-color: aliceblue;
 } */
+
+

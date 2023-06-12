@@ -14,7 +14,8 @@ export default function MyList(props) {
 
   async function minusMovie(id){
     let filterData = props.listAr.filter(element=>element.id !== id)
-    console.log(7);
+    // console.log(7);
+    console.log(id);
     try{
      await updateDoc(doc(db,'users',user.docId),{myList:filterData})
     await handelUserObjFirebase();
@@ -37,11 +38,11 @@ changeUrl(' ')
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />
-                  <button onClick={()=>minusMovie(e.id)}><AiOutlineCloseCircle/></button>
+                  <button onClick={()=>minusMovie(e.id)} className='btn_minus_myList'><AiOutlineCloseCircle/></button>
                 </div>
               </div>
             )}
-<Link to={'/'}>home</Link>
+<Link to={'/'} className='home_myLyst'>home</Link>
           </div>
           
     </div>

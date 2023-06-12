@@ -6,6 +6,7 @@
     background-color: rgb(4, 4, 60);
     height: 100vh;
     width: 1550px;
+    /* list-style: none; */
 }
 
 .div_my_list{
@@ -16,4 +17,33 @@ flex-wrap: wrap;
 
 .item_my_list{
     /* display: flex; */
+    margin: 5px;
+    position: relative;
+}
+
+.btn_minus_myList{
+    /* margin: 5px; */
+    height: 30px;
+    position: absolute;
+    top: 87%;
+    /* left: 5%; */
+    right: 3%;
+    /* z-index: 100; */
+    background-color: brown;
+    text-align: center;
+}
+
+.home_myLyst{
+    /* padding: 6px; */
+    color: rgb(15, 15, 119);
+    border: 1px solid brown;
+    height: 28px;
+    width: 48px;
+    background-color: brown;
+    border-radius: 5px;
+    position: absolute;
+    top: 90%;
+    right: 5%;
+    text-align: center;
+    /* list-style: none; */
 }

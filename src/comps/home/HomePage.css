@@ -7,10 +7,11 @@
     /* flex-direction: column; */
     /* justify-content: space-between; */
     /* align-items: end; */
+    width: 96.5%;
     position: absolute;
     /* width: 100%; */
-    min-height: 100px;
-    align-items: center;
+    /* min-height: 100px; */
+    /* align-items: center; */
     padding: 20px;
     /* position: relative; */
 }
@@ -18,14 +19,19 @@
 .drop{
     position: absolute;
     top: 45%;
-    /* right: 100px; */
-    left: 720%;
+    /* columns: auto; */
+    /* grid-column-end: auto; */
+    /* align-items: end; */
+    /* float: right ; */
+    right: 1px;
+    /* left: 560%; */
     /* margin-left: 900px; */
     /* padding: 900px; */
 }
 
 .nav_btn {
     display: flex;
+    float: right;
     justify-content: space-between;
     /* align-items: center; */
     /* background: browqwen; */
@@ -65,9 +71,10 @@
 
 .nav_search {
     background: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 15%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
 }
 
 .inpSearch {

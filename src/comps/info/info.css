@@ -5,17 +5,19 @@
 
 .all_info {
     /* background-color: rgb(3, 3, 38); */
-    height: 100vh;
+    height: 61vh;
     margin: 0 auto;
     width: 70vw;
     color: aquamarine;
     background-color: rgb(3, 3, 46);
     display: flex;
+    
 
 }
 
 img {
     width: 300px;
+    margin-right: 4px;
 }
 
 .list_info {

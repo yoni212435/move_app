@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import {AiOutlinePlayCircle, AiOutlineInfoCircle,AiOutlinePlusCircle,} from "react-icons/ai";
 import Info from "../info/Info";
 import { APIContext } from "../../App";
+import "bootstrap/dist/css/bootstrap.min.css";
 export default function MainMovie(props) {
  
   let img = props?.data?.[props.j]?.image?.original;
@@ -24,11 +25,11 @@ export default function MainMovie(props) {
   }
 
   function addToMyList() {
-   let listArFilter = props.listAr.find(ele=>props.data[props.j].id === ele.id)
+   let listArFilter = props.listAr?.find(ele=>props.data[props.j].id === ele.id)
 
 
     if (!listArFilter) {
-      props.listAr.push(props.data[props.j])
+      props.listAr?.push(props.data[props.j])
       updateToMyList([...props.listAr,props.data[props.j]]);
     }
 
@@ -43,7 +44,7 @@ export default function MainMovie(props) {
 
   return (
     <div className="main_all">
-      <Nav changeI={props.changeI} changeJ={props.changeJ}  />
+      <Nav changeI={props.changeI} changeJ={props.changeJ} sendIndex={props.sendIndex}  />
       <div className="main_watch_info">
          {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={img} className="img_all" />

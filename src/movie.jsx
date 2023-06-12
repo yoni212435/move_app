@@ -10,9 +10,10 @@ export default function Movie(props) {
   const [i, setI] = useState(1);
   const [j, setJ] = useState(0);
   const [zaner,setZaner] = useState([]);
-let {setDataApp ,updateToMyList, user} = useContext(APIContext)
+let {setDataApp ,updateToMyList, user, changeIndex} = useContext(APIContext)
   function sendIndex(id) {
     let index = data.findIndex(element => element.id === id);
+    let index1 = data.findIndex(element => element.id === id);
     if(index > -1){
       setJ(index);
     }

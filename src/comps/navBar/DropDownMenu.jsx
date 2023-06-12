@@ -7,7 +7,7 @@ import Profile from './Profile'
 import {BrowserRouter as Router,Routes ,Route,Link} from 'react-router-dom';
 import MyList from './MyList'
  
-export default function DropDownMenu() {
+export default function DropDownMenu(props) {
     const [over, setOver] = useState(false)
     // let data = useContext(APIContext)
 
@@ -27,10 +27,9 @@ export default function DropDownMenu() {
         <button className='A' onClick={showMenu}></button>
        </div>
         <ul className='menu' style={{display: over? 'block': 'none' }} >
+          
         <li><Link to={'/profile'} className='btn_li'>PROFIIL</Link></li>
         <li><Link to='/myList' className='btn_li'>MY LIST</Link></li>
-        {/* <AllCategory/> */}
-         {/* <li><butto className=''><AllCategory/></butto></li> */}
         </ul>
        
     </div>

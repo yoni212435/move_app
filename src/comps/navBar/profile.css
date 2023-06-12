@@ -5,7 +5,8 @@
 .main_profile {
     background-color: rgb(5, 5, 35);
     color: white;
-    height: 721px;
+    height: 650vh;
+    /* float: right; */
 }
 
 /* .all_profil {
@@ -15,32 +16,15 @@
     margin: 8px;
 } */
 
-.profile_icon {
+/* .profile_icon {
     padding: 10px;
     font-size: 24px;
-}
-
-.list_catgeris {
-    /* background-color: #10071e; */
-    height: 600px;
-    width: 1000px;
-    /* border: 1px solid; */
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 8px;
-    /* background-color: blueviolet; */
-    margin: 0 auto;
-    position: absolute;
-    left: 1%;
-    top: 3%;
-}
+} */
 
 .div_btn_profile {
-
     position: absolute;
     left: 86%;
-
+    /* float: right; */
 }
 
 .btn_profile {
@@ -51,10 +35,32 @@
     font-size: 24px;
 }
 
+.list_catgeris {
+    /* background-color: #10071e; */
+    height: 600px;
+    width: 1110px;
+    /* border: 1px solid; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* justify-content:space-between; */
+    gap: 8px;
+    /* background-color: blueviolet; */
+    margin: 0 auto;
+    position: absolute;
+    left: 3%;
+    top: 3%;
+}
+
+
+
+
+
 .chak_box {
     border: 1px solid;
     padding: 8px;
     height: 65px;
+    width: 400px;
     background: rgb(6, 83, 119);
     text-align: center;
     font-size: 26px;
@@ -66,13 +72,28 @@
     margin-right: 8px;
 }
 
+.name_of_catgorys_slider{
+    /* float: right; */
+    position: absolute;
+    right: -12%;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.div_AllCategory{
+    /* margin-left: 4px; */
+}
+
 .back_home {
     color: blanchedalmond;
     background-color: red;
     text-decoration: none;
     border-radius: 6px;
     padding: 8px;
+    /* float: right; */
     position: absolute;
     top: 86%;
-    left: 3%;
+    left: 90%;
 }

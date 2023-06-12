@@ -13,7 +13,7 @@ export default function SignUp() {
     e.preventDefault(); 
     try{
     const userObj = await createUserWithEmailAndPassword(auth,e.target.email.value,e.target.pass.value);
-    console.log(userObj);
+    
     setUser({id:userObj.user.uid})
     navigate('/')
     }catch(error){

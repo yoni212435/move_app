@@ -4,11 +4,7 @@ import "./App.css";
 import SignIn from "./comps/sign/SignIn";
 import Movie from "./movie";
 import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+  BrowserRouter as Router,Route, Routes,useNavigate,} from "react-router-dom";
 import Profile from "./comps/navBar/Profile";
 import MyList from "./comps/navBar/MyList";
 import SignUp from "./comps/sign/SignUp";
@@ -19,6 +15,23 @@ import { useLocation, useParams} from 'react-router-dom';
 export const APIContext = createContext();
 
 function App() {
+
+
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
+
+
   const [user, setUser] = useState({});
   const [dataApp, setDataApp] = useState([]);
   const [listAr, setListAr] = useState([]);
@@ -66,10 +79,10 @@ function App() {
     
     if(user.id){
       const data = await getDocs(query(colUsers,where('id','==',user.id))) ;
-      console.log(4);
+      
      if(data.docs[0]){
       setUser({...data.docs[0].data(),docId:data.docs[0].id,email:user.email })
-      console.log(3);
+    
      }else{
       addDoc(colUsers,{id:user.id,zhaner:[],myList:[]})
      }
@@ -81,10 +94,14 @@ function App() {
       setListAr(user.myList) 
     }
   }
+
+  function changeIndex(num){
+return num;
+  }
   
 
   return (
-    <APIContext.Provider value={{ dataApp, setDataApp ,setUser, handelUserObjFirebase ,user , updateToMyList ,updateListAr, url,changeUrl }}>
+    <APIContext.Provider value={{ dataApp, setDataApp ,setUser, handelUserObjFirebase ,user , updateToMyList ,updateListAr, url,changeUrl ,changeIndex,windowSize}}>
       <Routes>
         <Route path="/" element={<Movie listAr={listAr} />} />
         <Route path="/signIn" element={<SignIn />} />

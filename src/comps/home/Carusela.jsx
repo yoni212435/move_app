@@ -7,23 +7,44 @@ import { useLocation } from "react-router-dom";
 
 
 export default function Carusela(props) {
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-  };
-  let {user ,url, changeUrl} = useContext(APIContext);
+  const {user ,url, changeUrl, windowSize} = useContext(APIContext);
   const [moviesZaner, setMoviesZaner] = useState([]);
   const db = getFirestore()
   let {pathname} = useLocation();
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: keepScreen(windowSize),
+    slidesToScroll: 1,
+  };
+
+  function keepScreen(windowWidth){
+  const md = "768";
+  const lg = "992";
+  const xl = "1200";
+  
+  if (windowWidth >= xl) {
+    return 6
+  }  if (windowWidth >= lg) {
+    return 4
+  }  if (windowWidth >= md) {
+    return 3
+  }  
+    return 2;
+  
+  }
+  
+  
+
   function filterAsZner(){
-   let filterData = props.data.filter(ele =>ele.genres.includes(props.category))
+   let filterData = props?.data?.filter(ele =>ele.genres?.includes(props.category))
    setMoviesZaner(filterData);
    }
 
+
+   
 
   useEffect(()=>{
     changeUrl(pathname);
@@ -38,12 +59,12 @@ export default function Carusela(props) {
         <div className="sliderA">
           <p className="category">{props.category}</p>
           <Slider {...settings}>
-            {moviesZaner.map((e,i) => (
+            {moviesZaner?.map((e,i) => (
               <div className="item_carusela " key={e.id}>
                 <button
                   onClick={() => {
                     props.sendIndex(e.id)
-                    // props.changeJ(i);          
+                             
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />

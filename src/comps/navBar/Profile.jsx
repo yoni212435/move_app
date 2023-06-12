@@ -8,7 +8,7 @@ import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { APIContext } from "../../App";
 
 
-export default function Profile() {
+export default function Profile(props) {
   const {user,changeUrl}  = useContext(APIContext);
   const [over, setOver] = useState(false);
   const [over1, setOver1] = useState(false);
@@ -23,19 +23,13 @@ export default function Profile() {
     "Horror",
     "Romance",
     "Adventure",
-    
     "Supernatural",
     "Fantasy",
     "Family",
-    
-    
     "Comedy",
     "Mystery",
     "Medical",
-    
     "Legal",
-    
-    
   ];
 
   // "Western","War","Sports","Music","Espionage","Anime","History",
@@ -43,8 +37,7 @@ export default function Profile() {
 
   const [arr_zaner, setArr_zaner] = useState([]);
   const db = getFirestore();
-
-
+  
   function updetDbCatgories(){
     if(arr_zaner.length > 0){
       console.log(3);
@@ -90,9 +83,10 @@ changeUrl(pathname);
       // console.log(over,over1,over2,'cangeAllCatgorys','else');
     }
   }
-
+  // console.log(user.data());
 useEffect(()=>{
   updetDbCatgories();
+  console.log(user.zhaner);
 },[arr_zaner.length])
   
   return (
@@ -139,12 +133,18 @@ useEffect(()=>{
             
           </div>
         ))}
+        <div style={{display: over ? "block" : "none"}} className="name_of_catgorys_slider">
+          <h5 className="">The existing categories</h5>
+              <div>{user.zhaner[0]}</div>
+              <div>{user.zhaner[1]}</div>
+              <div>{user.zhaner[2]}</div>
+            </div>
         <div style={{ display: over1 ? "block" : "none" }}>
           <Detiles />
         </div>
 
-        <div style={{ display: over2 ? "block" : "none" }}>
-          <AllCategory />
+        <div style={{ display: over2 ? "block" : "none" }} className="div_AllCategory">
+          <AllCategory   />
         </div>
       </div>
 

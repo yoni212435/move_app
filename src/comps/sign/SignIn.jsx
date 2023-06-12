@@ -16,7 +16,7 @@ export default function SignIn() {
       const user = await signInWithEmailAndPassword(auth,e.target.email.value,e.target.pass.value)
       setUser({id:user.user.uid , email:user.user.email})
       navigate('/')
-      console.log(user);
+      
     }catch(error){alert(error)}
   }
 
