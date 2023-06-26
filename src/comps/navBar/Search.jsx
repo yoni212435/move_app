@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { APIContext } from "../../App";
 import './Search.css';
@@ -23,7 +23,7 @@ console.log();
 
   return (
     <div className="main_search">
-        <AiOutlineSearch />
+        {/* <AiOutlineSearch /> */}
       <input className="inpSearch" name="" type="search" placeholder="Search..." onChange={search}/>
       
       <div style={{display: over?'flex':'none'}} className="div_search">

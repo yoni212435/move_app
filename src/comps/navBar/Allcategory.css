@@ -32,13 +32,11 @@
    border: none;
 }
 
-.li_categorys{}
-
-
 .btn_li_cat{
     padding: 6px;
     border-radius: 5px;
 }
+
 .div_parent_list_catgory{
     width: 800px;
     display: flex;

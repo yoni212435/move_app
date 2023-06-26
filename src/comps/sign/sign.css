@@ -3,14 +3,14 @@
 }
 
 .all_sign_in {
-    width: 1250px;
-    height: 600px;
+    width: 1530px;
+    height: 720px;
     background-image: url(bg_sign.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .sun_sign_in {
@@ -20,6 +20,10 @@
     opacity: 0.8;
     color: white;
 
+}
+
+.title_sign{
+    text-align: center;
 }
 
 .form_all {
@@ -50,20 +54,226 @@
     /* text-align: center; */
     
 }
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    .btn_sign{
+
+.btn_sign_up{
+    font-size: 22px;
+    background-color: rgb(4, 76, 74);
+    border-radius: 5px;
+}
+
+
+@media only screen and (min-width: 375px) {
+    .all_sign_in {
+       max-width: 500px;
+       height: 780px;
+       min-width: none;
+    }
+
+    .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;
         
+        
+    }
+    
+}
+
+@media only screen and (min-width: 600px) {
+    .all_sign_in {
+       max-width: 600px;
+    }   
+
+    .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
     }
 }
 
 
 
-/* .name{
-    color: white;
+@media only screen and (min-width: 700px) {
+    .all_sign_in {
+        max-width: 700px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
 }
-.inp_name{
-    background-color: aliceblue;
-} */
+
+@media only screen and (min-width: 800px) {
+    .all_sign_in {
+        max-width: 800px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .all_sign_in {
+        max-width: 900px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .all_sign_in {
+        max-width: 1000px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .all_sign_in {
+        max-width: 1100px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .all_sign_in {
+        max-width: 1200px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .all_sign_in {
+        max-width: 1300px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .all_sign_in {
+        max-width: 1400px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .all_sign_in {
+        max-width: 1500px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+@media  screen and (min-width: 1600px) {
+    .all_sign_in {
+        max-width: 1600px;
+     }  
+
+     .sun_sign_in{
+        max-width: 60%;
+    }
+
+    .form_all {
+        height: 250px;
+        width: 250px;
+        color: white;
+        padding: 16px;   
+    }
+}
+
+
+
 
 

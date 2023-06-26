@@ -27,12 +27,12 @@ export default function SignUp() {
     <div className='all_sign_in'>
        
         <div className="sun_sign_in">
-        <h1>welcome to movie land </h1>
+        <h1 className='title_sign'>The movie library</h1>
 
         <form className='form_all' onSubmit={handelUser}>
 
-        <div className="name">
-        <p className='name'>email:</p>
+        <div className="input_fields">
+        <p className='email'>email:</p>
         <input className='inp_name' required name='email' type="email" placeholder='email' />
         </div>
         <div className="pass">

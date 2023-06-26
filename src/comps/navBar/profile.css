@@ -5,26 +5,12 @@
 .main_profile {
     background-color: rgb(5, 5, 35);
     color: white;
-    height: 650vh;
-    /* float: right; */
+    min-height: 650vh;
 }
-
-/* .all_profil {
-    height: 300px;
-    display: flex;
-    justify-content: end;
-    margin: 8px;
-} */
-
-/* .profile_icon {
-    padding: 10px;
-    font-size: 24px;
-} */
 
 .div_btn_profile {
     position: absolute;
     left: 86%;
-    /* float: right; */
 }
 
 .btn_profile {
@@ -33,47 +19,38 @@
     background-color: rgb(5, 5, 35);
     color: white;
     font-size: 24px;
+    text-align: center;
+    padding: 2px;
 }
 
 .list_catgeris {
-    /* background-color: #10071e; */
     height: 600px;
     width: 1110px;
-    /* border: 1px solid; */
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* justify-content:space-between; */
     gap: 8px;
-    /* background-color: blueviolet; */
     margin: 0 auto;
     position: absolute;
     left: 3%;
     top: 3%;
 }
 
-
-
-
-
 .chak_box {
     border: 1px solid;
     padding: 8px;
     height: 65px;
-    width: 400px;
+    width: 250px;
     background: rgb(6, 83, 119);
     text-align: center;
     font-size: 26px;
-    /* width: 150px; */
 }
 
 .lable_class {
-    /* margin-top: 8px; */
     margin-right: 8px;
 }
 
-.name_of_catgorys_slider{
-    /* float: right; */
+.name_of_catgorys_slider {
     position: absolute;
     right: -12%;
     text-align: center;
@@ -82,9 +59,7 @@
     padding: 4px;
 }
 
-.div_AllCategory{
-    /* margin-left: 4px; */
-}
+
 
 .back_home {
     color: blanchedalmond;
@@ -92,8 +67,148 @@
     text-decoration: none;
     border-radius: 6px;
     padding: 8px;
-    /* float: right; */
     position: absolute;
     top: 86%;
-    left: 90%;
+    right: 5%;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+@media only screen and  (max-width:728px) {
+    .div_btn_profile {
+        left: 0%;
+        display: flex;
+    }
+
+    .btn_profile {
+        width: 140px;
+        height: 80px;
+        margin: 6px;
+    }
+
+    .list_catgeris {
+        width: 300px;
+        top: 14%;
+        height: 600px;
+    }
+
+    .chak_box {
+        height: 55px;
+        width: 180px;
+        font-size:25px ;
+    }
+
+    .name_of_catgorys_slider{
+        top: 65%;
+        right: -38%;
+    }
+
+    .back_home{
+        top: 90%;
+        background-color: blue;
+    }
+}
+
+@media only screen and  (min-width:728px) {
+    .div_btn_profile {
+        left: 0%;
+        display: flex;
+    }
+
+    .btn_profile {
+        width: 140px;
+        height: 80px;
+        margin: 6px;
+    }
+
+    .list_catgeris {
+        width: 300px;
+        top: 14%;
+        height: 600px;
+    }
+
+    .chak_box {
+        height: 55px;
+        width: 180px;
+        font-size:25px ;
+    }
+
+    .name_of_catgorys_slider{
+        top: 65%;
+        right: -38%;
+    }
+
+    .back_home{
+        top: 90%;
+        background-color: blue;
+    }
+}
+
+@media only screen and  (min-width:991px) {
+    .div_btn_profile {
+        left: 84%;
+        flex-direction: column;
+    }
+
+    .btn_profile {
+        width: 140px;
+        height: 80px;
+        margin: 6px;
+    }
+
+    .list_catgeris {
+        width: 300px;
+        top: 14%;
+        height: 600px;
+    }
+
+    .chak_box {
+        height: 55px;
+        width: 180px;
+        font-size:25px ;
+    }
+
+    .name_of_catgorys_slider{
+        top: 65%;
+        right: -38%;
+    }
+
+    .back_home{
+        top: 90%;
+        background-color: aqua;
+    }
+}
+
+@media screen and (min-width:1199px) {
+    .div_btn_profile {
+        left: 86%;
+        flex-direction: column;
+    }
+
+    .btn_profile {
+        width: 200px;
+        height: 120px;
+    }
+
+    .list_catgeris {
+        width: 350px;
+        top: 14%;
+        height: 600px;
+    }
+
+    .chak_box {
+        height: 55px;
+        width: 180px;
+        font-size:25px ;
+    }
+
+    .name_of_catgorys_slider{
+        top: 65%;
+        right: -38%;
+    }
+
+    .back_home{
+        top: 90%;
+    }
 }

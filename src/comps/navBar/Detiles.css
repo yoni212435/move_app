@@ -8,7 +8,6 @@
     background-position: center;
     height: 650px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -21,6 +20,18 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
+}
+
+@media screen and (max-width:728px){
+
+    .all_detiles{
+        height: 500px;
+        width: 470px;
+    }
+
+    .sun_detiles{
+        width: 65%;
+        height: 250px;
+    } 
 }

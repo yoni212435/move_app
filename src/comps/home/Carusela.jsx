@@ -1,13 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect,  useState } from "react";
 import "./carusela.css";
 import Slider from "react-slick";
-import { doc, updateDoc , getFirestore} from "firebase/firestore";
+import { getFirestore} from "firebase/firestore";
 import { APIContext } from "../../App";
 import { useLocation } from "react-router-dom";
 
 
 export default function Carusela(props) {
-  const {user ,url, changeUrl, windowSize} = useContext(APIContext);
+  const {url, changeUrl, windowSize} = useContext(APIContext);
+  // const{urlCar,setUrlCar} = useState();
   const [moviesZaner, setMoviesZaner] = useState([]);
   const db = getFirestore()
   let {pathname} = useLocation();
@@ -19,6 +20,11 @@ export default function Carusela(props) {
     slidesToShow: keepScreen(windowSize),
     slidesToScroll: 1,
   };
+
+
+
+  
+
 
   function keepScreen(windowWidth){
   const md = "768";
@@ -33,26 +39,27 @@ export default function Carusela(props) {
     return 3
   }  
     return 2;
-  
   }
   
   
 
   function filterAsZner(){
-   let filterData = props?.data?.filter(ele =>ele.genres?.includes(props.category))
+   let filterData = props?.data?.filter(ele =>ele.genres?.includes(props?.category))
    setMoviesZaner(filterData);
    }
 
-
-   
-
+  
   useEffect(()=>{
-    changeUrl(pathname);
     if(props.category){
-      filterAsZner();
-      
+      filterAsZner(); 
     }
-  },[props.category,url])
+  },[props.category])
+
+
+
+changeUrl(pathname);
+  
+
   return (
     <div className="main_slider">
       <div className="main_slider_tow">
@@ -73,8 +80,6 @@ export default function Carusela(props) {
             ))}
           </Slider>
         </div>
-      
-        
       </div>
     </div>
   );

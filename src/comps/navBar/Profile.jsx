@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./profile.css";
-import { AiOutlineUser } from "react-icons/ai";
 import Detiles from "./Detiles";
 import { Link, useLocation } from "react-router-dom";
 import AllCategory from "./AllCategory";
 import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { APIContext } from "../../App";
-
-
+import { FiHome } from "react-icons/fi";
+import {  useNavigate } from "react-router-dom";
 export default function Profile(props) {
-  const {user,changeUrl}  = useContext(APIContext);
+  const {user,changeUrl,url}  = useContext(APIContext);
   const [over, setOver] = useState(false);
   const [over1, setOver1] = useState(false);
   const [over2, setOver2] = useState(false);
   let {pathname} = useLocation();
+  let navigate = useNavigate();
   const zhaner_arr = [
     "Drama",
     "Science-Fiction",
@@ -40,12 +40,11 @@ export default function Profile(props) {
   
   function updetDbCatgories(){
     if(arr_zaner.length > 0){
-      console.log(3);
       updateDoc(doc(db,'users',user.docId),{zhaner:arr_zaner})
     }
   }
- 
-changeUrl(pathname);
+  changeUrl(pathname)
+
   function changeCatgorys() {
     if (over || over2) {
       setOver1(false);
@@ -75,47 +74,40 @@ changeUrl(pathname);
       setOver(false);
       setOver1(false);
       setOver2(true);
-      // console.log(over,over1,over2,'cangeAllCatgorys');
     } else {
       setOver2(true);
       setOver1(false);
       setOver(false);
-      // console.log(over,over1,over2,'cangeAllCatgorys','else');
     }
   }
-  // console.log(user.data());
+
+
 useEffect(()=>{
   updetDbCatgories();
-  console.log(user.zhaner);
+  console.log(9);
 },[arr_zaner.length])
+// arr_zaner.length
   
   return (
     <div className="main_profile">
       <div className="div_btn_profile">
         <button className="btn_profile" onClick={changeCatgorys}>
-          change categoris
+        Change categories
         </button>
 
         <button className="btn_profile" onClick={changeDatiles}>
-          my detils
+        my details
         </button>
+
         <button className="btn_profile" onClick={cangeAllCatgorys}>
-          all categorys
+        all categories
         </button>
       </div>
       <div className="list_catgeris">
         {zhaner_arr.map((el, i) => (
-          <div
-            key={i}
-            className="chak_box"
-            style={{ display: over ? "block" : "none" }}
-          >
-            <label htmlFor="myCheckbox" className="lable_class">
-              {el}
-            </label>
-            <input
-              type="checkbox"
-              name={el}
+          <div key={i} className="chak_box" style={{ display: over ? "block" : "none" }}>
+            <label htmlFor="myCheckbox" className="lable_class"> {el} </label>
+            <input type="checkbox" name={el}
               onChange={(e) => {
                 if (arr_zaner.length >= 3) {
                   alert("You have up to three choices");
@@ -131,8 +123,7 @@ useEffect(()=>{
               }}
             />
             
-          </div>
-        ))}
+          </div>))}
         <div style={{display: over ? "block" : "none"}} className="name_of_catgorys_slider">
           <h5 className="">The existing categories</h5>
               <div>{user.zhaner[0]}</div>
@@ -140,18 +131,20 @@ useEffect(()=>{
               <div>{user.zhaner[2]}</div>
             </div>
         <div style={{ display: over1 ? "block" : "none" }}>
-          <Detiles />
+          <Detiles/>
         </div>
 
         <div style={{ display: over2 ? "block" : "none" }} className="div_AllCategory">
-          <AllCategory   />
+          <AllCategory/>
         </div>
       </div>
 
       <div>
-        <Link className="back_home" to={'/'}>
-          home
+        <Link className="back_home" to={'/'} onClick={console.log('log')} >
+          <FiHome/> home
         </Link>
+
+        <button className="back_home" >home</button>
       </div>
     </div>
   );

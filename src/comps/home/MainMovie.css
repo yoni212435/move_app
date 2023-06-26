@@ -101,25 +101,50 @@
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .btn_div_watch{
-    position: absolute;
+@media only screen and (min-width: 375px) {
+  .btn_div_watch1{
     top: 60%;
     right: 1%;
+  }
+
+  .btn_div_info{
+    right: 30%;
+  }
+
+  .div_add{
+    left: 78%;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  
+    .btn_div_info{
+        right: 20%;
+      }
+
+      .div_add{
+        left: 78%;
+      }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  
+    .btn_div_info{
+        right: 15%;
+      }
+
+      .div_add{
+        left: 88%;
+      }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  
+    .btn_div_info{
+        right: 10%;
+      }
+
+      .div_add{
+        left: 89%;
+      }
 }

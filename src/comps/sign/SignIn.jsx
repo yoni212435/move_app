@@ -28,7 +28,7 @@ export default function SignIn() {
     <div className='all_sign_in'>
        
         <div className="sun_sign_in">
-        <h1>welcome to movie land </h1>
+        <h1 className='title_sign'>The movie library </h1>
 
         <form className='form_all' onSubmit={handelUserSignIn}>
 
@@ -42,7 +42,7 @@ export default function SignIn() {
         </div>
         <button className='btn_sign'>sign in</button>
         </form>
-        <button onClick={()=>{navigate('/signUp')}}>signUp</button>
+        <button className='btn_sign_up' onClick={()=>{navigate('/signUp')}}>signUp</button>
         </div>
     </div>
   )

@@ -1,28 +1,28 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import './MyList.css'
 import{doc, getFirestore, updateDoc} from 'firebase/firestore'
 import { APIContext } from '../../App';
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import {Link} from 'react-router-dom'
-
+import { BiTrash } from "react-icons/bi";
+import {Link, useLocation} from 'react-router-dom'
+import { FiHome } from "react-icons/fi";
 
 export default function MyList(props) {
  const db = getFirestore();
- 
  const {user,handelUserObjFirebase ,changeUrl} = useContext(APIContext);
+ let {pathname} = useLocation();
 
 
   async function minusMovie(id){
     let filterData = props.listAr.filter(element=>element.id !== id)
     // console.log(7);
-    console.log(id);
+    // console.log(id);
     try{
      await updateDoc(doc(db,'users',user.docId),{myList:filterData})
     await handelUserObjFirebase();
     }catch(error){console.log(error);}
     
   }
-changeUrl(' ')
+  // setTimeout(changeUrl(pathname), 2000)
 
   return (
     <div className='main_my_list'>
@@ -38,11 +38,11 @@ changeUrl(' ')
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />
-                  <button onClick={()=>minusMovie(e.id)} className='btn_minus_myList'><AiOutlineCloseCircle/></button>
+                  <button onClick={()=>minusMovie(e.id)} className='btn_minus_myList'><BiTrash/></button>
                 </div>
               </div>
             )}
-<Link to={'/'} className='home_myLyst'>home</Link>
+<Link to={'/'} className='home_myLyst'><FiHome/> home</Link>
           </div>
           
     </div>

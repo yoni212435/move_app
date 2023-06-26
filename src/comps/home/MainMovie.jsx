@@ -10,12 +10,10 @@ export default function MainMovie(props) {
   let img = props?.data?.[props.j]?.image?.original;
   const [over, setOver] = useState(false);
   const [ShowIconAdd, setShowIconAdd] = useState(false);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const {handelUserObjFirebase , user:userContext , updateToMyList} = useContext(APIContext);
   
-  function changeTheMainMovie(num){
-
-  }
+  // console.log(over);
   function changeInfo() {
     setOver(!over);
   }
@@ -25,10 +23,12 @@ export default function MainMovie(props) {
   }
 
   function addToMyList() {
-   let listArFilter = props.listAr?.find(ele=>props.data[props.j].id === ele.id)
+   let listArFilter = props.listAr?.find(ele => props.data[props.j].id === ele.id)
 
-
-    if (!listArFilter) {
+   
+// console.log(props.j);
+// console.log(props.data[0]);
+    if (!listArFilter && props.data.find(x => x.id === props?.data[props.j].id)) {
       props.listAr?.push(props.data[props.j])
       updateToMyList([...props.listAr,props.data[props.j]]);
     }
@@ -38,7 +38,7 @@ export default function MainMovie(props) {
   useEffect(()=>{
     handelUserObjFirebase();
   
-  },[userContext?.id])
+  },[userContext.id])
 
   
 
@@ -63,7 +63,7 @@ export default function MainMovie(props) {
       <div className="info_comp" style={{ display: over ? "block" : "none" }}>
         <Info j={props.j} data={props.data} />
       </div>
-      <div className="div_add" onMouseOver={changeAdd} onClick={addToMyList}>
+      <div className="div_add" onMouseEnter={changeAdd} onClick={addToMyList}>
         <AiOutlinePlusCircle className="icon_add" />
         <div
           style={{ display: ShowIconAdd ? "block" : "none" }}
