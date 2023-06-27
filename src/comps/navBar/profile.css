@@ -5,7 +5,7 @@
 .main_profile {
     background-color: rgb(5, 5, 35);
     color: white;
-    min-height: 650vh;
+    min-height: 1450vh;
 }
 
 .div_btn_profile {
@@ -75,7 +75,7 @@
 }
 
 
-@media only screen and  (max-width:728px) {
+@media only screen and (max-width:728px) {
     .div_btn_profile {
         left: 0%;
         display: flex;
@@ -96,21 +96,21 @@
     .chak_box {
         height: 55px;
         width: 180px;
-        font-size:25px ;
+        font-size: 25px;
     }
 
-    .name_of_catgorys_slider{
+    .name_of_catgorys_slider {
         top: 65%;
         right: -38%;
     }
 
-    .back_home{
+    .back_home {
         top: 90%;
         background-color: blue;
     }
 }
 
-@media only screen and  (min-width:728px) {
+@media only screen and (min-width:728px) {
     .div_btn_profile {
         left: 0%;
         display: flex;
@@ -131,21 +131,20 @@
     .chak_box {
         height: 55px;
         width: 180px;
-        font-size:25px ;
+        font-size: 25px;
     }
 
-    .name_of_catgorys_slider{
+    .name_of_catgorys_slider {
         top: 65%;
         right: -38%;
     }
 
-    .back_home{
+    .back_home {
         top: 90%;
-        background-color: blue;
     }
 }
 
-@media only screen and  (min-width:991px) {
+@media only screen and (min-width:991px) {
     .div_btn_profile {
         left: 84%;
         flex-direction: column;
@@ -159,24 +158,24 @@
 
     .list_catgeris {
         width: 300px;
-        top: 14%;
+        top: 7%;
         height: 600px;
+        left: 10%;
     }
 
     .chak_box {
         height: 55px;
         width: 180px;
-        font-size:25px ;
+        font-size: 25px;
     }
 
-    .name_of_catgorys_slider{
-        top: 65%;
-        right: -38%;
+    .name_of_catgorys_slider {
+        top: 1%;
+        right: -110%;
     }
 
-    .back_home{
+    .back_home {
         top: 90%;
-        background-color: aqua;
     }
 }
 
@@ -192,23 +191,35 @@
     }
 
     .list_catgeris {
-        width: 350px;
-        top: 14%;
         height: 600px;
+        width: 1110px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0 auto;
+        position: absolute;
+        left: 3%;
+        top: 3%;
     }
 
     .chak_box {
-        height: 55px;
-        width: 180px;
-        font-size:25px ;
+        border: 1px solid;
+        padding: 8px;
+        height: 65px;
+        width: 250px;
+        background: rgb(6, 83, 119);
+        text-align: center;
+        font-size: 26px;
+        ;
     }
 
-    .name_of_catgorys_slider{
-        top: 65%;
-        right: -38%;
+    .name_of_catgorys_slider {
+        top: 1%;
+        right: 2%;
     }
 
-    .back_home{
+    .back_home {
         top: 90%;
     }
 }

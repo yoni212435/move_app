@@ -1,36 +1,23 @@
-// import logo from './logo.svg';
 import "./App.css";
-// import SimpleSlider from './SimpleSlider';
 import SignIn from "./comps/sign/SignIn";
 import Movie from "./movie";
-import {
-  // BrowserRouter as Router,
-
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import {Route, Routes, useNavigate,} from "react-router-dom";
 import Profile from "./comps/navBar/Profile";
 import MyList from "./comps/navBar/MyList";
 import SignUp from "./comps/sign/SignUp";
 import { createContext, useEffect, useState } from "react";
 import { app } from "./Firebase";
-import {
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-  getFirestore,
-  // onSnapshot,
-  query,
-  updateDoc,
-  where,
-} from "firebase/firestore";
-// import { useLocation, useParams } from "react-router-dom";
+import { addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where,} from "firebase/firestore";
 export const APIContext = createContext();
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [user, setUser] = useState({});
+  const [dataApp, setDataApp] = useState([]);
+  const [listAr, setListAr] = useState([]);
+  const db = getFirestore();
+  const colUsers = collection(db, "users");
+
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -43,12 +30,7 @@ function App() {
     };
   }, []);
 
-  const [user, setUser] = useState({});
-  const [dataApp, setDataApp] = useState([]);
-  const [listAr, setListAr] = useState([]);
-  const db = getFirestore();
-  const colUsers = collection(db, "users");
-  const [url, setUrl] = useState("");
+  
 
   async function updateToMyList(arr) {
     try {
@@ -60,9 +42,9 @@ function App() {
     }
   }
 
-  function changeUrl(pathname) {
-    setUrl(pathname);
-  }
+  // function changeUrl(pathname) {
+  //   setUrl(pathname);
+  // }
 
   const navigate = useNavigate();
 
@@ -72,9 +54,9 @@ function App() {
     }
   }, [user.id]);
 
-  function getDoc() {
-    getDoc(doc(db, "users", "docId"));
-  }
+  // function getDoc() {
+  //   getDoc(doc(db, "users", "docId"));
+  // }
 
   useEffect(() => {
     updateListAr();
@@ -116,8 +98,6 @@ function App() {
         user,
         updateToMyList,
         updateListAr,
-        url,
-        changeUrl,
         changeIndex,
         windowSize,
       }}

@@ -13,7 +13,6 @@ export default function MainMovie(props) {
   // const [user, setUser] = useState({});
   const {handelUserObjFirebase , user:userContext , updateToMyList} = useContext(APIContext);
   
-  // console.log(over);
   function changeInfo() {
     setOver(!over);
   }
@@ -24,16 +23,13 @@ export default function MainMovie(props) {
 
   function addToMyList() {
    let listArFilter = props.listAr?.find(ele => props.data[props.j].id === ele.id)
-
-   
-// console.log(props.j);
-// console.log(props.data[0]);
     if (!listArFilter && props.data.find(x => x.id === props?.data[props.j].id)) {
       props.listAr?.push(props.data[props.j])
       updateToMyList([...props.listAr,props.data[props.j]]);
     }
 
   }
+  // console.log('kkkk');
 
   useEffect(()=>{
     handelUserObjFirebase();

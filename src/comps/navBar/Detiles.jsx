@@ -20,7 +20,7 @@ let {user} = useContext(APIContext);
                     
                     <div>
                         <h3>{user.email}</h3>
-                       
+                       {console.log(user.email)}
                     </div>
                
             </div>

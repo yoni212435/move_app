@@ -3,15 +3,13 @@ import "./carusela.css";
 import Slider from "react-slick";
 import { getFirestore} from "firebase/firestore";
 import { APIContext } from "../../App";
-import { useLocation } from "react-router-dom";
 
 
 export default function Carusela(props) {
-  const {url, changeUrl, windowSize} = useContext(APIContext);
-  // const{urlCar,setUrlCar} = useState();
+
+  const { windowSize,dataApp} = useContext(APIContext);
   const [moviesZaner, setMoviesZaner] = useState([]);
   const db = getFirestore()
-  let {pathname} = useLocation();
 
   const settings = {
     dots: false,
@@ -43,21 +41,18 @@ export default function Carusela(props) {
   
   
 
-  function filterAsZner(){
-   let filterData = props?.data?.filter(ele =>ele.genres?.includes(props?.category))
+   function filterAsZner(){
+   let filterData =  dataApp?.filter(ele =>ele.genres.includes(props.category))
    setMoviesZaner(filterData);
    }
-
   
   useEffect(()=>{
     if(props.category){
       filterAsZner(); 
     }
   },[props.category])
+  
 
-
-
-changeUrl(pathname);
   
 
   return (

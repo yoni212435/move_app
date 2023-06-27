@@ -41,3 +41,30 @@
     padding: 4px;
     font-size: 18px;
 }
+
+@media (max-width:728px) {
+    .main_my_list{
+        height: 600vh;
+    }
+    .div_my_list{
+        width: 400px;
+    }
+}
+
+@media (min-width:900px) {
+    .main_my_list{
+        height: 600vh;
+    }
+    .div_my_list{
+        width: 800px;
+    }
+}
+
+@media (min-width:1200px) {
+    .main_my_list{
+        height: 600vh;
+    }
+    .div_my_list{
+        min-width: 1500px;
+    }
+}

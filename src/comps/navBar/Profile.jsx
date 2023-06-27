@@ -1,19 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./profile.css";
 import Detiles from "./Detiles";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AllCategory from "./AllCategory";
 import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import { APIContext } from "../../App";
 import { FiHome } from "react-icons/fi";
-import {  useNavigate } from "react-router-dom";
 export default function Profile(props) {
-  const {user,changeUrl,url}  = useContext(APIContext);
+  const { user } = useContext(APIContext);
   const [over, setOver] = useState(false);
   const [over1, setOver1] = useState(false);
   const [over2, setOver2] = useState(false);
-  let {pathname} = useLocation();
-  let navigate = useNavigate();
   const zhaner_arr = [
     "Drama",
     "Science-Fiction",
@@ -33,17 +30,15 @@ export default function Profile(props) {
   ];
 
   // "Western","War","Sports","Music","Espionage","Anime","History",
-    
 
   const [arr_zaner, setArr_zaner] = useState([]);
   const db = getFirestore();
-  
-  function updetDbCatgories(){
-    if(arr_zaner.length > 0){
-      updateDoc(doc(db,'users',user.docId),{zhaner:arr_zaner})
+
+  function updetDbCatgories() {
+    if (arr_zaner.length > 0) {
+      updateDoc(doc(db, "users", user.docId), { zhaner: arr_zaner });
     }
   }
-  changeUrl(pathname)
 
   function changeCatgorys() {
     if (over || over2) {
@@ -81,33 +76,42 @@ export default function Profile(props) {
     }
   }
 
-
-useEffect(()=>{
-  updetDbCatgories();
-  console.log(9);
-},[arr_zaner.length])
-// arr_zaner.length
   
+
+  useEffect(()=>{
+    updetDbCatgories();
+    // console.log(9);
+  },[arr_zaner.length])
+
   return (
     <div className="main_profile">
       <div className="div_btn_profile">
         <button className="btn_profile" onClick={changeCatgorys}>
-        Change categories
+          Change categories
         </button>
 
         <button className="btn_profile" onClick={changeDatiles}>
-        my details
+          my details
         </button>
 
         <button className="btn_profile" onClick={cangeAllCatgorys}>
-        all categories
+          all categories
         </button>
       </div>
       <div className="list_catgeris">
         {zhaner_arr.map((el, i) => (
-          <div key={i} className="chak_box" style={{ display: over ? "block" : "none" }}>
-            <label htmlFor="myCheckbox" className="lable_class"> {el} </label>
-            <input type="checkbox" name={el}
+          <div
+            key={i}
+            className="chak_box"
+            style={{ display: over ? "block" : "none" }}
+          >
+            <label htmlFor="myCheckbox" className="lable_class">
+              {" "}
+              {el}{" "}
+            </label>
+            <input
+              type="checkbox"
+              name={el}
               onChange={(e) => {
                 if (arr_zaner.length >= 3) {
                   alert("You have up to three choices");
@@ -122,29 +126,35 @@ useEffect(()=>{
                 }
               }}
             />
-            
-          </div>))}
-        <div style={{display: over ? "block" : "none"}} className="name_of_catgorys_slider">
+          </div>
+        ))}
+
+        <div
+          style={{ display: over ? "block" : "none" }}
+          className="name_of_catgorys_slider"
+        >
           <h5 className="">The existing categories</h5>
-              <div>{user.zhaner[0]}</div>
-              <div>{user.zhaner[1]}</div>
-              <div>{user.zhaner[2]}</div>
-            </div>
+          <div>{user.zhaner[0]}</div>
+          <div>{user.zhaner[1]}</div>
+          <div>{user.zhaner[2]}</div>
+        </div>
         <div style={{ display: over1 ? "block" : "none" }}>
-          <Detiles/>
+          <Detiles />
         </div>
 
-        <div style={{ display: over2 ? "block" : "none" }} className="div_AllCategory">
-          <AllCategory/>
+        <div
+          style={{ display: over2 ? "block" : "none" }}
+          className="div_AllCategory"
+        >
+          <AllCategory />
         </div>
       </div>
 
       <div>
-        <Link className="back_home" to={'/'} onClick={console.log('log')} >
-          <FiHome/> home
+        <Link className="back_home" to={"/"} onClick={console.log("log")}>
+          <FiHome /> home
         </Link>
 
-        <button className="back_home" >home</button>
       </div>
     </div>
   );

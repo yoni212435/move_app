@@ -35,3 +35,27 @@
         height: 250px;
     } 
 }
+
+@media (min-width:991px) {
+    .all_detiles{
+        height: 700px;
+        width: 700px;
+    }
+
+    .sun_detiles{
+        width: 65%;
+        height: 250px;
+    } 
+}
+
+@media (min-width:1200px) {
+    .all_detiles{
+        height: 700px;
+        width: 1200px;
+    }
+
+    .sun_detiles{
+        width: 65%;
+        height: 250px;
+    } 
+}
