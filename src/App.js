@@ -6,8 +6,8 @@ import Profile from "./comps/navBar/Profile"
 import SignUp from "./comps/sign/SignUp"
 import {createContext, useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
-import Detiles from './comps/navBar/Detiles'
-import Appburger from './comps/navBar/appburger'
+import Details from './comps/navBar/Details'
+import AppBurger from './comps/navBar/AppBurger'
 import AllCategory from './comps/navBar/AllCategory'
 import {app} from "./firebase"
 
@@ -110,9 +110,9 @@ function App() {
                 <Route path="/signIn" element={<SignIn/>}/>
                 <Route path="/signUp" element={<SignUp/>}/>
                 <Route path="/profile" element={<Profile/>}/>
-                <Route path="/appburger" element={<Appburger/>}/>
+                <Route path="/appburger" element={<AppBurger/>}/>
                 <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
-                <Route path="/detiles" element={<Detiles/>}/>
+                <Route path="/details" element={<Details/>}/>
                 <Route path="/allCatgoreis" element={<AllCategory/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
             </Routes>

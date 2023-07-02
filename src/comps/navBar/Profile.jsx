@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import "./profile.css"
-import Detiles from "./Detiles"
+import Details from "./Details"
 import {Link, Route, Routes, useNavigate} from "react-router-dom"
 import AllCategory from "./AllCategory"
 // import { doc, getFirestore, updateDoc } from "firebase/firestore";
@@ -80,7 +80,7 @@ export default function Profile(props) {
                 <Routes>
 
                     <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
-                    <Route path="/detiles" element={<Detiles/>}/>
+                    <Route path="/detiles" element={<Details/>}/>
                     <Route path="/allCatgoreis" element={<AllCategory/>}/>
 
                 </Routes>
@@ -99,7 +99,7 @@ export default function Profile(props) {
 
 
 {/* <div style={{ display: over1 ? "block" : "none" }}>
-          <Detiles />
+          <Details />
         </div> */
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Profile from './Profile'
 
-export default function Appburger() {
+export default function AppBurger() {
 
 
     return (

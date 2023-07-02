@@ -2,7 +2,7 @@ import {doc, getFirestore, updateDoc} from "firebase/firestore"
 import React, {useContext, useEffect, useState} from "react"
 import {APIContext} from "../../App"
 
-export default function ChangeCatgoreis() {
+export default function ChangeCategories() {
     const genrreList = [
         "Drama",
         "Science-Fiction",

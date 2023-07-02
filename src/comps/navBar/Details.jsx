@@ -1,9 +1,9 @@
 import React, {useContext} from 'react'
 import {APIContext} from '../../App'
-import './Detiles.css'
+import './Details.css'
 
 
-export default function Detiles() {
+export default function Details() {
 
     let {user} = useContext(APIContext)
 // user.email
