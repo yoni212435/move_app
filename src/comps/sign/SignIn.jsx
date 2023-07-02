@@ -16,6 +16,8 @@ export default function SignIn() {
       const user = await signInWithEmailAndPassword(auth,e.target.email.value,e.target.pass.value)
       setUser({id:user.user.uid , email:user.user.email})
       navigate('/')
+      localStorage.setItem('userToken',JSON.stringify('user.tokenId'))
+      JSON.parse(localStorage.getItem('userToken'))
       
     }catch(error){alert(error)}
   }

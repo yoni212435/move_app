@@ -29,7 +29,6 @@ export default function MainMovie(props) {
     }
 
   }
-  // console.log('kkkk');
 
   useEffect(()=>{
     handelUserObjFirebase();

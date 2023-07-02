@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Allcategory.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { APIContext } from "../../App";
 
 export default function AllCategory(props) {
@@ -28,12 +28,12 @@ export default function AllCategory(props) {
     "War",
     "Sports",
   ];
-  let { dataApp } = useContext(APIContext);
+  let { dataApp ,urlMyListAndAllCategories,setUrlMyListAndAllCategories,setIndex} = useContext(APIContext);
   // const [over, setOver] = useState(false);
   const [over1, setOver1] = useState(false);
   const [category, setCategory] = useState();
   const [filterData, setFilterData] = useState([]);
-
+  const navigate = useNavigate()
   
   function showCategory(category) {
     setCategory(category);
@@ -42,6 +42,15 @@ export default function AllCategory(props) {
     );
     setFilterData(filterData1);
     setOver1(!over1);
+  }
+
+  
+
+  function changMainMovieFromHear(id){
+    let index2 = dataApp.findIndex(element => element.id === id);
+    setIndex(index2);
+    navigate('/')
+    setUrlMyListAndAllCategories('/profil') 
   }
 
   return (
@@ -59,7 +68,7 @@ export default function AllCategory(props) {
       </div>
       <div style={{ display: over1 ? "flex" : "none" }} className="div_parent_list_catgory">
         {filterData?.map((element) => (
-          <button className="div_list_allcatgory" >
+          <button className="div_list_allcatgory" onClick={()=>changMainMovieFromHear(element.id)} >
             <div>{element.name}</div>
             <img src={element.image.medium} alt="" className="img_allcatgory" />
           </button>

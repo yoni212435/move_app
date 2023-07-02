@@ -11,7 +11,7 @@ export default function Movie(props) {
   const [i, setI] = useState(1);
   const [j, setJ] = useState(0);
   const [zaner,setZaner] = useState([]);
-  let {setDataApp , user, dataApp} = useContext(APIContext)
+  let {setDataApp , user, dataApp, setIndex, index , urlMyListAndAllCategories} = useContext(APIContext)
 
   function sendIndex(id) {
     let index = data.findIndex(element => element.id === id);
@@ -26,6 +26,11 @@ export default function Movie(props) {
 
   function changeJ(num) {
     setJ(num);
+    
+  }
+
+  function changeJToIndex(){
+   setJ(index);
   }
 
 
@@ -46,13 +51,22 @@ export default function Movie(props) {
     }
   },[user.zhaner])
 
+  useEffect(()=>{
+    if(urlMyListAndAllCategories === '/MyList' || urlMyListAndAllCategories === '/profil'){
+      changeJToIndex()
+      urlMyListAndAllCategories = '';
+    }
+  },[urlMyListAndAllCategories])
+
   return (
     <div>
       <div>
         <MainMovie data={data} i={i - 1} j={j} listAr={props.listAr} sendIndex={sendIndex}  changeI={changeI} changeJ={changeJ} />
         {
-          zaner.length > 0 && zaner.map((ele ,i) =>  <Carusela key={i} data={dataApp} sendIndex={sendIndex} changeJ={changeJ} category={ele}/>)
-          
+          zaner.length > 0 && zaner.map((ele ,i) =>  <Carusela key={i} data={dataApp} sendIndex={sendIndex} changeJ={changeJ} changeJToIndex={changeJToIndex} category={ele}/>)
+        }
+        {
+          console.log(zaner)
         }
         <Footer/>
       </div>

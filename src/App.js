@@ -8,6 +8,9 @@ import SignUp from "./comps/sign/SignUp";
 import { createContext, useEffect, useState } from "react";
 import { app } from "./Firebase";
 import { addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where,} from "firebase/firestore";
+import AllCategory from "./comps/navBar/AllCategory";
+import Detiles from "./comps/navBar/Detiles";
+import Appburger from "./comps/navBar/appburger";
 export const APIContext = createContext();
 
 function App() {
@@ -15,6 +18,8 @@ function App() {
   const [user, setUser] = useState({});
   const [dataApp, setDataApp] = useState([]);
   const [listAr, setListAr] = useState([]);
+  const [index,setIndex] = useState(0)
+  const[urlMyListAndAllCategories,setUrlMyListAndAllCategories]= useState();
   const db = getFirestore();
   const colUsers = collection(db, "users");
 
@@ -42,16 +47,16 @@ function App() {
     }
   }
 
-  // function changeUrl(pathname) {
-  //   setUrl(pathname);
-  // }
-
+  
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user.id) {
       navigate("/signIn");
     }
+    // else{
+    //   navigate("/");
+    // }
   }, [user.id]);
 
   // function getDoc() {
@@ -100,14 +105,22 @@ function App() {
         updateListAr,
         changeIndex,
         windowSize,
+        setIndex,
+        index,
+        urlMyListAndAllCategories,
+        setUrlMyListAndAllCategories
       }}
     >
       <Routes>
-        <Route path="/" element={<Movie listAr={listAr} />} />
+        <Route index element={<Movie listAr={listAr} />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/myList" element={<MyList listAr={listAr} />} />
+        {/* <Route path="/appburger" element={<Appburger/>}/>
+        <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
+        <Route path="/detiles" element={<Detiles/>}/>
+        <Route path="/allCatgoreis" element={<AllCategory/>}/> */}
+        <Route path="*" element={<h1>404 not found</h1>}/>
       </Routes>
     </APIContext.Provider>
   );

@@ -3,12 +3,13 @@ import './MyList.css'
 import{doc, getFirestore, updateDoc} from 'firebase/firestore'
 import { APIContext } from '../../App';
 import { BiTrash } from "react-icons/bi";
-import {Link} from 'react-router-dom'
+import {Link,  useNavigate} from 'react-router-dom'
 import { FiHome } from "react-icons/fi";
 
 export default function MyList(props) {
  const db = getFirestore();
- const {user,handelUserObjFirebase } = useContext(APIContext);
+ const {user,handelUserObjFirebase, setIndex,setUrlMyListAndAllCategories,dataApp } = useContext(APIContext);
+ const navigate = useNavigate();
 
 
   async function minusMovie(id){
@@ -20,6 +21,15 @@ export default function MyList(props) {
     
   }
 
+  
+
+  function changeToMainMovie(id){
+    let index1 = dataApp.findIndex(element => element.id === id);
+    setIndex(index1);
+    navigate('/')
+    setUrlMyListAndAllCategories('/MyList')
+  }
+
   return (
     <div className='main_my_list'>
       <div className='div_my_list'>
@@ -27,11 +37,12 @@ export default function MyList(props) {
               <div className="item_my_list" key={i}>
                 <div
                   onClick={() => {
-                 
+                    {changeToMainMovie(e.id)}
+                    
                   }}
                 >
                   <img src={e.image.medium} alt="" height="250px" />
-                  <button onClick={()=>minusMovie(e.id)} className='btn_minus_myList'><BiTrash/></button>
+                  <button onClick={()=>minusMovie(e.id)}  className='btn_minus_myList'><BiTrash/></button>
                 </div>
               </div>
             )}
