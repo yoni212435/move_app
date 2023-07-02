@@ -61,7 +61,8 @@ export default function Movie(props) {
     return (
         <div>
             <div>
-                <MainMovie data={data} i={i - 1} j={j} listAr={props.listAr} sendIndex={sendIndex} changeI={changeI}
+                <MainMovie data={data} i={i - 1} j={j} movieList={props.movieList} sendIndex={sendIndex}
+                           changeI={changeI}
                            changeJ={changeJ}/>
                 {
                     zaner.length > 0 && zaner.map((ele, i) => <Carusela key={i} data={dataApp} sendIndex={sendIndex}
@@ -69,9 +70,7 @@ export default function Movie(props) {
                                                                         changeJToIndex={changeJToIndex}
                                                                         category={ele}/>)
                 }
-                {
-                    console.log(zaner)
-                }
+
                 <Footer/>
             </div>
         </div>

@@ -6,12 +6,8 @@ import Profile from "./comps/navBar/Profile"
 import SignUp from "./comps/sign/SignUp"
 import {createContext, useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
-import Details from './comps/navBar/Details'
-import AppBurger from './comps/navBar/AppBurger'
-import AllCategories from './comps/navBar/AllCategories'
 import {app} from "./firebase"
 import MyList from './comps/navBar/MyList'
-import ChangeCategories from './comps/navBar/ChangeCategories'
 
 export const APIContext = createContext()
 
@@ -21,7 +17,7 @@ function App() {
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const [user, setUser] = useState({})
     const [dataApp, setDataApp] = useState([])
-    const [listAr, setListAr] = useState([])
+    const [movieList, setMovieList] = useState([])
     const [index, setIndex] = useState(0)
     const [urlMyListAndAllCategories, setUrlMyListAndAllCategories] = useState() // ????
     const db = getFirestore()
@@ -60,7 +56,7 @@ function App() {
     }, [user.id])
 
     useEffect(() => {
-        updateListAr()
+        updateMovieList()
     }, [user.myList])
 
     async function handelUserObjFirebase() {
@@ -79,9 +75,9 @@ function App() {
         }
     }
 
-    function updateListAr() {
+    function updateMovieList() {
         if (user.id) {
-            setListAr(user.myList)
+            setMovieList(user.myList)
         }
     }
 
@@ -98,7 +94,7 @@ function App() {
                 handelUserObjFirebase,
                 user,
                 updateToMyList,
-                updateListAr,
+                updateMovieList,
                 changeIndex,
                 windowSize,
                 setIndex,
@@ -108,15 +104,11 @@ function App() {
             }}
         >
             <Routes>
-                <Route index element={<Movie listAr={listAr}/>}/>
+                <Route index element={<Movie movieList={movieList}/>}/>
                 <Route path="/signIn" element={<SignIn/>}/>
                 <Route path="/signUp" element={<SignUp/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="/appburger" element={<AppBurger/>}/>
-                <Route path="/changeCatgories" element={<ChangeCategories/>}/>
-                <Route path="/details" element={<Details/>}/>
-                <Route path="/myList" element={<MyList/>}/>
-                <Route path="/allCatgoreis" element={<AllCategories/>}/>
+                <Route path="/profile/*" element={<Profile/>}/>
+                <Route path="/myList/*" element={<MyList/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
             </Routes>
         </APIContext.Provider>

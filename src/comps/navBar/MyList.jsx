@@ -13,7 +13,7 @@ export default function MyList(props) {
 
 
     async function minusMovie(id) {
-        let filterData = props.listAr.filter(element => element.id !== id)
+        let filterData = props.movieList.filter(element => element.id !== id)
         try {
             await updateDoc(doc(db, 'users', user.docId), {myList: filterData})
             await handelUserObjFirebase()
@@ -34,7 +34,7 @@ export default function MyList(props) {
     return (
         <div className="main_my_list">
             <div className="div_my_list">
-                {props.listAr?.map((e, i) =>
+                {props.movieList?.map((e, i) =>
                     <div className="item_my_list" key={i}>
                         <div
                             onClick={() => {
@@ -49,7 +49,7 @@ export default function MyList(props) {
                         </div>
                     </div>
                 )}
-                <Link to={'/'} className="home_myLyst"><FiHome/> home</Link>
+                <Link to={'/'} className="home_myList"><FiHome/> home</Link>
             </div>
 
         </div>

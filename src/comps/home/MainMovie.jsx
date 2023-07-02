@@ -23,10 +23,10 @@ export default function MainMovie(props) {
     }
 
     function addToMyList() {
-        let listArFilter = props.listAr?.find(ele => props.data[props.j].id === ele.id)
-        if (!listArFilter && props.data.find(x => x.id === props?.data[props.j].id)) {
-            props.listAr?.push(props.data[props.j])
-            updateToMyList([...props.listAr, props.data[props.j]])
+        let movieListFilter = props.movieList?.find(ele => props.data[props.j].id === ele.id)
+        if (!movieListFilter && props.data.find(x => x.id === props?.data[props.j].id)) {
+            props.movieList?.push(props.data[props.j])
+            updateToMyList([...props.movieList, props.data[props.j]])
         }
 
     }
