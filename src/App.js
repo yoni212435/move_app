@@ -5,10 +5,15 @@ import {Route, Routes, useNavigate} from "react-router-dom"
 import Profile from "./comps/navBar/Profile"
 import SignUp from "./comps/sign/SignUp"
 import {createContext, useEffect, useState} from "react"
-import {app} from "./firebase";
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
+import Detiles from './comps/navBar/Detiles'
+import Appburger from './comps/navBar/appburger'
+import AllCategory from './comps/navBar/AllCategory'
+import {app} from "./firebase"
 
 export const APIContext = createContext()
+
+console.log(app)
 
 function App() {
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -16,7 +21,7 @@ function App() {
     const [dataApp, setDataApp] = useState([])
     const [listAr, setListAr] = useState([])
     const [index, setIndex] = useState(0)
-    const [urlMyListAndAllCategories, setUrlMyListAndAllCategories] = useState()
+    const [urlMyListAndAllCategories, setUrlMyListAndAllCategories] = useState() // ????
     const db = getFirestore()
     const colUsers = collection(db, "users")
 
@@ -47,17 +52,10 @@ function App() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user.id) {
+        if (!user.id) { //TODO - תוסיף פה אימות נורמלי ברו
             navigate("/signIn")
         }
-        // else{
-        //   navigate("/");
-        // }
     }, [user.id])
-
-    // function getDoc() {
-    //   getDoc(doc(db, "users", "docId"));
-    // }
 
     useEffect(() => {
         updateListAr()
@@ -73,7 +71,7 @@ function App() {
                     email: user.email
                 })
             } else {
-                addDoc(colUsers, {id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
+                await addDoc(colUsers, {id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
                 setUser({id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
             }
         }
@@ -85,7 +83,7 @@ function App() {
         }
     }
 
-    function changeIndex(num) {
+    function changeIndex(num) { // מה זה עושה??
         return num
     }
 
@@ -112,10 +110,10 @@ function App() {
                 <Route path="/signIn" element={<SignIn/>}/>
                 <Route path="/signUp" element={<SignUp/>}/>
                 <Route path="/profile" element={<Profile/>}/>
-                {/* <Route path="/appburger" element={<Appburger/>}/>
-        <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
-        <Route path="/detiles" element={<Detiles/>}/>
-        <Route path="/allCatgoreis" element={<AllCategory/>}/> */}
+                <Route path="/appburger" element={<Appburger/>}/>
+                <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
+                <Route path="/detiles" element={<Detiles/>}/>
+                <Route path="/allCatgoreis" element={<AllCategory/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
             </Routes>
         </APIContext.Provider>
