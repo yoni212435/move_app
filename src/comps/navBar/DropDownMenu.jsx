@@ -2,7 +2,7 @@
 import './DropDownMenu.css'
 import {useState} from 'react'
 // import { APIContext } from '../../movie'
-// import AllCategory from './AllCategory'
+// import AllCategories from './AllCategories'
 // import Profile from './Profile'
 import {Link} from 'react-router-dom'
 // import MyList from './MyList'

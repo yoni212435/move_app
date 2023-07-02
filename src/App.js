@@ -8,7 +8,7 @@ import {createContext, useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
 import Details from './comps/navBar/Details'
 import AppBurger from './comps/navBar/AppBurger'
-import AllCategory from './comps/navBar/AllCategory'
+import AllCategories from './comps/navBar/AllCategories'
 import {app} from "./firebase"
 import MyList from './comps/navBar/MyList'
 
@@ -115,7 +115,7 @@ function App() {
                 <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
                 <Route path="/details" element={<Details/>}/>
                 <Route path="/myList" element={<MyList/>}/>
-                <Route path="/allCatgoreis" element={<AllCategory/>}/>
+                <Route path="/allCatgoreis" element={<AllCategories/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
             </Routes>
         </APIContext.Provider>

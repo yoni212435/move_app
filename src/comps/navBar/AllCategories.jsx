@@ -3,7 +3,7 @@ import "./Allcategory.css"
 import {useNavigate} from "react-router-dom"
 import {APIContext} from "../../App"
 
-export default function AllCategory(props) {
+export default function AllCategories(props) {
     const zhaner_arr = [
         "Drama",
         "Science-Fiction",

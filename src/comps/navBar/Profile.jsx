@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import "./profile.css"
 import Details from "./Details"
 import {Link, Route, Routes, useNavigate} from "react-router-dom"
-import AllCategory from "./AllCategory"
+import AllCategories from "./AllCategories"
 // import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import {FiHome} from "react-icons/fi"
 import ChangeCategories from './ChangeCategories'
@@ -21,7 +21,7 @@ export default function Profile(props) {
     // const db = getFirestore();
 
 
-    function changeCatgorys() {
+    function changeCategories() {
         // if (over || over2) {
         //   setOver1(false);
         //   setOver2(false);
@@ -35,7 +35,7 @@ export default function Profile(props) {
 
     }
 
-    function changeDatiles() {
+    function changeDetails() {
         if (over1 || over2) {
             setOver(false)
             setOver2(false)
@@ -48,7 +48,7 @@ export default function Profile(props) {
         // navigate('/detiles')
     }
 
-    function cangeAllCatgorys() {
+    function changeAllCatgorys() {
         if (over || over1) {
             setOver(false)
             setOver1(false)
@@ -65,23 +65,23 @@ export default function Profile(props) {
     return (
         <div className="main_profile">
             <div className="div_btn_profile">
-                <Link className="btn_profile" to="/changeCatgoreis">
+                <Link className="btn_profile" to="/changeCategories">
                     Change categories
                 </Link>
                 {/* onClick={changeCatgorys} */}
-                <button className="btn_profile" onClick={changeDatiles}>
+                <button className="btn_profile" onClick={changeDetails}>
                     my details
                 </button>
 
-                <button className="btn_profile" onClick={cangeAllCatgorys}>
+                <button className="btn_profile" onClick={changeAllCatgorys}>
                     all categories
                 </button>
             </div>
             <div className="list_catgeris">
                 <Routes>
-                    <Route path="/changeCatgoreis" element={<ChangeCategories/>}/>
-                    <Route path="/detiles" element={<Details/>}/>
-                    <Route path="/allCatgoreis" element={<AllCategory/>}/>
+                    <Route path="/changeCategories" element={<ChangeCategories/>}/>
+                    <Route path="/details" element={<Details/>}/>
+                    <Route path="/allCategories" element={<AllCategories/>}/>
 
                 </Routes>
             </div>
@@ -107,6 +107,6 @@ export default function Profile(props) {
           style={{ display: over2 ? "block" : "none" }}
           className="div_AllCategory"
         >
-          <AllCategory />
+          <AllCategories />
         </div> */
 }
