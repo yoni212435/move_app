@@ -1,39 +1,22 @@
-// import React, { useContext } from 'react'
 import './DropDownMenu.css'
 import {useState} from 'react'
-// import { APIContext } from '../../movie'
-// import AllCategories from './AllCategories'
-// import Profile from './Profile'
+import {ImMenu} from 'react-icons/im'
 import {Link} from 'react-router-dom'
-// import MyList from './MyList'
 
-export default function DropDownMenu(props) {
-    const [over, setOver] = useState(false)
-
-    // let data = useContext(APIContext)
-
-
-    function showMenu() {
-        setOver(true)
-        if (over) {
-            setOver(false)
-        }
-    }
+export default function DropDownMenu() {
+    const [toggleMenu, setToggleMenu] = useState(false)
 
     return (
+        <div className="dropdown">
+            <ImMenu className="dropdown-btn" size="40px"
+                    onClick={() => setToggleMenu(!toggleMenu)}
+            />
 
-        <div>
-            <div className="btn_menu" onClick={showMenu}>
-                <button className="A" onClick={showMenu}></button>
-                <button className="A" onClick={showMenu}></button>
-                <button className="A" onClick={showMenu}></button>
-            </div>
-            <ul className="menu" style={{display: over ? 'block' : 'none'}}>
-                <li><Link to="/profile" className="btn_li">PROFIIL</Link></li>
-                <li><Link to="/myList" className="btn_li">MY LIST</Link></li>
-            </ul>
-
+            {toggleMenu &&
+                <div className="dropdown-list">
+                    <div className="dropdown-item"><Link to="/profile" className="btn_li">PROFILE</Link></div>
+                    <div className="dropdown-item"><Link to="/myList" className="btn_li">MY LIST</Link></div>
+                </div>}
         </div>
-
     )
 }

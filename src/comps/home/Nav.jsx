@@ -11,11 +11,7 @@ export default function Nav(props) {
         <div className="nav_all">
 
             <div className="nav_btn">
-                <div className="drop ">
-                    <DropDownMenu/>
-                </div>
-
-                <div>{/* <button className='btn_profil'>profil</button> */}</div>
+                <DropDownMenu/>
             </div>
             <div className="nav_search">
                 <Search changeI={props.changeI} changeJ={props.changeJ}/>

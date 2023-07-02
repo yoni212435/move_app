@@ -3,7 +3,7 @@ import React, {useContext, useEffect, useState} from "react"
 import {APIContext} from "../../App"
 
 export default function ChangeCategories() {
-    const genrreList = [
+    const genreList = [
         "Drama",
         "Science-Fiction",
         "Thriller",
@@ -37,7 +37,7 @@ export default function ChangeCategories() {
 
     return (
         <div>
-            {genrreList.map((el, i) => (
+            {genreList.map((el, i) => (
                 <div
                     key={i}
                     className="chak_box"

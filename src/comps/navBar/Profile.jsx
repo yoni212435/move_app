@@ -48,7 +48,7 @@ export default function Profile(props) {
         // navigate('/detiles')
     }
 
-    function changeAllCatgorys() {
+    function changeAllCategories() {
         if (over || over1) {
             setOver(false)
             setOver1(false)
@@ -73,7 +73,7 @@ export default function Profile(props) {
                     my details
                 </button>
 
-                <button className="btn_profile" onClick={changeAllCatgorys}>
+                <button className="btn_profile" onClick={changeAllCategories}>
                     all categories
                 </button>
             </div>
@@ -82,7 +82,6 @@ export default function Profile(props) {
                     <Route path="/changeCategories" element={<ChangeCategories/>}/>
                     <Route path="/details" element={<Details/>}/>
                     <Route path="/allCategories" element={<AllCategories/>}/>
-
                 </Routes>
             </div>
 

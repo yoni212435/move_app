@@ -11,6 +11,7 @@ import AppBurger from './comps/navBar/AppBurger'
 import AllCategories from './comps/navBar/AllCategories'
 import {app} from "./firebase"
 import MyList from './comps/navBar/MyList'
+import ChangeCategories from './comps/navBar/ChangeCategories'
 
 export const APIContext = createContext()
 
@@ -112,7 +113,7 @@ function App() {
                 <Route path="/signUp" element={<SignUp/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/appburger" element={<AppBurger/>}/>
-                <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
+                <Route path="/changeCatgories" element={<ChangeCategories/>}/>
                 <Route path="/details" element={<Details/>}/>
                 <Route path="/myList" element={<MyList/>}/>
                 <Route path="/allCatgoreis" element={<AllCategories/>}/>
