@@ -5,6 +5,7 @@ import {Link, Route, Routes, useNavigate} from "react-router-dom"
 import AllCategory from "./AllCategory"
 // import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import {FiHome} from "react-icons/fi"
+import ChangeCategories from './ChangeCategories'
 
 export default function Profile(props) {
     // const { user } = useContext(APIContext);
@@ -30,7 +31,7 @@ export default function Profile(props) {
         //   setOver1(false);
         //   setOver2(false);
         // }
-        navigate('/changeCatgoreis')
+        navigate('/changeCategories')
 
     }
 
@@ -78,8 +79,7 @@ export default function Profile(props) {
             </div>
             <div className="list_catgeris">
                 <Routes>
-
-                    <Route path="/changeCatgoreis" element={<changeCatgorys/>}/>
+                    <Route path="/changeCatgoreis" element={<ChangeCategories/>}/>
                     <Route path="/detiles" element={<Details/>}/>
                     <Route path="/allCatgoreis" element={<AllCategory/>}/>
 

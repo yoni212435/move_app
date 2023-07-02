@@ -29,7 +29,6 @@ export default function DropDownMenu(props) {
                 <button className="A" onClick={showMenu}></button>
             </div>
             <ul className="menu" style={{display: over ? 'block' : 'none'}}>
-
                 <li><Link to="/profile" className="btn_li">PROFIIL</Link></li>
                 <li><Link to="/myList" className="btn_li">MY LIST</Link></li>
             </ul>
