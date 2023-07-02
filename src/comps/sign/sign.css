@@ -22,7 +22,7 @@
 
 }
 
-.title_sign{
+.title_sign {
     text-align: center;
 }
 
@@ -37,11 +37,11 @@
     align-items: center;
 }
 
-.name_div{
+.name_div {
     margin: 6px;
 }
 
-.pass_div{
+.pass_div {
     margin: 6px;
 }
 
@@ -52,10 +52,10 @@
     border-radius: 5px;
     background-color: goldenrod;
     /* text-align: center; */
-    
+
 }
 
-.btn_sign_up{
+.btn_sign_up {
     font-size: 22px;
     background-color: rgb(4, 76, 74);
     border-radius: 5px;
@@ -64,12 +64,12 @@
 
 @media only screen and (min-width: 375px) {
     .all_sign_in {
-       max-width: 500px;
-       height: 780px;
-       min-width: none;
+        max-width: 500px;
+        height: 780px;
+        min-width: none;
     }
 
-    .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -78,18 +78,18 @@
         width: 250px;
         color: white;
         padding: 16px;
-        
-        
+
+
     }
-    
+
 }
 
 @media only screen and (min-width: 600px) {
     .all_sign_in {
-       max-width: 600px;
-    }   
+        max-width: 600px;
+    }
 
-    .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -97,18 +97,17 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
-
 
 
 @media only screen and (min-width: 700px) {
     .all_sign_in {
         max-width: 700px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -116,16 +115,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 800px) {
     .all_sign_in {
         max-width: 800px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -133,16 +132,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 900px) {
     .all_sign_in {
         max-width: 900px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -150,16 +149,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1000px) {
     .all_sign_in {
         max-width: 1000px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -167,16 +166,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1100px) {
     .all_sign_in {
         max-width: 1100px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -184,16 +183,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .all_sign_in {
         max-width: 1200px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -201,16 +200,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1300px) {
     .all_sign_in {
         max-width: 1300px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -218,16 +217,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1400px) {
     .all_sign_in {
         max-width: 1400px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -235,16 +234,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
 @media only screen and (min-width: 1500px) {
     .all_sign_in {
         max-width: 1500px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -252,16 +251,16 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
-@media  screen and (min-width: 1600px) {
+@media screen and (min-width: 1600px) {
     .all_sign_in {
         max-width: 1600px;
-     }  
+    }
 
-     .sun_sign_in{
+    .sun_sign_in {
         max-width: 60%;
     }
 
@@ -269,7 +268,7 @@
         height: 250px;
         width: 250px;
         color: white;
-        padding: 16px;   
+        padding: 16px;
     }
 }
 
