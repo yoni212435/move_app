@@ -3,7 +3,7 @@
 }
 
 .all_detiles {
-    background-image: url(../sign/bg_sign.jpg);
+    background-image: url(../auth/auth-bg.jpg);
     background-size: cover;
     background-position: center;
     height: 650px;

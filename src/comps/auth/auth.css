@@ -5,7 +5,7 @@
 .all_sign_in {
     width: 1530px;
     height: 720px;
-    background-image: url(bg_sign.jpg);
+    background-image: url(auth-bg.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -19,7 +19,8 @@
     background-color: black;
     opacity: 0.8;
     color: white;
-
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .title_sign {

@@ -1,19 +1,23 @@
 import "./App.css"
-import SignIn from "./comps/sign/SignIn"
+import LogIn from "./comps/auth/LogIn"
 import Movie from "./movie"
-import {Route, Routes, useNavigate} from "react-router-dom"
+import {redirect, Route, Routes} from "react-router-dom"
 import Profile from "./comps/navBar/Profile"
-import SignUp from "./comps/sign/SignUp"
+import SignUp from "./comps/auth/SignUp"
 import {createContext, useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
 import {app} from "./firebase"
 import MyList from './comps/navBar/MyList'
+import {useAuth} from './contexts/authContext'
+import ForgotPassword from './comps/auth/ForgotPassword'
+import LogOut from './comps/auth/LogOut'
 
-export const APIContext = createContext()
+export const APIContext = createContext(null)
 
 console.log(app)
 
 function App() {
+    const {currentUser} = useAuth()
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const [user, setUser] = useState({})
     const [dataApp, setDataApp] = useState([])
@@ -23,6 +27,11 @@ function App() {
     const db = getFirestore()
     const colUsers = collection(db, "users")
 
+    useEffect(() => {
+        if (!currentUser)
+            redirect("/login")
+        console.log(currentUser)
+    }, [currentUser])
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -35,7 +44,6 @@ function App() {
         }
     }, [])
 
-
     async function updateToMyList(arr) {
         try {
             if (user.id) {
@@ -45,15 +53,6 @@ function App() {
             console.log(error)
         }
     }
-
-
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (!user.id) { //TODO - תוסיף פה אימות נורמלי ברו
-            navigate("/signIn")
-        }
-    }, [user.id])
 
     useEffect(() => {
         updateMovieList()
@@ -105,8 +104,10 @@ function App() {
         >
             <Routes>
                 <Route index element={<Movie movieList={movieList}/>}/>
-                <Route path="/signIn" element={<SignIn/>}/>
-                <Route path="/signUp" element={<SignUp/>}/>
+                <Route path="/login" element={<LogIn/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/forgot-password" element={<ForgotPassword/>}/>
+                <Route path="/logout" element={<LogOut/>}/>
                 <Route path="/profile/*" element={<Profile/>}/>
                 <Route path="/myList/*" element={<MyList/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
