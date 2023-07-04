@@ -3,7 +3,6 @@ import axios from "axios"
 import MainMovie from "./MainMovie"
 import Carusela from "./Carusela"
 import "./movie.css"
-import Footer from "./Footer"
 import {useAPIContext} from '../../contexts/APIContext'
 
 export default function Movie(props) {
@@ -11,7 +10,8 @@ export default function Movie(props) {
     const [i, setI] = useState(1)
     const [j, setJ] = useState(0)
     const [zaner, setZaner] = useState([])
-    let {setDataApp, user, dataApp, setIndex, index, urlMyListAndAllCategories} = useAPIContext()
+    let {setDataApp, user, dataApp, index, urlMyListAndAllCategories} = useAPIContext()
+    const apiUrl = "https://api.tvmaze.com/"
 
     function sendIndex(id) {
         let index = data.findIndex(element => element.id === id)
@@ -34,14 +34,16 @@ export default function Movie(props) {
     }
 
 
-    async function getData() {
-        const {data} = await axios.get("https://api.tvmaze.com/shows")
-        setData(data)
-        setDataApp(data)
+    function getMovieData() {
+        return axios.get(apiUrl + "shows")
     }
 
     useEffect(() => {
-        getData()
+        getMovieData().then(r => {
+                setData(r.data)
+                setDataApp(r.data)
+            }
+        )
     }, [])
 
     useEffect(() => {
@@ -65,10 +67,10 @@ export default function Movie(props) {
                            changeI={changeI}
                            changeJ={changeJ}/>
                 {
-                    zaner.length > 0 && zaner.map((ele, i) => <Carusela key={i} data={dataApp} sendIndex={sendIndex}
-                                                                        changeJ={changeJ}
-                                                                        changeJToIndex={changeJToIndex}
-                                                                        category={ele}/>)
+                    zaner && zaner.map((ele, i) => <Carusela key={i} data={dataApp} sendIndex={sendIndex}
+                                                             changeJ={changeJ}
+                                                             changeJToIndex={changeJToIndex}
+                                                             category={ele}/>)
                 }
             </div>
         </div>

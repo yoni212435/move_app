@@ -37,9 +37,7 @@ function Dashboard() {
 
     async function updateToMyList(arr) {
         try {
-            if (user.id) {
-                await updateDoc(doc(db, "users", user.docId), {myList: arr})
-            }
+            await updateDoc(doc(db, "users", user.docId), {myList: arr})
         } catch (error) {
             console.log(error)
         }
@@ -84,7 +82,8 @@ function Dashboard() {
             user,
             setUser,
             handelUserObjFirebase,
-            setDataApp
+            setDataApp,
+            updateToMyList
         }}>
             <Routes>
                 <Route index element={<Movie movieList={movieList}/>}/>

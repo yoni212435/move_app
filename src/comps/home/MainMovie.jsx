@@ -11,7 +11,6 @@ export default function MainMovie(props) {
     let img = props?.data?.[props.j]?.image?.original
     const [over, setOver] = useState(false)
     const [ShowIconAdd, setShowIconAdd] = useState(false)
-    // const [user, setUser] = useState({});
     const {handelUserObjFirebase, user: userContext, updateToMyList} = useAPIContext()
 
     function changeInfo() {
@@ -41,8 +40,7 @@ export default function MainMovie(props) {
         <div className="main_all">
             <Nav changeI={props.changeI} changeJ={props.changeJ} sendIndex={props.sendIndex}/>
             <div className="main_watch_info">
-                {/* eslint-disable-next-line jsx-a11y/alt-text */}
-                <img src={img} className="img_all"/>
+                <img src={img} className="img_all" alt={"movie"}/>
                 <div className="btn_div_watch">
                     <button className="btn_watch">
                         <AiOutlinePlayCircle/> WATCH
@@ -64,7 +62,7 @@ export default function MainMovie(props) {
                     style={{display: ShowIconAdd ? "block" : "none"}}
                     className="div_masseg_add"
                 >
-                    add movie to MyList
+                    add movie to list
                 </div>
             </div>
         </div>
