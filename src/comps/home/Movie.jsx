@@ -3,7 +3,7 @@ import MainMovie from "./MainMovie"
 import Carousel from "./Carousel"
 import "./movie.css"
 
-export default function Movie() {
+const Movie = () => {
     const [genres, setGenres] = useState([])
 
     useEffect(() => {
@@ -24,3 +24,4 @@ export default function Movie() {
         </>
     )
 }
+export default Movie
