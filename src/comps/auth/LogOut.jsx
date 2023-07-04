@@ -1,10 +1,11 @@
-import {Link, redirect} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {useAuth} from '../../contexts/authContext'
 import {Alert} from 'react-bootstrap'
 
 const LogOut = ({}) => {
     const {logout} = useAuth()
+    const navigate = useNavigate()
     const [message, setMessage] = useState("")
     const [error, setError] = useState(false)
 
@@ -15,7 +16,7 @@ const LogOut = ({}) => {
             logout().then(() => {
                     setMessage('You are successfully logged out')
                     setTimeout(() => {
-                        redirect('/login')
+                        navigate('/login', {replace: true})
                     }, 1500)
                 }
             )
