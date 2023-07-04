@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react"
+import React, {useState} from "react"
 import "./Allcategory.css"
 import {useNavigate} from "react-router-dom"
 import {useAPIContext} from '../../contexts/APIContext'
@@ -28,7 +28,7 @@ export default function AllCategories(props) {
         "War",
         "Sports"
     ]
-    let {dataApp, urlMyListAndAllCategories, setUrlMyListAndAllCategories, setIndex} = useContext(APIContext)
+    let {dataApp, urlMyListAndAllCategories, setUrlMyListAndAllCategories, setIndex} = useAPIContext()
     // const [over, setOver] = useState(false);
     const [over1, setOver1] = useState(false)
     const [category, setCategory] = useState()

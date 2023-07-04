@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import {useState} from "react"
 import "./profile.css"
 import Details from "./Details"
 import {Link, Route, Routes} from "react-router-dom"
@@ -10,28 +10,6 @@ export default function Profile(props) {
     const [over, setOver] = useState(false)
     const [over1, setOver1] = useState(false)
     const [over2, setOver2] = useState(false)
-    const navigate = useNavigate()
-
-
-    // "Western","War","Sports","Music","Espionage","Anime","History",
-
-    // const [arr_zaner, setArr_zaner] = useState([]);
-    // const db = getFirestore();
-
-
-    function changeCategories() {
-        // if (over || over2) {
-        //   setOver1(false);
-        //   setOver2(false);
-        //   setOver(true);
-        // } else {
-        //   setOver(true);
-        //   setOver1(false);
-        //   setOver2(false);
-        // }
-        navigate('/changeCategories')
-
-    }
 
     function changeDetails() {
         if (over1 || over2) {
@@ -43,7 +21,6 @@ export default function Profile(props) {
             setOver(false)
             setOver2(false)
         }
-        // navigate('/detiles')
     }
 
     function changeAllCategories() {
@@ -56,7 +33,6 @@ export default function Profile(props) {
             setOver1(false)
             setOver(false)
         }
-        // navigate('/allcatgory');
     }
 
 
@@ -66,7 +42,6 @@ export default function Profile(props) {
                 <Link className="btn_profile" to="/changeCategories">
                     Change categories
                 </Link>
-                {/* onClick={changeCatgorys} */}
                 <button className="btn_profile" onClick={changeDetails}>
                     my details
                 </button>
@@ -92,18 +67,4 @@ export default function Profile(props) {
             </div>
         </div>
     )
-}
-
-
-{/* <div style={{ display: over1 ? "block" : "none" }}>
-          <Details />
-        </div> */
-}
-
-{/* <div
-          style={{ display: over2 ? "block" : "none" }}
-          className="div_AllCategory"
-        >
-          <AllCategories />
-        </div> */
 }

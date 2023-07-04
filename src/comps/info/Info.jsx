@@ -1,13 +1,6 @@
-import React from "react"
 import "./info.css"
-// import { APIContext } from "../../movie";
-
 
 export default function Info({j, data}) {
-    // let i;
-    // let {data} = useContext(APIContext)
-    // console.log(data);
-//  console.log(data);
     return (
         <div className="all_info">
             <div>

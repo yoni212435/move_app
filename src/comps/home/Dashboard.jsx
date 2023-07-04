@@ -70,10 +70,6 @@ function Dashboard() {
         }
     }
 
-    function changeIndex(num) { // מה זה עושה??
-        return num
-    }
-
     return (
         <APIProvider props={{
             windowSize,

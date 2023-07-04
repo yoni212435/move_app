@@ -1,6 +1,6 @@
-import {useEffect, useRef, useState} from 'react'
+import {useRef, useState} from 'react'
 import './auth.css'
-import {Link, redirect, useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../contexts/authContext'
 import {Alert, Button, Form} from "react-bootstrap"
 
