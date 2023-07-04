@@ -1,4 +1,8 @@
-const MovieList = ({movies, setMainMovie}) => {
+import {useSetMainMovie} from '../../contexts/moviesContext'
+
+const MovieList = ({movies}) => {
+    const setMainMovie = useSetMainMovie()
+
     return (
         <div className="movie-list">
             {movies.map(movie => (

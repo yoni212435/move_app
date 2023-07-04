@@ -10,14 +10,10 @@ import Profile from '../navBar/Profile'
 import {APIProvider} from '../../contexts/APIContext'
 import Footer from './Footer'
 import printErrorMessage from '../../printErrorMessage'
+import {MoviesProvider} from '../../contexts/moviesContext'
+import axios from 'axios'
 
 function Dashboard() {
-    const [windowSize, setWindowSize] = useState(window.innerWidth)
-    const [user, setUser] = useState({})
-    const [dataApp, setDataApp] = useState([])
-    const [movieList, setMovieList] = useState([])
-    const [index, setIndex] = useState(0)
-    const [urlMyListAndAllCategories, setUrlMyListAndAllCategories] = useState() // ????
     const db = getFirestore()
     const usersData = collection(db, "users")
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -25,8 +21,21 @@ function Dashboard() {
     const [user, setUser] = useState({})
     const [movies, setMovies] = useState([])
 
+    const apiUrl = "https://api.tvmaze.com/"
+    const getMovieData = () => axios.get(apiUrl + "shows")
+
+    //region useEffect
+    /* DB status */
     useEffect(() => {
-        if (app) console.log('app mounted')
+        if (app) console.log('DB connected')
+        else printErrorMessage('DB not connected')
+    }, [app])
+
+    /* get movies from API */
+    useEffect(() => {
+        getMovieData()
+            .then(r => setMovies(r.data))
+            .catch(e => printErrorMessage(e))
     }, [])
 
     /* [todo] This shit needs to be removed */
@@ -85,14 +94,16 @@ function Dashboard() {
             setUser,
             getUserFromDB //todo db context
         }}>
-            <Routes>
-                <Route index element={<Movie movieList={movieList}/>}/>
-                <Route path="/logout" element={<LogOut/>}/>
-                <Route path="/profile/*" element={<Profile/>}/>
-                <Route path="/myList/*" element={<MyList/>}/>
-                <Route path="*" element={<h1>404 not found</h1>}/>
-            </Routes>
-            <Footer/>
+            <MoviesProvider data={movies} mainMovie={movies[0]}>
+                <Routes>
+                    <Route index element={<Movie movieList={movieList}/>}/>
+                    <Route path="/logout" element={<LogOut/>}/>
+                    <Route path="/profile/*" element={<Profile/>}/>
+                    <Route path="/myList/*" element={<MyList/>}/>
+                    <Route path="*" element={<h1>404 not found</h1>}/>
+                </Routes>
+                <Footer/>
+            </MoviesProvider>
         </APIProvider>
     )
 }

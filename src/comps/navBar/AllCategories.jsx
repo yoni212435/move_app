@@ -1,12 +1,12 @@
 import {useState} from "react"
 import "./Allcategory.css"
 import genres from '../../genres'
-import {useMovieData} from '../../contexts/movieDataContext'
+import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 import MovieList from '../home/MovieList'
 
-const AllCategories = ({setMainMovie}) => {
+const AllCategories = ({}) => {
     const [filteredData, setFilteredData] = useState([])
-    const movieData = useMovieData()
+    const movieData = useMovies()
     const [toggleGenreMovieList, setToggleGenreMovieList] = useState(false)
 
     const handleGenreClick = genre => {
@@ -31,7 +31,6 @@ const AllCategories = ({setMainMovie}) => {
                         {toggleGenreMovieList &&
                             <MovieList
                                 movies={filteredData}
-                                setMainMovie={setMainMovie} // todo context
                             />
                         }
                     </li>

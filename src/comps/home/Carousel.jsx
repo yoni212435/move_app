@@ -2,13 +2,13 @@ import {useEffect, useState} from "react"
 import "./carousel.css"
 import Slider from "react-slick"
 import {useAPIContext} from '../../contexts/APIContext'
-import {useMovieData} from '../../contexts/movieDataContext'
+import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 
-export default function Carousel({setMainMovie, genre}) {
-
+export default function Carousel({genre}) {
+    const setMainMovie = useSetMainMovie()
     const {windowSize} = useAPIContext()
     const [filteredMovies, setFilteredMovies] = useState([])
-    const movieData = useMovieData()
+    const movieData = useMovies()
 
     const sliderSettings = {
         dots: false,

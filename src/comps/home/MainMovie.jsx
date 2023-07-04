@@ -9,8 +9,7 @@ import {useAPIContext} from '../../contexts/APIContext'
 export default function MainMovie(props) {
 
     let img = props?.data?.[props.j]?.image?.original
-    const [over, setOver] = useState(false)
-    const {handelUserObjFirebase, user: userContext, updateToMyList} = useAPIContext()
+    const {getUserFromDB, user: userContext, updateToMyList} = useAPIContext()
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
@@ -24,7 +23,7 @@ export default function MainMovie(props) {
     }
 
     useEffect(() => {
-        handelUserObjFirebase()
+        getUserFromDB()
 
     }, [userContext.id])
 

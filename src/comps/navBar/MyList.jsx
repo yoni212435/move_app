@@ -4,12 +4,13 @@ import {BiTrash} from "react-icons/bi"
 import {FiHome} from "react-icons/fi"
 import {Link} from 'react-router-dom'
 import {useAPIContext} from '../../contexts/APIContext'
-import {useMovieData} from '../../contexts/movieDataContext'
+import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 import printErrorMessage from '../../printErrorMessage'
 
-const MyList = ({setMainMovie}) => {
+const MyList = ({}) => {
+    const setMainMovie = useSetMainMovie()
     const db = getFirestore()
-    const movieData = useMovieData()
+    const movieData = useMovies()
     const {user} = useAPIContext()
 
     const removeMovie = ({id}) => {
