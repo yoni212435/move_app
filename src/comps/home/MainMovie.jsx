@@ -10,16 +10,9 @@ export default function MainMovie(props) {
 
     let img = props?.data?.[props.j]?.image?.original
     const [over, setOver] = useState(false)
-    const [ShowIconAdd, setShowIconAdd] = useState(false)
     const {handelUserObjFirebase, user: userContext, updateToMyList} = useAPIContext()
-
-    function changeInfo() {
-        setOver(!over)
-    }
-
-    function changeAdd() {
-        setShowIconAdd(!ShowIconAdd)
-    }
+    const [toggleInfoView, setToggleInfoView] = useState(false)
+    const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
     function addToMyList() {
         let movieListFilter = props.movieList?.find(ele => props.data[props.j].id === ele.id)
@@ -48,18 +41,24 @@ export default function MainMovie(props) {
                 </div>
 
                 <div className="btn_div_info">
-                    <button className="btn_info" onClick={changeInfo}>
+                    <button className="btn_info" onClick={() => setToggleInfoView(!toggleInfoView)}>
                         <AiOutlineInfoCircle/> INFO
                     </button>
                 </div>
             </div>
-            <div className="info_comp" style={{display: over ? "block" : "none"}}>
-                <Info j={props.j} data={props.data}/>
-            </div>
-            <div className="div_add" onMouseEnter={changeAdd} onClick={addToMyList}>
+
+            {toggleInfoView &&
+                <div className="info_comp">
+                    <Info j={props.j} data={props.data}/>
+                </div>}
+
+            <div className="div_add"
+                 onMouseEnter={() => setToggleAddIcon(true)}
+                 onMouseLeave={() => setToggleAddIcon(false)}
+                 onClick={addToMyList}>
                 <AiOutlinePlusCircle className="icon_add"/>
+                toggleAddIcon &&
                 <div
-                    style={{display: ShowIconAdd ? "block" : "none"}}
                     className="div_masseg_add"
                 >
                     add movie to list
