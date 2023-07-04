@@ -9,6 +9,7 @@ import MyList from '../navBar/MyList'
 import Profile from '../navBar/Profile'
 import {APIProvider} from '../../contexts/APIContext'
 import Footer from './Footer'
+import printErrorMessage from '../../printErrorMessage'
 
 function Dashboard() {
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -39,7 +40,7 @@ function Dashboard() {
         try {
             await updateDoc(doc(db, "users", user.docId), {myList: arr})
         } catch (e) {
-            console.log(`%cError: ${e}`, "color:red")
+            printErrorMessage(e)
         }
     }
 

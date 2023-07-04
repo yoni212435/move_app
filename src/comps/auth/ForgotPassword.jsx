@@ -3,6 +3,7 @@ import './auth.css'
 import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../contexts/authContext'
 import {Alert, Button, Form} from "react-bootstrap"
+import printErrorMessage from '../../printErrorMessage'
 
 
 export default function ForgotPassword() {
@@ -25,7 +26,7 @@ export default function ForgotPassword() {
             setMessage("Check your inbox for further instructions")
         } catch (e) {
             setError("Failed to reset password")
-            console.log(`%cError: ${e}`, "color:red")
+            printErrorMessage(e)
         }
         setLoading(false)
     }

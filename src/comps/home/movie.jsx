@@ -4,6 +4,7 @@ import MainMovie from "./MainMovie"
 import Carousel from "./Carousel"
 import "./movie.css"
 import {useAPIContext} from '../../contexts/APIContext'
+import printErrorMessage from '../../printErrorMessage'
 
 export default function Movie(props) {
     let [data, setData] = useState([])
@@ -40,7 +41,7 @@ export default function Movie(props) {
                 setDataApp(r.data)
             }
         )
-            .catch(e => console.log(`%cError: ${e.message}`, "color:red"))
+            .catch(e => printErrorMessage(e))
     }, [])
 
     useEffect(() => {

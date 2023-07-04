@@ -3,6 +3,7 @@ import './auth.css'
 import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../contexts/authContext'
 import {Alert, Button, Form} from "react-bootstrap"
+import printErrorMessage from '../../printErrorMessage'
 
 
 export default function LogIn() {
@@ -25,7 +26,7 @@ export default function LogIn() {
             navigate('/', {replace: true})
         } catch (e) {
             setError("Failed to log in")
-            console.log(`%cError: ${e.code}`, "color:red")
+            printErrorMessage(e.code)
         }
         setLoading(false)
     }

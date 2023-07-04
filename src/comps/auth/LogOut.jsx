@@ -2,6 +2,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import {useAuth} from '../../contexts/authContext'
 import {Alert} from 'react-bootstrap'
+import printErrorMessage from '../../printErrorMessage'
 
 const LogOut = ({}) => {
     const {logout} = useAuth()
@@ -24,7 +25,7 @@ const LogOut = ({}) => {
         } catch (e) {
             setMessage("Failed to log out")
             setError(true)
-            console.log(`%cError: ${e}`, "color:red")
+            printErrorMessage(e)
         }
     }, [])
 

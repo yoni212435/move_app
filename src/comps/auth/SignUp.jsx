@@ -3,6 +3,7 @@ import './auth.css'
 import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../contexts/authContext'
 import {Alert, Button, Form} from "react-bootstrap"
+import printErrorMessage from '../../printErrorMessage'
 
 
 export default function SignUp() {
@@ -31,7 +32,7 @@ export default function SignUp() {
                 setError("That email address is already in use")
             else
                 setError("Failed to create an account")
-            console.log(`%cError: ${e.code}`, "color:red")
+            printErrorMessage(e.code)
         }
 
         setLoading(false)

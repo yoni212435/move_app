@@ -1,6 +1,7 @@
 import {doc, getFirestore, updateDoc} from "firebase/firestore"
 import React, {useEffect, useRef, useState} from "react"
 import {useAPIContext} from '../../contexts/APIContext'
+import printErrorMessage from '../../printErrorMessage'
 
 export default function ChangeCategories() {
     const genreList = [
@@ -30,7 +31,7 @@ export default function ChangeCategories() {
         if (userGenres) {
             updateDoc(doc(db, "users", user.docId), {zhaner: userGenres})
                 .then(res => console.log(res))
-                .catch(e => console.log(`%cError: ${e.message}`, "color:red"))
+                .catch(e => printErrorMessage(e.message))
         }
     }
 
