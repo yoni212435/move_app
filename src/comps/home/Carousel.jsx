@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react"
-import "./carusela.css"
+import "./carousel.css"
 import Slider from "react-slick"
 import {getFirestore} from "firebase/firestore"
 import {useAPIContext} from '../../contexts/APIContext'
 
-export default function Carusela(props) {
+export default function Carousel(props) {
 
     const {windowSize, dataApp} = useAPIContext()
     const [moviesZaner, setMoviesZaner] = useState([])
@@ -56,7 +56,7 @@ export default function Carusela(props) {
                     <p className="category">{props.category}</p>
                     <Slider {...settings}>
                         {moviesZaner?.map((e, i) => (
-                            <div className="item_carusela " key={e.id}>
+                            <div className="item_carousel " key={e.id}>
                                 <button
                                     onClick={() => {
                                         props.sendIndex(e.id)

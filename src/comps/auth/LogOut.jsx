@@ -13,13 +13,14 @@ const LogOut = ({}) => {
         try {
             setError(false)
             setMessage('')
-            logout().then(() => {
-                    setMessage('You are successfully logged out')
-                    setTimeout(() => {
-                        navigate('/login', {replace: true})
-                    }, 1500)
-                }
-            )
+            logout()
+                .then(() => {
+                        setMessage('You are successfully logged out')
+                        setTimeout(() => {
+                            navigate('/login', {replace: true})
+                        }, 1500)
+                    }
+                )
         } catch (e) {
             setMessage("Failed to log out")
             setError(true)

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react"
 import axios from "axios"
 import MainMovie from "./MainMovie"
-import Carusela from "./Carusela"
+import Carousel from "./Carousel"
 import "./movie.css"
 import {useAPIContext} from '../../contexts/APIContext'
 
@@ -9,7 +9,7 @@ export default function Movie(props) {
     let [data, setData] = useState([])
     const [i, setI] = useState(1)
     const [j, setJ] = useState(0)
-    const [zaner, setZaner] = useState([])
+    const [genre, setGenre] = useState([])
     let {setDataApp, user, dataApp, index, urlMyListAndAllCategories} = useAPIContext()
     const apiUrl = "https://api.tvmaze.com/"
 
@@ -44,12 +44,13 @@ export default function Movie(props) {
                 setDataApp(r.data)
             }
         )
+            .catch(e => console.log(`%cError: ${e.message}`, "color:red"))
     }, [])
 
     useEffect(() => {
 
         if (user.zhaner) {
-            setZaner(user.zhaner)
+            setGenre(user.zhaner)
         }
     }, [user.zhaner])
 
@@ -67,7 +68,7 @@ export default function Movie(props) {
                            changeI={changeI}
                            changeJ={changeJ}/>
                 {
-                    zaner && zaner.map((ele, i) => <Carusela key={i} data={dataApp} sendIndex={sendIndex}
+                    genre && genre.map((ele, i) => <Carousel key={i} data={dataApp} sendIndex={sendIndex}
                                                              changeJ={changeJ}
                                                              changeJToIndex={changeJToIndex}
                                                              category={ele}/>)

@@ -38,8 +38,8 @@ function Dashboard() {
     async function updateToMyList(arr) {
         try {
             await updateDoc(doc(db, "users", user.docId), {myList: arr})
-        } catch (error) {
-            console.log(error)
+        } catch (e) {
+            console.log(`%cError: ${e}`, "color:red")
         }
     }
 

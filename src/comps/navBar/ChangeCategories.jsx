@@ -21,21 +21,22 @@ export default function ChangeCategories() {
         "Legal"
     ]
 
-    const [arr_zaner, setArr_zaner] = useState([])
+    const [userGenres, setUserGenres] = useState([])
     const db = getFirestore()
     const {user} = useAPIContext()
     const checkboxRef = useRef()
 
     function updateDbCategories() {
-        if (arr_zaner.length > 0) {
-            updateDoc(doc(db, "users", user.docId), {zhaner: arr_zaner})
+        if (userGenres) {
+            updateDoc(doc(db, "users", user.docId), {zhaner: userGenres})
                 .then(res => console.log(res))
+                .catch(e => console.log(`%cError: ${e.message}`, "color:red"))
         }
     }
 
     useEffect(() => {
         updateDbCategories()
-    }, [arr_zaner.length])
+    }, [userGenres])
 
     return (
         <div>
@@ -54,16 +55,17 @@ export default function ChangeCategories() {
                         ref={checkboxRef}
                         name={el}
                         onChange={() => {
-                            if (arr_zaner.length >= 3) {
+                            if (userGenres.length >= 3) {
                                 alert("You exceeded the choices limit")
+                                console.log('checkboxRef-> ', checkboxRef.current)
                                 checkboxRef.current.checked = false
                             }
 
-                            if (e.target.checked) {
-                                setArr_zaner([...arr_zaner, el])
+                            if (checkboxRef.current.checked) {
+                                setUserGenres([...userGenres, el])
                             } else {
-                                let newArray = arr_zaner?.filter((ele) => ele !== el)
-                                setArr_zaner(newArray)
+                                let newArray = userGenres?.filter((ele) => ele !== el)
+                                setUserGenres(newArray)
                             }
                         }}
                     />

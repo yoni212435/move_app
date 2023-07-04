@@ -11,14 +11,17 @@ export default function Search(props) {
 
     function handleSearch() {
         const {value} = searchRef.current
-        let dataF = value ? dataApp?.filter((ele) => ele.name.startsWith(x[0].toUpperCase() + x.slice(1).toLowerCase())) : null
-        setFilteredData(dataF)
+        let filteredData = value ? dataApp?.filter((ele) =>
+            ele.name.startsWith(value[0].toUpperCase()
+                + value.slice(1).toLowerCase())) : null
+        setFilteredData(filteredData)
         setToggleSearchView(true)
     }
 
     return (
         <div className="main_search">
-            <input className="inpSearch" ref={searchRef} name="" type="search" placeholder="Search..." onChange={handleSearch}/>
+            <input className="inpSearch" ref={searchRef} name="" type="search" placeholder="Search..."
+                   onChange={handleSearch}/>
 
             {toggleSearchView && <div className="div_search">
                 {
