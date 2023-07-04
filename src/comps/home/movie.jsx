@@ -20,23 +20,19 @@ export default function Movie(props) {
         }
     }
 
-    function changeI(num) {
+    const changeI = num => {
         setI(num)
     }
 
-    function changeJ(num) {
+    const changeJ = num => {
         setJ(num)
-
     }
 
-    function changeJToIndex() {
+    const changeJToIndex = () => {
         setJ(index)
     }
 
-
-    function getMovieData() {
-        return axios.get(apiUrl + "shows")
-    }
+    const getMovieData = () => axios.get(apiUrl + "shows")
 
     useEffect(() => {
         getMovieData().then(r => {

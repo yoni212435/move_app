@@ -48,21 +48,18 @@ export default function MainMovie(props) {
             </div>
 
             {toggleInfoView &&
-                <div className="info_comp">
-                    <Info j={props.j} data={props.data}/>
-                </div>}
+                <Info j={props.j} data={props.data}/>
+            }
 
-            <div className="div_add"
+            <div className="add-button"
                  onMouseEnter={() => setToggleAddIcon(true)}
                  onMouseLeave={() => setToggleAddIcon(false)}
                  onClick={addToMyList}>
-                <AiOutlinePlusCircle className="icon_add"/>
-                toggleAddIcon &&
-                <div
-                    className="div_masseg_add"
-                >
-                    add movie to list
-                </div>
+                <AiOutlinePlusCircle className="add-button-icon"/>
+                {toggleAddIcon &&
+                    <div className="add-button-icon-label">
+                        add movie to list
+                    </div>}
             </div>
         </div>
     )

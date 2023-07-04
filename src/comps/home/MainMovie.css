@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    /* margin: 0;
-    padding: 0; */
 }
 
 .main_all {
@@ -20,15 +18,6 @@
     width: 100%;
 }
 
-/* .float{
-    position: absolute;
-   top: 50%;
-   left: 1%;
-   margin-top: 66px;
-  color: white;
-  
-  
-} */
 .btn_div_watch {
     position: absolute;
     top: 60%;
@@ -71,13 +60,13 @@
     border-radius: 5px;
 }
 
-.info_comp {
+.info {
     position: absolute;
     top: 70px;
     left: 180px;
 }
 
-.div_add {
+.add-button {
     position: absolute;
     top: 71%;
     left: 89%;
@@ -86,12 +75,12 @@
     align-items: center;
 }
 
-.icon_add {
+.add-button-icon {
     font-size: 48px;
     color: wheat;
 }
 
-.div_masseg_add {
+.add-button-icon-label {
     color: antiquewhite;
 }
 
@@ -107,7 +96,7 @@
         right: 30%;
     }
 
-    .div_add {
+    .add-button {
         left: 78%;
     }
 }
@@ -118,7 +107,7 @@
         right: 20%;
     }
 
-    .div_add {
+    .add-button {
         left: 78%;
     }
 }
@@ -129,7 +118,7 @@
         right: 15%;
     }
 
-    .div_add {
+    .add-button {
         left: 88%;
     }
 }
@@ -140,7 +129,7 @@
         right: 10%;
     }
 
-    .div_add {
+    .add-button {
         left: 89%;
     }
 }
