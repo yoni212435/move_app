@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 728px) {
     .div_btn_profile {
-        left: 0%;
+        left: 0;
         display: flex;
     }
 
@@ -111,7 +111,7 @@
 
 @media only screen and (min-width: 728px) {
     .div_btn_profile {
-        left: 0%;
+        left: 0;
         display: flex;
     }
 
@@ -187,19 +187,6 @@
     .btn_profile {
         width: 200px;
         height: 120px;
-    }
-
-    .list_catgeris {
-        height: 600px;
-        width: 1110px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: 8px;
-        margin: 0 auto;
-        position: absolute;
-        left: 3%;
-        top: 3%;
     }
 
     .chak_box {
