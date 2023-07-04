@@ -4,7 +4,7 @@ import {useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
 import {app} from "../../db/firebase"
 import LogOut from '../auth/LogOut'
-import Movie from './movie'
+import Movie from './Movie'
 import MyList from '../navBar/MyList'
 import Profile from '../navBar/Profile'
 import {APIProvider} from '../../contexts/APIContext'
