@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react"
 import axios from "axios"
-import MainMovie from "./comps/home/MainMovie"
-import Carusela from "./comps/home/Carusela"
+import MainMovie from "./MainMovie"
+import Carusela from "./Carusela"
 import "./movie.css"
-import Footer from "./comps/footer/Footer"
-import {useAPIContext} from './contexts/APIContext'
+import Footer from "./Footer"
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function Movie(props) {
     let [data, setData] = useState([])
@@ -52,7 +52,7 @@ export default function Movie(props) {
     }, [user.zhaner])
 
     useEffect(() => {
-        if (urlMyListAndAllCategories === '/MyList' || urlMyListAndAllCategories === '/profil') {
+        if (urlMyListAndAllCategories === '/MyList' || urlMyListAndAllCategories === '/profile') {
             changeJToIndex()
             urlMyListAndAllCategories = ''
         }
@@ -70,8 +70,6 @@ export default function Movie(props) {
                                                                         changeJToIndex={changeJToIndex}
                                                                         category={ele}/>)
                 }
-
-                <Footer/>
             </div>
         </div>
     )

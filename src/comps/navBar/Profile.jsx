@@ -52,9 +52,11 @@ export default function Profile(props) {
             </div>
             <div className="list_catgeris">
                 <Routes>
-                    <Route path="/changeCategories" element={<ChangeCategories/>}/>
-                    <Route path="/details" element={<Details/>}/>
-                    <Route path="/allCategories" element={<AllCategories/>}/>
+                    <Route index path="profile">
+                        <Route path="changeCategories" element={<ChangeCategories/>}/>
+                        <Route path="details" element={<Details/>}/>
+                        <Route path="allCategories" element={<AllCategories/>}/>
+                    </Route>
                 </Routes>
             </div>
 

@@ -7,7 +7,7 @@ import {
     signInWithEmailAndPassword,
     signOut
 } from 'firebase/auth'
-import {app} from "../firebase"
+import {app} from "../db/firebase"
 
 const auth = getAuth(app)
 const AuthContext = React.createContext(null)

@@ -1,10 +1,8 @@
 * {
     box-sizing: border-box;
-    /* margin: 0; */
 }
 
 .all_info {
-    /* background-color: rgb(3, 3, 38); */
     height: 61vh;
     margin: 0 auto;
     width: 70vw;

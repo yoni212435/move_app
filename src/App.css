@@ -1,10 +1,17 @@
-.App {
+body {
     text-align: center;
+    margin: 0 auto;
 }
 
 .App-logo {
     height: 40vmin;
     pointer-events: none;
+}
+
+.footer {
+    text-align: center;
+    background-color: rgb(2, 10, 52);
+    color: azure;
 }
 
 @media (prefers-reduced-motion: no-preference) {

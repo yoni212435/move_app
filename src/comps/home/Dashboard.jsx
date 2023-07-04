@@ -2,12 +2,13 @@ import "../../App.css"
 import {Route, Routes} from "react-router-dom"
 import {useEffect, useState} from "react"
 import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
-import {app} from "../../firebase"
+import {app} from "../../db/firebase"
 import LogOut from '../auth/LogOut'
-import Movie from '../../movie'
+import Movie from './movie'
 import MyList from '../navBar/MyList'
 import Profile from '../navBar/Profile'
 import {APIProvider} from '../../contexts/APIContext'
+import Footer from './Footer'
 
 function Dashboard() {
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -92,6 +93,7 @@ function Dashboard() {
                 <Route path="/myList/*" element={<MyList/>}/>
                 <Route path="*" element={<h1>404 not found</h1>}/>
             </Routes>
+            <Footer/>
         </APIProvider>
     )
 }
