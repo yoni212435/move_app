@@ -19,16 +19,19 @@ function Dashboard() {
     const [index, setIndex] = useState(0)
     const [urlMyListAndAllCategories, setUrlMyListAndAllCategories] = useState() // ????
     const db = getFirestore()
-    const colUsers = collection(db, "users")
+    const usersData = collection(db, "users")
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
+    const [data, setData] = useState([])
+    const [user, setUser] = useState({})
+    const [movies, setMovies] = useState([])
 
     useEffect(() => {
         if (app) console.log('app mounted')
     }, [])
 
+    /* [todo] This shit needs to be removed */
     useEffect(() => {
-        const handleWindowResize = () => {
-            setWindowSize(window.innerWidth)
-        }
+        const handleWindowResize = () => setWindowSize(window.innerWidth)
         window.addEventListener("resize", handleWindowResize)
 
         return () => {
@@ -36,21 +39,25 @@ function Dashboard() {
         }
     }, [])
 
-    async function updateToMyList(arr) {
-        try {
-            await updateDoc(doc(db, "users", user.docId), {myList: arr})
-        } catch (e) {
-            printErrorMessage(e)
-        }
-    }
-
+    /* ???? */
     useEffect(() => {
         updateMovieList()
     }, [user.myList])
+    //endregion
 
-    async function handelUserObjFirebase() {
+    //region methods
+    const addMovie = movie => {
+        try {
+            updateDoc(doc(db, "users", user.docId), {myList: [...user.myList, movie]})
+                .then(r => console.log(r)) // todo check if succeeded, then update to state?
+        } catch (e) {
+            printErrorMessage(e.message)
+        }
+    }
+
+    async function getUserFromDB() {
         if (user.id) {
-            const data = await getDocs(query(colUsers, where("id", "==", user.id)))
+            const data = await getDocs(query(usersData, where("id", "==", user.id)))
             if (data.docs[0]) {
                 setUser({
                     ...data.docs[0].data(),
@@ -58,8 +65,8 @@ function Dashboard() {
                     email: user.email
                 })
             } else {
-                await addDoc(colUsers, {id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
-                setUser({id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
+                await addDoc(usersData, {id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
+                setUser({id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []}) //todo remove hardcoded data
             }
         }
     }
@@ -69,22 +76,14 @@ function Dashboard() {
             setMovieList(user.myList)
         }
     }
+    //endregion
 
     return (
         <APIProvider props={{
             windowSize,
-            dataApp,
-            movieList,
-            setMovieList,
-            index,
-            setIndex,
-            urlMyListAndAllCategories,
-            setUrlMyListAndAllCategories,
             user,
             setUser,
-            handelUserObjFirebase,
-            setDataApp,
-            updateToMyList
+            getUserFromDB //todo db context
         }}>
             <Routes>
                 <Route index element={<Movie movieList={movieList}/>}/>
