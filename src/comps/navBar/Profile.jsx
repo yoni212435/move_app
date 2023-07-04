@@ -6,7 +6,7 @@ import AllCategories from "./AllCategories"
 import {FiHome} from "react-icons/fi"
 import ChangeCategories from './ChangeCategories'
 
-export default function Profile(props) {
+export default function Profile() {
     const [over, setOver] = useState(false)
     const [over1, setOver1] = useState(false)
     const [over2, setOver2] = useState(false)

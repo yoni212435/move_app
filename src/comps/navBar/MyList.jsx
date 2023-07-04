@@ -1,59 +1,47 @@
-import React from 'react'
 import './MyList.css'
 import {doc, getFirestore, updateDoc} from 'firebase/firestore'
 import {BiTrash} from "react-icons/bi"
-import {Link, useNavigate} from 'react-router-dom'
 import {FiHome} from "react-icons/fi"
+import {Link} from 'react-router-dom'
 import {useAPIContext} from '../../contexts/APIContext'
+import {useMovieData} from '../../contexts/movieDataContext'
+import printErrorMessage from '../../printErrorMessage'
 
-export default function MyList(props) {
+const MyList = ({setMainMovie}) => {
     const db = getFirestore()
-    const {user, handelUserObjFirebase, setIndex, setUrlMyListAndAllCategories, dataApp} = useAPIContext()
-    const navigate = useNavigate()
+    const movieData = useMovieData()
+    const {user} = useAPIContext()
 
-
-    async function minusMovie(id) {
-        let filterData = props.movieList.filter(element => element.id !== id)
+    const removeMovie = ({id}) => {
+        let filteredData = movieData.filter(movie => movie.id !== id)
         try {
-            await updateDoc(doc(db, 'users', user.docId), {myList: filterData})
-            await handelUserObjFirebase()
-        } catch (error) {
-            console.log(error)
+            updateDoc(doc(db, 'users', user.docId), {myList: filteredData})
+                .then(r => console.log(r)) // todo check if succeeded, then update to state?
+        } catch (e) {
+            printErrorMessage(e.message)
         }
-
-    }
-
-
-    function changeToMainMovie(id) {
-        let index1 = dataApp.findIndex(element => element.id === id)
-        setIndex(index1)
-        navigate('/')
-        setUrlMyListAndAllCategories('/MyList')
     }
 
     return (
-        <div className="main_my_list">
-            <div className="div_my_list">
-                {props.movieList?.map((e, i) =>
-                    <div className="item_my_list" key={i}>
-                        <div
-                            onClick={() => {
-                                {
-                                    changeToMainMovie(e.id)
-                                }
-
-                            }}
-                        >
-                            <img src={e.image.medium} alt="" height="250px"/>
-                            <button onClick={() => minusMovie(e.id)} className="btn_minus_myList"><BiTrash/></button>
-                        </div>
+        <div className="list-container">
+            <div className="list-row">
+                {movieData.map((movie, i) =>
+                    <div className="list-item"
+                         key={i}
+                         onClick={() => setMainMovie(movie)}
+                    >
+                        <img src={movie.image.medium} alt="movie-cover" height="250px"/>
+                        <button onClick={() => removeMovie(movie)} className="trash-button">
+                            <BiTrash/>
+                        </button>
                     </div>
                 )}
-                <Link to={'/'} className="home_myList"><FiHome/> home</Link>
+                <Link to={'/'} className="home-button">
+                    <FiHome/>
+                </Link>
             </div>
-
         </div>
-
     )
 }
 
+export default MyList

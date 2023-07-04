@@ -2,24 +2,24 @@
     box-sizing: border-box;
 }
 
-.main_my_list {
+.list-container {
     background-color: rgb(4, 4, 60);
     height: 100vh;
     width: 1550px;
 }
 
-.div_my_list {
+.list-row {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 }
 
-.item_my_list {
+.list-item {
     margin: 5px;
     position: relative;
 }
 
-.btn_minus_myList {
+.trash-button {
     height: 30px;
     position: absolute;
     top: 87%;
@@ -28,7 +28,7 @@
     text-align: center;
 }
 
-.home_myList {
+.home-button {
     color: rgb(210, 210, 236);
     border: 1px solid brown;
     background-color: brown;
@@ -41,33 +41,3 @@
     padding: 4px;
     font-size: 18px;
 }
-
-/*@media (max-width: 728px) {*/
-/*    .main_my_list {*/
-/*        height: 600vh;*/
-/*    }*/
-
-/*    .div_my_list {*/
-/*        width: 400px;*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 900px) {*/
-/*    .main_my_list {*/
-/*        height: 600vh;*/
-/*    }*/
-
-/*    .div_my_list {*/
-/*        width: 800px;*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 1200px) {*/
-/*    .main_my_list {*/
-/*        height: 600vh;*/
-/*    }*/
-
-/*    .div_my_list {*/
-/*        min-width: 1500px;*/
-/*    }*/
-/*}*/
