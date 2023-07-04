@@ -47,7 +47,7 @@ export default function MainMovie(props) {
             </div>
 
             {toggleInfoView &&
-                <Info j={props.j} data={props.data}/>
+                <Info movie={movie}/>
             }
 
             <div className="add-button"
