@@ -1,23 +1,22 @@
 import {useEffect, useState} from "react"
 import "./carousel.css"
 import Slider from "react-slick"
-import {getFirestore} from "firebase/firestore"
 import {useAPIContext} from '../../contexts/APIContext'
+import {useMovieData} from '../../contexts/movieDataContext'
 
-export default function Carousel(props) {
+export default function Carousel({setMainMovie, genre}) {
 
-    const {windowSize, dataApp} = useAPIContext()
-    const [moviesZaner, setMoviesZaner] = useState([])
-    const db = getFirestore()
+    const {windowSize} = useAPIContext()
+    const [filteredMovies, setFilteredMovies] = useState([])
+    const movieData = useMovieData()
 
-    const settings = {
+    const sliderSettings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: keepScreen(windowSize),
         slidesToScroll: 1
     }
-
 
     function keepScreen(windowWidth) {
         const md = "768"
@@ -34,36 +33,31 @@ export default function Carousel(props) {
             return 3
         }
         return 2
-    }
+    } // todo viewport
 
-
-    function filterAsZner() {
-        let filterData = dataApp?.filter(ele => ele.genres.includes(props.category))
-        setMoviesZaner(filterData)
+    const filterByGenre = () => {
+        let filteredData = movieData.filter(movie => movie.genres.includes(genre))
+        setFilteredMovies(filteredData)
     }
 
     useEffect(() => {
-        if (props.category) {
-            filterAsZner()
-        }
-    }, [props.category])
-
+            filterByGenre()
+    }, [genre])
 
     return (
         <div className="main_slider">
             <div className="main_slider_tow">
                 <div className="sliderA">
-                    <p className="category">{props.category}</p>
-                    <Slider {...settings}>
-                        {moviesZaner?.map((e, i) => (
-                            <div className="item_carousel " key={e.id}>
+                    <p className="category">{genre}</p>
+                    <Slider {...sliderSettings}>
+                        {filteredMovies.map(movie => (
+                            <div className="item_carousel " key={movie.id}>
                                 <button
                                     onClick={() => {
-                                        props.sendIndex(e.id)
-
+                                        setMainMovie(movie)
                                     }}
                                 >
-                                    <img src={e.image.medium} alt="" height="250px"/>
+                                    <img src={movie.image.medium} alt="movie-cover" height="250px"/>
                                 </button>
                             </div>
                         ))}
