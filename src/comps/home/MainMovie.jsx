@@ -1,38 +1,31 @@
 import React, {useEffect, useState} from "react"
 import "./MainMovie.css"
 import Nav from "./Nav"
-import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import Info from "../info/Info"
-import "bootstrap/dist/css/bootstrap.min.css"
 import {useAPIContext} from '../../contexts/APIContext'
+import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
+import {useMainMovie} from '../../contexts/moviesContext'
 
-export default function MainMovie(props) {
-
-    let img = props?.data?.[props.j]?.image?.original
-    const {getUserFromDB, user: userContext, updateToMyList} = useAPIContext()
+const MainMovie = () => {
+    const movie = useMainMovie()
+    const image = movie.image.original
+    const {getUserFromDB, user: userContext} = useAPIContext()
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
-    function addToMyList() {
-        let movieListFilter = props.movieList?.find(ele => props.data[props.j].id === ele.id)
-        if (!movieListFilter && props.data.find(x => x.id === props?.data[props.j].id)) {
-            props.movieList?.push(props.data[props.j])
-            updateToMyList([...props.movieList, props.data[props.j]])
-        }
-
+    const addMovieToMyList = () => {
+        // todo: add movie to user's list
     }
 
     useEffect(() => {
         getUserFromDB()
-
     }, [userContext.id])
-
 
     return (
         <div className="main_all">
-            <Nav changeI={props.changeI} changeJ={props.changeJ} sendIndex={props.sendIndex}/>
+            <Nav/>
             <div className="main_watch_info">
-                <img src={img} className="img_all" alt={"movie"}/>
+                <img src={image} className="img_all" alt={"movie"}/>
                 <div className="btn_div_watch">
                     <button className="btn_watch">
                         <AiOutlinePlayCircle/> WATCH
@@ -53,7 +46,7 @@ export default function MainMovie(props) {
             <div className="add-button"
                  onMouseEnter={() => setToggleAddIcon(true)}
                  onMouseLeave={() => setToggleAddIcon(false)}
-                 onClick={addToMyList}>
+                 onClick={addMovieToMyList}>
                 <AiOutlinePlusCircle className="add-button-icon"/>
                 {toggleAddIcon &&
                     <div className="add-button-icon-label">
@@ -63,3 +56,4 @@ export default function MainMovie(props) {
         </div>
     )
 }
+export default MainMovie
