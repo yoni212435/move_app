@@ -36,7 +36,6 @@ export function AuthProvider({children}) {
         return sendPasswordResetEmail(auth, email)
     }
 
-
     useEffect(() => {
         return onAuthStateChanged(auth, user => {
             setCurrentUser(user)
@@ -48,10 +47,8 @@ export function AuthProvider({children}) {
         currentUser,
         login,
         signup,
-        logout
-        // resetPassword,
-        // updateEmail,
-        // updatePassword
+        logout,
+        resetPassword
     }
 
     return (
