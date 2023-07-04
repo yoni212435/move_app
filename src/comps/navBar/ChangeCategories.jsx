@@ -1,5 +1,5 @@
 import {doc, getFirestore, updateDoc} from "firebase/firestore"
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import {useAPIContext} from '../../contexts/APIContext'
 
 export default function ChangeCategories() {
@@ -24,6 +24,7 @@ export default function ChangeCategories() {
     const [arr_zaner, setArr_zaner] = useState([])
     const db = getFirestore()
     const {user} = useAPIContext()
+    const checkboxRef = useRef()
 
     function updateDbCategories() {
         if (arr_zaner.length > 0) {
@@ -50,18 +51,19 @@ export default function ChangeCategories() {
                     </label>
                     <input
                         type="checkbox"
+                        ref={checkboxRef}
                         name={el}
-                        onChange={(e) => {
+                        onChange={() => {
                             if (arr_zaner.length >= 3) {
-                                alert("You have up to three choices")
-                                e.target.checked = false
+                                alert("You exceeded the choices limit")
+                                checkboxRef.current.checked = false
                             }
-                            console.log(arr_zaner)
+
                             if (e.target.checked) {
                                 setArr_zaner([...arr_zaner, el])
                             } else {
-                                let newArrey = arr_zaner?.filter((ele) => ele !== el)
-                                setArr_zaner(newArrey)
+                                let newArray = arr_zaner?.filter((ele) => ele !== el)
+                                setArr_zaner(newArray)
                             }
                         }}
                     />

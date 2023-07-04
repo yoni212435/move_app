@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useRef, useState} from "react"
 import './Search.css'
 import {useAPIContext} from '../../contexts/APIContext'
 
@@ -7,18 +7,18 @@ export default function Search(props) {
     let {dataApp} = useAPIContext()
     const [filteredData, setFilteredData] = useState([])
     const [toggleSearchView, setToggleSearchView] = useState(false)
-    
+    const searchRef = useRef()
 
-    function search(e) {
-        const x = e.target.value
-        let dataF = x ? dataApp?.filter((ele) => ele.name.startsWith(x[0].toUpperCase() + x.slice(1).toLowerCase())) : null
+    function handleSearch() {
+        const {value} = searchRef.current
+        let dataF = value ? dataApp?.filter((ele) => ele.name.startsWith(x[0].toUpperCase() + x.slice(1).toLowerCase())) : null
         setFilteredData(dataF)
         setToggleSearchView(true)
     }
 
     return (
         <div className="main_search">
-            <input className="inpSearch" name="" type="search" placeholder="Search..." onChange={search}/>
+            <input className="inpSearch" ref={searchRef} name="" type="search" placeholder="Search..." onChange={handleSearch}/>
 
             {toggleSearchView && <div className="div_search">
                 {
