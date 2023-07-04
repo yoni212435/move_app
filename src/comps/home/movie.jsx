@@ -12,7 +12,7 @@ export default function Movie() {
     const [genres, setGenres] = useState([])
     let {user, index} = useAPIContext()
     const apiUrl = "https://api.tvmaze.com/"
-    const [mainMovie, setMainMovie] = useState(movies[0])
+    const [mainMovie, setMainMovie] = useState(movies[0]) // todo main movie context
 
     const sendIndex = id => {
         let index = movies.findIndex(element => element.id === id)

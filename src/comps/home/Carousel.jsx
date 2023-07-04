@@ -36,12 +36,11 @@ export default function Carousel({setMainMovie, genre}) {
     } // todo viewport
 
     const filterByGenre = () => {
-        let filteredData = movieData.filter(movie => movie.genres.includes(genre))
-        setFilteredMovies(filteredData)
+        return movieData.filter(movie => movie.genres.includes(genre))
     }
 
     useEffect(() => {
-            filterByGenre()
+        setFilteredMovies(filterByGenre())
     }, [genre])
 
     return (
