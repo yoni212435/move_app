@@ -1,10 +1,10 @@
-import React, {useContext, useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import "./MainMovie.css"
 import Nav from "./Nav"
 import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import Info from "../info/Info"
-import {APIContext} from "../../App"
 import "bootstrap/dist/css/bootstrap.min.css"
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function MainMovie(props) {
 
@@ -12,7 +12,7 @@ export default function MainMovie(props) {
     const [over, setOver] = useState(false)
     const [ShowIconAdd, setShowIconAdd] = useState(false)
     // const [user, setUser] = useState({});
-    const {handelUserObjFirebase, user: userContext, updateToMyList} = useContext(APIContext)
+    const {handelUserObjFirebase, user: userContext, updateToMyList} = useAPIContext()
 
     function changeInfo() {
         setOver(!over)

@@ -1,6 +1,6 @@
 import {doc, getFirestore, updateDoc} from "firebase/firestore"
-import React, {useContext, useEffect, useState} from "react"
-import {APIContext} from "../../App"
+import React, {useEffect, useState} from "react"
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function ChangeCategories() {
     const genreList = [
@@ -23,16 +23,17 @@ export default function ChangeCategories() {
 
     const [arr_zaner, setArr_zaner] = useState([])
     const db = getFirestore()
-    const {user} = useContext(APIContext)
+    const {user} = useAPIContext()
 
-    function updetDbCatgories() {
+    function updateDbCategories() {
         if (arr_zaner.length > 0) {
             updateDoc(doc(db, "users", user.docId), {zhaner: arr_zaner})
+                .then(res => console.log(res))
         }
     }
 
     useEffect(() => {
-        updetDbCatgories()
+        updateDbCategories()
     }, [arr_zaner.length])
 
     return (

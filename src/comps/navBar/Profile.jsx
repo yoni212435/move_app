@@ -1,14 +1,12 @@
 import React, {useState} from "react"
 import "./profile.css"
 import Details from "./Details"
-import {Link, Route, Routes, useNavigate} from "react-router-dom"
+import {Link, Route, Routes} from "react-router-dom"
 import AllCategories from "./AllCategories"
-// import { doc, getFirestore, updateDoc } from "firebase/firestore";
 import {FiHome} from "react-icons/fi"
 import ChangeCategories from './ChangeCategories'
 
 export default function Profile(props) {
-    // const { user } = useContext(APIContext);
     const [over, setOver] = useState(false)
     const [over1, setOver1] = useState(false)
     const [over2, setOver2] = useState(false)

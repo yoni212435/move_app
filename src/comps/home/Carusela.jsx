@@ -1,13 +1,12 @@
-import {useContext, useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import "./carusela.css"
 import Slider from "react-slick"
 import {getFirestore} from "firebase/firestore"
-import {APIContext} from "../../App"
-
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function Carusela(props) {
 
-    const {windowSize, dataApp} = useContext(APIContext)
+    const {windowSize, dataApp} = useAPIContext()
     const [moviesZaner, setMoviesZaner] = useState([])
     const db = getFirestore()
 

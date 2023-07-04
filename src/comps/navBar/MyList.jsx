@@ -1,14 +1,14 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import './MyList.css'
 import {doc, getFirestore, updateDoc} from 'firebase/firestore'
-import {APIContext} from '../../App'
 import {BiTrash} from "react-icons/bi"
 import {Link, useNavigate} from 'react-router-dom'
 import {FiHome} from "react-icons/fi"
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function MyList(props) {
     const db = getFirestore()
-    const {user, handelUserObjFirebase, setIndex, setUrlMyListAndAllCategories, dataApp} = useContext(APIContext)
+    const {user, handelUserObjFirebase, setIndex, setUrlMyListAndAllCategories, dataApp} = useAPIContext()
     const navigate = useNavigate()
 
 

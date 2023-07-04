@@ -1,11 +1,10 @@
-import React, {useContext} from 'react'
-import {APIContext} from '../../App'
 import './Details.css'
+import {useAPIContext} from '../../contexts/APIContext'
 
 
 export default function Details() {
 
-    let {user} = useContext(APIContext)
+    let {user} = useAPIContext()
 // user.email
 
 

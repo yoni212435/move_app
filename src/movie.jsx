@@ -1,17 +1,17 @@
-import React, {useContext, useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import axios from "axios"
 import MainMovie from "./comps/home/MainMovie"
 import Carusela from "./comps/home/Carusela"
 import "./movie.css"
-import {APIContext} from "./App"
 import Footer from "./comps/footer/Footer"
+import {useAPIContext} from './contexts/APIContext'
 
 export default function Movie(props) {
     let [data, setData] = useState([])
     const [i, setI] = useState(1)
     const [j, setJ] = useState(0)
     const [zaner, setZaner] = useState([])
-    let {setDataApp, user, dataApp, setIndex, index, urlMyListAndAllCategories} = useContext(APIContext)
+    let {setDataApp, user, dataApp, setIndex, index, urlMyListAndAllCategories} = useAPIContext()
 
     function sendIndex(id) {
         let index = data.findIndex(element => element.id === id)

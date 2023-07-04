@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react"
-import {APIContext} from "../../App"
+import React, {useState} from "react"
 import './Search.css'
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function Search(props) {
     const [searchResult, setSearchResult] = useState('')
-    let {dataApp} = useContext(APIContext)
+    let {dataApp} = useAPIContext()
     const [filteredData, setFilteredData] = useState([])
     const [over, setOver] = useState(false)
 

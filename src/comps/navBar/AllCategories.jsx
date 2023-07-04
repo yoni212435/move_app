@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react"
 import "./Allcategory.css"
 import {useNavigate} from "react-router-dom"
-import {APIContext} from "../../App"
+import {useAPIContext} from '../../contexts/APIContext'
 
 export default function AllCategories(props) {
     const zhaner_arr = [
