@@ -1,87 +1,56 @@
-import {doc, getFirestore, updateDoc} from "firebase/firestore"
-import React, {useEffect, useRef, useState} from "react"
-import {useAPIContext} from '../../contexts/APIContext'
-import printErrorMessage from '../../printErrorMessage'
+import {useEffect, useRef} from "react"
+import genres from '../../genres'
+import {useSetUserGenres, useUser} from '../../contexts/userContext'
 
-export default function ChangeCategories() {
-    const genreList = [
-        "Drama",
-        "Science-Fiction",
-        "Thriller",
-        "Action",
-        "Crime",
-        "Horror",
-        "Romance",
-        "Adventure",
-        "Supernatural",
-        "Fantasy",
-        "Family",
-        "Comedy",
-        "Mystery",
-        "Medical",
-        "Legal"
-    ]
-
-    const [userGenres, setUserGenres] = useState([])
-    const db = getFirestore()
-    const {user} = useAPIContext()
+const ChangeCategories = () => {
+    const {zhaner: userGenres} = useUser().userData
+    const setUserGenres = useSetUserGenres()
     const checkboxRef = useRef()
 
-    function updateDbCategories() {
-        if (userGenres) {
-            updateDoc(doc(db, "users", user.docId), {zhaner: userGenres})
-                .then(res => console.log(res))
-                .catch(e => printErrorMessage(e.message))
+    useEffect(() => {
+        console.log('change categories', userGenres)
+    },[])
+
+
+    const handleGenreUpdate = genre => {
+        if (userGenres.length >= 3) {
+            alert("You exceeded the choices limit")
+            console.log('checkboxRef-> ', checkboxRef.current)
+            checkboxRef.current.checked = false
         }
+
+        if (checkboxRef.current.checked)
+            setUserGenres([...userGenres, genre])
+        else
+            setUserGenres(userGenres.filter(_genre => _genre !== genre))
     }
 
-    useEffect(() => {
-        updateDbCategories()
-    }, [userGenres])
-
     return (
-        <div>
-            {genreList.map((el, i) => (
+        <>
+            {genres.map((genre, i) => (
                 <div
                     key={i}
-                    className="chak_box"
-
+                    className="check-box"
                 >
                     <label htmlFor="myCheckbox" className="lable_class">
-                        {" "}
-                        {el}{" "}
+                        {` ${genre} `}
                     </label>
                     <input
                         type="checkbox"
                         ref={checkboxRef}
-                        name={el}
-                        onChange={() => {
-                            if (userGenres.length >= 3) {
-                                alert("You exceeded the choices limit")
-                                console.log('checkboxRef-> ', checkboxRef.current)
-                                checkboxRef.current.checked = false
-                            }
-
-                            if (checkboxRef.current.checked) {
-                                setUserGenres([...userGenres, el])
-                            } else {
-                                let newArray = userGenres?.filter((ele) => ele !== el)
-                                setUserGenres(newArray)
-                            }
-                        }}
+                        name={genre}
+                        onChange={() => handleGenreUpdate(genre)}
                     />
                 </div>
             ))}
 
-            <div
-
-                className="name_of_catgorys_slider"
-            >
-                <h5 className="">The existing categories</h5>
-                <div>{user?.zhaner[0]}</div>
-                <div>{user?.zhaner[1]}</div>
-                <div>{user?.zhaner[2]}</div>
+            <div className="name_of_catgorys_slider">
+                <h5>selected genres</h5>
+                {userGenres.map((_genre, i) => (
+                    <div key={i}>{_genre}</div>
+                ))}
             </div>
-        </div>
+        </>
     )
 }
+export default ChangeCategories
