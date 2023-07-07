@@ -1,7 +1,8 @@
+import axios from 'axios'
 import "../../App.css"
 import {Route, Routes} from "react-router-dom"
 import {useEffect, useState} from "react"
-import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from "firebase/firestore"
+import {collection, getDoc, getFirestore, query, getDocs, where} from "firebase/firestore"
 import {app} from "../../db/firebase"
 import LogOut from '../auth/LogOut'
 import Movie from './Movie'
@@ -11,14 +12,16 @@ import {APIProvider} from '../../contexts/APIContext'
 import Footer from './Footer'
 import printErrorMessage from '../../printErrorMessage'
 import {MoviesProvider} from '../../contexts/moviesContext'
-import axios from 'axios'
+import {useAuth} from '../../contexts/authContext'
+import {UserProvider} from '../../contexts/userContext'
 
-function Dashboard() {
+const Dashboard = () => {
     const db = getFirestore()
-    const usersData = collection(db, "users")
+    const {currentUser} = useAuth()
+    const usersRef = collection(db, "users")
     const [windowSize, setWindowSize] = useState(window.innerWidth)
     const [data, setData] = useState([])
-    const [user, setUser] = useState({})
+    const [userData, setUserData] = useState({})
     const [movies, setMovies] = useState([])
 
     const apiUrl = "https://api.tvmaze.com/"
@@ -30,6 +33,13 @@ function Dashboard() {
         if (app) console.log('DB connected')
         else printErrorMessage('DB not connected')
     }, [app])
+
+    /* get user data from DB */
+    useEffect(() => {
+        getUserFromDB()
+            .then(r => setUserData(r))
+            .catch(e => printErrorMessage(e.message))
+    }, [])
 
     /* get movies from API */
     useEffect(() => {
@@ -47,63 +57,51 @@ function Dashboard() {
             window.removeEventListener("resize", handleWindowResize)
         }
     }, [])
-
-    /* ???? */
-    useEffect(() => {
-        updateMovieList()
-    }, [user.myList])
     //endregion
 
     //region methods
-    const addMovie = movie => {
+    // const addMovie = movie => { // todo move to db context
+    //     try {
+    //         updateDoc(doc(db, "users", user.docId), {myList: [...user.myList, movie]})
+    //             .then(r => console.log(r)) // todo check if succeeded, then update to state?
+    //     } catch (e) {
+    //         printErrorMessage(e.message)
+    //     }
+    // }
+
+    async function getUserFromDB() {
         try {
-            updateDoc(doc(db, "users", user.docId), {myList: [...user.myList, movie]})
-                .then(r => console.log(r)) // todo check if succeeded, then update to state?
+            // const user = await getDoc(doc(usersRef, currentUser.uid)) todo
+            const snapshot =
+                // await getDocs(query(
+                //     usersRef, where("email", "==", currentUser.email))) todo
+                await getDocs(query(
+                    usersRef, where("id", "==", currentUser.uid)))
+
+            return snapshot.docs[0].data()
         } catch (e) {
             printErrorMessage(e.message)
         }
+        // todo add user on creation
     }
-
-    async function getUserFromDB() {
-        if (user.id) {
-            const data = await getDocs(query(usersData, where("id", "==", user.id)))
-            if (data.docs[0]) {
-                setUser({
-                    ...data.docs[0].data(),
-                    docId: data.docs[0].id,
-                    email: user.email
-                })
-            } else {
-                await addDoc(usersData, {id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []})
-                setUser({id: user.id, zhaner: ['Family', 'Crime', 'Drama'], myList: []}) //todo remove hardcoded data
-            }
-        }
-    }
-
-    function updateMovieList() {
-        if (user.id) {
-            setMovieList(user.myList)
-        }
-    }
-    //endregion
+//endregion
 
     return (
         <APIProvider props={{
-            windowSize,
-            user,
-            setUser,
-            getUserFromDB //todo db context
+            windowSize
         }}>
-            <MoviesProvider props = {{data: movies, mainMovie: movies[0]}}>
-                <Routes>
-                    <Route index element={<Movie/>}/>
-                    <Route path="/logout" element={<LogOut/>}/>
-                    <Route path="/profile/*" element={<Profile/>}/>
-                    <Route path="/myList/*" element={<MyList/>}/>
-                    <Route path="*" element={<h1>404 not found</h1>}/>
-                </Routes>
-                <Footer/>
-            </MoviesProvider>
+            <UserProvider user={userData}>
+                <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
+                    <Routes>
+                        <Route index element={<Movie/>}/>
+                        <Route path="/logout" element={<LogOut/>}/>
+                        <Route path="/profile/*" element={<Profile/>}/>
+                        <Route path="/myList/*" element={<MyList/>}/>
+                        <Route path="*" element={<h2>404 not found</h2>}/>
+                    </Routes>
+                    <Footer/>
+                </MoviesProvider>
+            </UserProvider>
         </APIProvider>
     )
 }
