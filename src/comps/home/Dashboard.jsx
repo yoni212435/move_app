@@ -96,7 +96,7 @@ function Dashboard() {
         }}>
             <MoviesProvider data={movies} mainMovie={movies[0]}>
                 <Routes>
-                    <Route index element={<Movie movieList={movieList}/>}/>
+                    <Route index element={<Movie/>}/>
                     <Route path="/logout" element={<LogOut/>}/>
                     <Route path="/profile/*" element={<Profile/>}/>
                     <Route path="/myList/*" element={<MyList/>}/>
