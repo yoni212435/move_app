@@ -4,11 +4,11 @@ import Slider from "react-slick"
 import {useAPIContext} from '../../contexts/APIContext'
 import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 
-export default function Carousel({genre}) {
+const Carousel = ({genre}) => {
     const setMainMovie = useSetMainMovie()
     const {windowSize} = useAPIContext()
     const [filteredMovies, setFilteredMovies] = useState([])
-    const movieData = useMovies()
+    const movieData = useMovies().data
 
     const sliderSettings = {
         dots: false,
@@ -36,6 +36,7 @@ export default function Carousel({genre}) {
     } // todo viewport
 
     const filterByGenre = () => {
+        console.log('movieData', movieData)
         return movieData.filter(movie => movie.genres.includes(genre))
     }
 
@@ -66,3 +67,4 @@ export default function Carousel({genre}) {
         </div>
     )
 }
+export default Carousel

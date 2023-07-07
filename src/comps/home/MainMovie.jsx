@@ -1,25 +1,19 @@
-import React, {useEffect, useState} from "react"
+import {useState} from "react"
 import "./MainMovie.css"
 import Nav from "./Nav"
 import Info from "../info/Info"
-import {useAPIContext} from '../../contexts/APIContext'
 import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import {useMainMovie} from '../../contexts/moviesContext'
 
 const MainMovie = () => {
-    const movie = useMainMovie()
+    const {mainMovie: movie} = useMainMovie()
     const image = movie.image.original
-    const {getUserFromDB, user: userContext} = useAPIContext()
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
     const addMovieToMyList = () => {
         // todo: add movie to user's list
     }
-
-    useEffect(() => {
-        getUserFromDB()
-    }, [userContext.id])
 
     return (
         <div className="main_all">

@@ -90,7 +90,7 @@ const Dashboard = () => {
         <APIProvider props={{
             windowSize
         }}>
-            {userData ? (<UserProvider user={userData}>
+            {userData && movies ? (<UserProvider user={userData}>
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
                         <Routes>
                             <Route index element={<Movie/>}/>
