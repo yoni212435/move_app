@@ -2,7 +2,7 @@ import axios from 'axios'
 import "../../App.css"
 import {Route, Routes} from "react-router-dom"
 import {useEffect, useState} from "react"
-import {collection, getDoc, getFirestore, query, getDocs, where} from "firebase/firestore"
+import {collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 import {app} from "../../db/firebase"
 import LogOut from '../auth/LogOut'
 import Movie from './Movie'
@@ -20,8 +20,7 @@ const Dashboard = () => {
     const {currentUser} = useAuth()
     const usersRef = collection(db, "users")
     const [windowSize, setWindowSize] = useState(window.innerWidth)
-    const [data, setData] = useState([])
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState(null)
     const [movies, setMovies] = useState([])
 
     const apiUrl = "https://api.tvmaze.com/"
@@ -37,7 +36,7 @@ const Dashboard = () => {
     /* get user data from DB */
     useEffect(() => {
         getUserFromDB()
-            .then(r => setUserData(r))
+            .then(data => setUserData(data))
             .catch(e => printErrorMessage(e.message))
     }, [])
 
@@ -84,24 +83,26 @@ const Dashboard = () => {
         }
         // todo add user on creation
     }
+
 //endregion
 
     return (
         <APIProvider props={{
             windowSize
         }}>
-            <UserProvider user={userData}>
-                <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
-                    <Routes>
-                        <Route index element={<Movie/>}/>
-                        <Route path="/logout" element={<LogOut/>}/>
-                        <Route path="/profile/*" element={<Profile/>}/>
-                        <Route path="/myList/*" element={<MyList/>}/>
-                        <Route path="*" element={<h2>404 not found</h2>}/>
-                    </Routes>
-                    <Footer/>
-                </MoviesProvider>
-            </UserProvider>
+            {userData ? (<UserProvider user={userData}>
+                    <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
+                        <Routes>
+                            <Route index element={<Movie/>}/>
+                            <Route path="/logout" element={<LogOut/>}/>
+                            <Route path="/profile/*" element={<Profile/>}/>
+                            <Route path="/myList/*" element={<MyList/>}/>
+                            <Route path="*" element={<h2>404 not found</h2>}/>
+                        </Routes>
+                        <Footer/>
+                    </MoviesProvider>
+                </UserProvider>) :
+                <h2>Loading...</h2>}
         </APIProvider>
     )
 }

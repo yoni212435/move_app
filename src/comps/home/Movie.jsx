@@ -1,21 +1,16 @@
-import {useEffect, useState} from "react"
 import MainMovie from "./MainMovie"
 import Carousel from "./Carousel"
 import "./movie.css"
+import {useUser} from '../../contexts/userContext'
 
 const Movie = () => {
-    const [genres, setGenres] = useState([])
-
-    useEffect(() => {
-        if (user.zhaner)
-            setGenres(user.zhaner)
-    }, [user.zhaner]) // todo genre context
+    const {zhaner: userGenres} = useUser().userData
 
     return (
         <>
             <MainMovie/>
 
-            {genres && genres.map((genre, i) =>
+            {userGenres && userGenres.map((genre, i) =>
                 <Carousel
                     key={i}
                     genre={genre}
