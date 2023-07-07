@@ -94,7 +94,7 @@ function Dashboard() {
             setUser,
             getUserFromDB //todo db context
         }}>
-            <MoviesProvider data={movies} mainMovie={movies[0]}>
+            <MoviesProvider props = {{data: movies, mainMovie: movies[0]}}>
                 <Routes>
                     <Route index element={<Movie/>}/>
                     <Route path="/logout" element={<LogOut/>}/>
