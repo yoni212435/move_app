@@ -5,7 +5,7 @@
 .main_profile {
     background-color: rgb(5, 5, 35);
     color: white;
-    min-height: 1450vh;
+    min-height: 90vh;
 }
 
 .div_btn_profile {
@@ -36,7 +36,7 @@
     top: 3%;
 }
 
-.chak_box {
+.check-box {
     border: 1px solid;
     padding: 8px;
     height: 65px;
@@ -92,7 +92,7 @@
         height: 600px;
     }
 
-    .chak_box {
+    .check-box {
         height: 55px;
         width: 180px;
         font-size: 25px;
@@ -127,7 +127,7 @@
         height: 600px;
     }
 
-    .chak_box {
+    .check-box {
         height: 55px;
         width: 180px;
         font-size: 25px;
@@ -162,7 +162,7 @@
         left: 10%;
     }
 
-    .chak_box {
+    .check-box {
         height: 55px;
         width: 180px;
         font-size: 25px;
@@ -189,7 +189,7 @@
         height: 120px;
     }
 
-    .chak_box {
+    .check-box {
         border: 1px solid;
         padding: 8px;
         height: 65px;
