@@ -4,7 +4,7 @@ import {FiHome} from 'react-icons/fi'
 const Footer = () => (
     <div className="footer-container">
         <div className="footer-right">
-            {location.pathname !== '/' &&
+            {window.location.pathname !== '/' &&
                 <Link to={'/'} className="home-button">
                     <FiHome/> Home
                 </Link>}
