@@ -14,6 +14,7 @@ import printErrorMessage from '../../printErrorMessage'
 import {MoviesProvider} from '../../contexts/moviesContext'
 import {useAuth} from '../../contexts/authContext'
 import {UserProvider} from '../../contexts/userContext'
+import Loading from '../info/loading'
 
 const Dashboard = () => {
     const db = getFirestore()
@@ -90,7 +91,9 @@ const Dashboard = () => {
         <APIProvider props={{
             windowSize
         }}>
-            {userData && movies ? (<UserProvider user={userData}>
+            <>
+                {!(userData && movies) && <Loading/>}
+                <UserProvider user={userData}>
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
                         <Routes>
                             <Route index element={<Movie/>}/>
@@ -101,8 +104,8 @@ const Dashboard = () => {
                         </Routes>
                         <Footer/>
                     </MoviesProvider>
-                </UserProvider>) :
-                <h2>Loading...</h2>}
+                </UserProvider>
+            </>
         </APIProvider>
     )
 }
