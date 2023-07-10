@@ -8,10 +8,20 @@ body {
     pointer-events: none;
 }
 
-.footer {
-    text-align: center;
+.footer-container {
+    display: flex;
+    flex-direction: row;
     background-color: rgb(2, 10, 52);
     color: azure;
+}
+
+.footer-center {
+    width: 60vw;
+    text-align: center;
+}
+
+.footer-right, .footer-left {
+    width: 20vw;
 }
 
 @media (prefers-reduced-motion: no-preference) {

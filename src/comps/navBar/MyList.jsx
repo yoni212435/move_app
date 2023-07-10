@@ -37,9 +37,6 @@ const MyList = ({}) => {
                         </button>
                     </div>
                 )}
-                <Link to={'/'} className="home-button">
-                    <FiHome/>
-                </Link>
             </div>
         </div>
     )

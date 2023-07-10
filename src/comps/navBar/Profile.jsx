@@ -27,10 +27,6 @@ const Profile = () => (
                 <Route path="allCategories" element={<AllCategories/>}/>
             </Routes>
         </div>
-
-        <Link className="home-button" to={"/"}>
-            <FiHome/> home
-        </Link>
     </div>
 )
 export default Profile
