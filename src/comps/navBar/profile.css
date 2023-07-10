@@ -23,6 +23,12 @@
     padding: 2px;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
 .list_catgeris {
     height: 600px;
     width: 1110px;
@@ -51,7 +57,6 @@
 }
 
 .name_of_catgorys_slider {
-    position: absolute;
     right: -12%;
     text-align: center;
     border: 1px solid;

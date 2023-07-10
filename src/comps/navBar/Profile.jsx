@@ -20,7 +20,7 @@ const Profile = () => (
             </Link>
         </div>
 
-        <div className="list_catgeris">
+        <div className={"flex"}>
             <Routes>
                 <Route path="changeCategories" element={<ChangeCategories/>}/>
                 <Route path="details" element={<Details/>}/>

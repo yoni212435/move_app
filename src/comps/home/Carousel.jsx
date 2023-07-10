@@ -36,7 +36,6 @@ const Carousel = ({genre}) => {
     } // todo viewport
 
     const filterByGenre = () => {
-        console.log('movieData', movieData)
         return movieData.filter(movie => movie.genres.includes(genre))
     }
 

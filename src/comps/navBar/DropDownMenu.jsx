@@ -14,7 +14,7 @@ export default function DropDownMenu() {
 
             {toggleMenu &&
                 <div className="dropdown-list">
-                    <div className="dropdown-item"><Link to="/profile" className="btn_li">PROFILE</Link></div>
+                    <div className="dropdown-item"><Link to="/profile/details" className="btn_li">PROFILE</Link></div>
                     <div className="dropdown-item"><Link to="/myList" className="btn_li">MY LIST</Link></div>
                     <div className="dropdown-item"><Link to="/logout" className="btn_li" style={{color: "red"}}>LOGOUT</Link></div>
                 </div>}

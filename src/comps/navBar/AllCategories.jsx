@@ -1,7 +1,7 @@
 import {useState} from "react"
 import "./Allcategory.css"
 import genres from '../../genres'
-import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
+import {useMovies} from '../../contexts/moviesContext'
 import MovieList from '../home/MovieList'
 
 const AllCategories = ({}) => {
@@ -10,6 +10,7 @@ const AllCategories = ({}) => {
     const [toggleGenreMovieList, setToggleGenreMovieList] = useState(false)
 
     const handleGenreClick = genre => {
+        // todo fix toggle list behavior
         setToggleGenreMovieList(!toggleGenreMovieList)
         if (toggleGenreMovieList)
             setFilteredData(filterByGenre(genre))
