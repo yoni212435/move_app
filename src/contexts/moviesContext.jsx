@@ -15,9 +15,9 @@ const MoviesProvider = ({children, props}) => {
     const [mainMovie, setMainMovie] = useState(props.mainMovie || data[0])
 
     return (
-        <MoviesContext.Provider value={{data}}>
-            <MainMovieContext.Provider value={{mainMovie}}>
-                <SetMainMovieContext.Provider value={{setMainMovie}}>
+        <MoviesContext.Provider value={data}>
+            <MainMovieContext.Provider value={mainMovie}>
+                <SetMainMovieContext.Provider value={setMainMovie}>
                     {children}
                 </SetMainMovieContext.Provider>
             </MainMovieContext.Provider>

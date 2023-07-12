@@ -4,7 +4,7 @@ import {useAuth} from '../../contexts/authContext'
 
 const Details = () => {
     const {currentUser} = useAuth()
-    const email = useUser().userData.email || currentUser.email
+    const email = useUser().email || currentUser.email
 
     return (
         < div className="all_detiles">

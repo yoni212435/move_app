@@ -32,9 +32,9 @@ const UserProvider = ({children, user}) => {
     }
 
     return (
-        <UserContext.Provider value={{userData}}>
-            <SetUserContext.Provider value={{setUserData}}>
-                <SetGenresContext.Provider value={{setGenres}}>
+        <UserContext.Provider value={userData}>
+            <SetUserContext.Provider value={setUserData}>
+                <SetGenresContext.Provider value={setGenres}>
                     {children}
                 </SetGenresContext.Provider>
             </SetUserContext.Provider>

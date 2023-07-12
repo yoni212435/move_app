@@ -4,7 +4,7 @@ import "./movie.css"
 import {useUser} from '../../contexts/userContext'
 
 const Movie = () => {
-    const {zhaner: userGenres} = useUser().userData
+    const {zhaner: userGenres} = useUser()
 
     return (
         <>

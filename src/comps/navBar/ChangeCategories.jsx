@@ -3,7 +3,7 @@ import genres from '../../genres'
 import {useSetUserGenres, useUser} from '../../contexts/userContext'
 
 const ChangeCategories = () => {
-    const {zhaner: userGenres} = useUser().userData
+    const {zhaner: userGenres} = useUser()
     const setUserGenres = useSetUserGenres()
     const checkboxRef = useRef()
 

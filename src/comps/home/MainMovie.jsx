@@ -6,7 +6,7 @@ import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "rea
 import {useMainMovie} from '../../contexts/moviesContext'
 
 const MainMovie = () => {
-    const {mainMovie: movie} = useMainMovie()
+    const movie = useMainMovie()
     const image = movie.image.original
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)

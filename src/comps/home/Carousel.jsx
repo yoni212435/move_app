@@ -8,7 +8,7 @@ const Carousel = ({genre}) => {
     const setMainMovie = useSetMainMovie()
     const {windowSize} = useAPIContext()
     const [filteredMovies, setFilteredMovies] = useState([])
-    const movieData = useMovies().data
+    const movieData = useMovies()
 
     const sliderSettings = {
         dots: false,
