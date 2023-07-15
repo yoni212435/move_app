@@ -23,7 +23,7 @@ const AllCategories = ({}) => {
         <div className="category-menu">
             <ul className="category-list">
                 {genres.map((genre, i) => (
-                    <li>
+                    <li key={i}>
                         <button className="category-button"
                                 onClick={() => handleGenreClick(genre)}
                         >

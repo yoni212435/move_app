@@ -5,8 +5,12 @@ import ForgotPassword from './comps/auth/ForgotPassword'
 import LogIn from './comps/auth/LogIn'
 import SignUp from './comps/auth/SignUp'
 import LogOut from './comps/auth/LogOut'
+import {DBProvider} from './contexts/DBContext'
+import {useAuth} from './contexts/authContext'
 
 const App = ({}) => {
+    const {currentUser} = useAuth()
+
     return (
         <>
             <Routes>
@@ -16,8 +20,11 @@ const App = ({}) => {
                 <Route path="/forgot-password" element={<ForgotPassword/>}/>
                 <Route path="*" element={
                     <ProtectedRoute>
-                        <Dashboard/>
-                    </ProtectedRoute>}/>
+                        <DBProvider currentUser={currentUser}>
+                            <Dashboard/>
+                        </DBProvider>
+                    </ProtectedRoute>
+                }/>
             </Routes>
         </>
     )

@@ -4,15 +4,20 @@ import Nav from "./Nav"
 import Info from "../info/Info"
 import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import {useMainMovie} from '../../contexts/moviesContext'
+import {useDBFunction} from '../../contexts/DBContext'
+import printErrorMessage from '../../printErrorMessage'
 
 const MainMovie = () => {
     const movie = useMainMovie()
+    const {addMovie} = useDBFunction()
     const image = movie.image.original
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
     const addMovieToMyList = () => {
-        // todo: add movie to user's list
+        addMovie(movie)
+            .then(r => console.log(r))
+            .catch(e => printErrorMessage(e.message))
     }
 
     return (
