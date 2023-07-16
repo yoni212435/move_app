@@ -1,12 +1,10 @@
 import {useEffect, useState} from "react"
 import "./carousel.css"
 import Slider from "react-slick"
-import {useAPIContext} from '../../contexts/APIContext'
 import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 
 const Carousel = ({genre}) => {
     const setMainMovie = useSetMainMovie()
-    const {windowSize} = useAPIContext()
     const [filteredMovies, setFilteredMovies] = useState([])
     const movieData = useMovies()
 
@@ -18,22 +16,22 @@ const Carousel = ({genre}) => {
         slidesToScroll: 1
     }
 
-    function keepScreen(windowWidth) {
-        const md = "768"
-        const lg = "992"
-        const xl = "1200"
-
-        if (windowWidth >= xl) {
-            return 6
-        }
-        if (windowWidth >= lg) {
-            return 4
-        }
-        if (windowWidth >= md) {
-            return 3
-        }
-        return 2
-    } // todo viewport
+    // function keepScreen(windowWidth) {
+    //     const md = "768"
+    //     const lg = "992"
+    //     const xl = "1200"
+    //
+    //     if (windowWidth >= xl) {
+    //         return 6
+    //     }
+    //     if (windowWidth >= lg) {
+    //         return 4
+    //     }
+    //     if (windowWidth >= md) {
+    //         return 3
+    //     }
+    //     return 2
+    // } // todo viewport
 
     const filterByGenre = () => {
         return movieData.filter(movie => movie.genres.includes(genre))

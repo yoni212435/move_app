@@ -6,11 +6,12 @@ import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "rea
 import {useMainMovie} from '../../contexts/moviesContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import printErrorMessage from '../../printErrorMessage'
+import noImage from '../../images/noImage.png'
 
 const MainMovie = () => {
     const movie = useMainMovie()
     const {addMovie} = useDBFunction()
-    const image = movie.image.original
+    const image = movie.image.original || noImage
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
