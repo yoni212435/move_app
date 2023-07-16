@@ -1,38 +1,52 @@
-import React, {useRef, useState} from "react"
+import {useRef, useState} from "react"
 import './Search.css'
+import {useMovies} from '../../contexts/moviesContext'
 
-export default function Search(props) {
-    const [searchResult, setSearchResult] = useState('')
+const Search = props => {
+    const movies = useMovies()
     const [filteredData, setFilteredData] = useState([])
     const [toggleSearchView, setToggleSearchView] = useState(false)
     const searchRef = useRef()
 
-    // function handleSearch() {
-    //     const {value} = searchRef.current
-    //     let filteredData = value ? dataApp?.filter((ele) =>
-    //         ele.name.startsWith(value[0].toUpperCase()
-    //             + value.slice(1).toLowerCase())) : null
-    //     setFilteredData(filteredData)
-    //     setToggleSearchView(true)
-    // }
+    const handleSearch = e => {
+        e.preventDefault()
+        const {value: searchValue} = searchRef.current
+
+        if (searchValue) {
+            setFilteredData(
+                movies.filter(movie =>
+                    movie.name.toLowerCase().includes(searchValue.toLowerCase())))
+            setToggleSearchView(true)
+        } else {
+            setFilteredData([])
+            setToggleSearchView(false)
+        }
+    }
 
     return (
-        <div className="main_search">
-            <input className="inpSearch" ref={searchRef} name="" type="search" placeholder="Search..."
-                   onChange={handleSearch}/>
+        <div className="search-container">
+            <input
+                className="search-input"
+                ref={searchRef}
+                name="search-input"
+                type="search"
+                placeholder="Search..."
+                onChange={handleSearch}
+            />
 
-            {toggleSearchView && <div className="div_search">
-                {
-                    filteredData?.map((el, i) =>
-                        <div className="div_name" key={i}>
-                            <div className="name_search" onClick={() => props?.changeJ(
-                                dataApp.findIndex(x => x.id === el.id)
-                            )}>{el.name}</div>
-                        </div>
-                    )
-                }
-            </div>
+            {toggleSearchView &&
+                <div className="search-dropdown">
+                    {filteredData && filteredData.length > 0 ?
+                        filteredData.map((movie, i) =>
+                            <div className="search-item" key={i} /*onClick={setMainMovie}*/>
+                                <span>{movie.name}</span> {/* todo: scroll down */}
+                            </div>) :
+                        <div className="search-item">
+                            <span>No results found</span>
+                        </div>}
+                </div>
             }
         </div>
     )
 }
+export default Search
