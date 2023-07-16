@@ -26,18 +26,18 @@
     width: 100%;
 }
 
-.dropdown .dropdown-list .dropdown-item {
+.dropdown .dropdown-item {
     padding: 3px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
 }
 
-.dropdown .dropdown-list .dropdown-item:hover {
+.dropdown .dropdown-item:hover {
     background-color: #f5f5f5;
 }
 
-.dropdown .dropdown-list .dropdown-item a {
+.dropdown .dropdown-item a {
     text-decoration: none !important;
     color: #ffffff;
 }

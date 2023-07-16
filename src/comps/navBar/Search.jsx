@@ -1,6 +1,6 @@
 import {useRef, useState} from "react"
-import './Search.css'
 import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
+import './Search.css'
 
 const Search = props => {
     const movies = useMovies()
@@ -52,9 +52,9 @@ const Search = props => {
                                 onClick={() => {
                                     handleMoviePick(movie)
                                 }}>
-                                <span>{movie.name}</span> {/* todo: scroll down */}
+                                <span>{movie.name}</span>
                             </div>) :
-                        <div className="search-item">
+                        <div className="no-search-item" style={{cursor: 'default'}}>
                             <span>No results found</span>
                         </div>}
                 </div>

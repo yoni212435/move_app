@@ -10,7 +10,7 @@ import noImage from '../../images/noImage.png'
 const MainMovie = () => {
     const movie = useMainMovie()
     const {addMovie} = useDBFunction()
-    const image = movie.image.original || noImage
+    const image = movie ? movie.image.original : noImage
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
