@@ -1,6 +1,26 @@
-* {
-    box-sizing: border-box;
+/*region ===== Scrollbar CSS =====*/
+/* Firefox */
+.search-dropdown {
+    scrollbar-width: auto;
+    scrollbar-color: rgba(2, 2, 26, 0.9) #070766;
 }
+
+/* Chrome, Edge, and Safari */
+.search-dropdown::-webkit-scrollbar {
+    width: 16px;
+}
+
+.search-dropdown::-webkit-scrollbar-track {
+    background: rgba(2, 2, 26, 0.9);
+    border-radius: 0 8px 8px 0;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb {
+    background-color: #070766;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+}
+/*endregion*/
 
 .search-container {
     padding: 3px;
@@ -19,7 +39,7 @@
     background: rgba(2, 2, 26, 0.9);
     box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
     z-index: 1;
-    border-radius: 5px;
+    border-radius: 8px;
     max-height: 50vh;
     overflow-y: auto;
 }
