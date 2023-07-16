@@ -1,6 +1,5 @@
 import {useState} from "react"
 import "./MainMovie.css"
-import Nav from "./Nav"
 import Info from "../info/Info"
 import {AiOutlineInfoCircle, AiOutlinePlayCircle, AiOutlinePlusCircle} from "react-icons/ai"
 import {useMainMovie} from '../../contexts/moviesContext'
@@ -22,8 +21,7 @@ const MainMovie = () => {
     }
 
     return (
-        <div className="main_all">
-            <Nav/>
+        <>
             <div className="main_watch_info">
                 <img src={image} className="img_all" alt={"movie"}/>
                 <div className="btn_div_watch">
@@ -53,7 +51,7 @@ const MainMovie = () => {
                         add movie to list
                     </div>}
             </div>
-        </div>
+        </>
     )
 }
 export default MainMovie

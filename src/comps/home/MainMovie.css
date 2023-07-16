@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-.main_all {
-    width: 100%;
-    height: 70vh;
-    position: relative;
-}
-
 .main_watch_info {
     width: 100%;
     height: 100%;

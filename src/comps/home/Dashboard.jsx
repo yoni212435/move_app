@@ -13,7 +13,8 @@ import printErrorMessage from '../../printErrorMessage'
 import {MoviesProvider} from '../../contexts/moviesContext'
 import {UserProvider} from '../../contexts/userContext'
 import Loading from '../info/loading'
-import {DBProvider, useDBFunction} from '../../contexts/DBContext'
+import {useDBFunction} from '../../contexts/DBContext'
+import Nav from './Nav'
 //endregion
 
 const Dashboard = () => {
@@ -46,21 +47,27 @@ const Dashboard = () => {
     }, [])
 
     return (
-            <>
-                {!(userData && movies) && <Loading/>}
+        <>
+            {!(userData && movies) ? <Loading/> :
                 <UserProvider user={userData}>
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
-                        <Routes>
-                            <Route index element={<Movie/>}/>
-                            <Route path="/logout" element={<LogOut/>}/>
-                            <Route path="/profile/*" element={<Profile/>}/>
-                            <Route path="/myList/*" element={<MyList/>}/>
-                            <Route path="*" element={<h2>404 not found</h2>}/>
-                        </Routes>
-                        <Footer/>
+                        <div className="main_all">
+                            <Nav/>
+
+                            <Routes>
+                                <Route index element={<Movie/>}/>
+                                <Route path="/logout" element={<LogOut/>}/>
+                                <Route path="/profile/*" element={<Profile/>}/>
+                                <Route path="/myList/*" element={<MyList/>}/>
+                                <Route path="*" element={<h2>404 not found</h2>}/>
+                            </Routes>
+
+                            <Footer/>
+                        </div>
                     </MoviesProvider>
                 </UserProvider>
-            </>
+            }
+        </>
     )
 }
 
