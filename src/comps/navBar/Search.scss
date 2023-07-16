@@ -1,8 +1,12 @@
+$dropdown-border-radius: 8px;
+$main-color: rgba(2, 2, 26, 0.9);
+$secondary-color: #070766;
+
 /*region ===== Scrollbar CSS =====*/
 /* Firefox */
 .search-dropdown {
     scrollbar-width: auto;
-    scrollbar-color: rgba(2, 2, 26, 0.9) #070766;
+    scrollbar-color: $main-color $secondary-color;
 }
 
 /* Chrome, Edge, and Safari */
@@ -11,12 +15,12 @@
 }
 
 .search-dropdown::-webkit-scrollbar-track {
-    background: rgba(2, 2, 26, 0.9);
-    border-radius: 0 8px 8px 0;
+    background: $main-color;
+    border-radius: 0 $dropdown-border-radius $dropdown-border-radius 0;
 }
 
 .search-dropdown::-webkit-scrollbar-thumb {
-    background-color: #070766;
+    background-color: $secondary-color;
     border-radius: 8px;
     border: 2px solid #ffffff;
 }
@@ -36,10 +40,10 @@
     position: absolute;
     top: 80%;
     padding: 10px;
-    background: rgba(2, 2, 26, 0.9);
+    background: $main-color;
     box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
     z-index: 1;
-    border-radius: 8px;
+    border-radius: $dropdown-border-radius;
     max-height: 50vh;
     overflow-y: auto;
 }

@@ -1,6 +1,6 @@
 import {useRef, useState} from "react"
 import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
-import './Search.css'
+import './Search.scss'
 
 const Search = props => {
     const movies = useMovies()
