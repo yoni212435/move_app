@@ -1,9 +1,10 @@
 import {useRef, useState} from "react"
 import './Search.css'
-import {useMovies} from '../../contexts/moviesContext'
+import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 
 const Search = props => {
     const movies = useMovies()
+    const setMainMovie = useSetMainMovie()
     const [filteredData, setFilteredData] = useState([])
     const [toggleSearchView, setToggleSearchView] = useState(false)
     const searchRef = useRef()
@@ -23,6 +24,13 @@ const Search = props => {
         }
     }
 
+    const handleMoviePick = movie => {
+        setMainMovie(movie)
+        setToggleSearchView(false)
+        searchRef.current.value = ''
+        setFilteredData([])
+    }
+
     return (
         <div className="search-container">
             <input
@@ -38,7 +46,12 @@ const Search = props => {
                 <div className="search-dropdown">
                     {filteredData && filteredData.length > 0 ?
                         filteredData.map((movie, i) =>
-                            <div className="search-item" key={i} /*onClick={setMainMovie}*/>
+                            <div
+                                className="search-item"
+                                key={i}
+                                onClick={() => {
+                                    handleMoviePick(movie)
+                                }}>
                                 <span>{movie.name}</span> {/* todo: scroll down */}
                             </div>) :
                         <div className="search-item">
