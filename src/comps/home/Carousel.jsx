@@ -7,6 +7,7 @@ const Carousel = ({genre}) => {
     const setMainMovie = useSetMainMovie()
     const [filteredMovies, setFilteredMovies] = useState([])
     const movieData = useMovies()
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
 
     const sliderSettings = {
         dots: false,
@@ -16,22 +17,19 @@ const Carousel = ({genre}) => {
         slidesToScroll: 1
     }
 
-    // function keepScreen(windowWidth) {
-    //     const md = "768"
-    //     const lg = "992"
-    //     const xl = "1200"
-    //
-    //     if (windowWidth >= xl) {
-    //         return 6
-    //     }
-    //     if (windowWidth >= lg) {
-    //         return 4
-    //     }
-    //     if (windowWidth >= md) {
-    //         return 3
-    //     }
-    //     return 2
-    // } // todo viewport
+    useEffect(() => {
+        setWindowSize(window.innerWidth)
+    }, [window.innerWidth])
+
+    function keepScreen(windowWidth) {
+        const md = "768"
+        const lg = "992"
+        const xl = "1200"
+
+        return windowWidth >= xl ? 6 :
+            windowWidth >= lg ? 4 :
+                windowWidth >= md ? 3 : 2
+    }
 
     const filterByGenre = () => {
         return movieData.filter(movie => movie.genres.includes(genre))
