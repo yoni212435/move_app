@@ -1,15 +1,11 @@
 import "./HomePage.css"
 import DropDownMenu from "../navBar/DropDownMenu"
 import Search from "../navBar/Search"
-import {useEffect, useState} from 'react'
 import ProfileNavBar from '../navBar/ProfileNavBar'
+import {useLocation} from 'react-router-dom'
 
 const Nav = () => {
-    const [pathname, setPathname] = useState(window.location.pathname)
-
-    useEffect(() => {
-        setPathname(window.location.pathname)
-    }, [window.location.pathname])
+    const {pathname} = useLocation()
 
     return (
         <div className="nav-container">
