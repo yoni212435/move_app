@@ -18,7 +18,9 @@ export default function SignUp() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value)
+        if (passwordRef.current.value.length < 8)
+            return setError("Password must be at least 8 characters")
+        else if (passwordRef.current.value !== passwordConfirmRef.current.value)
             return setError("Passwords does not match")
 
         try {

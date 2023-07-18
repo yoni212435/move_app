@@ -25,7 +25,12 @@ export default function LogIn() {
             setMessage("You are successfully logged in")
             navigate('/', {replace: true})
         } catch (e) {
-            setError("Failed to log in")
+            if (e.code === "auth/wrong-password")
+                setError("Wrong password")
+            else if (e.code === "auth/user-not-found")
+                setError("User not found")
+            else
+                setError("Failed to log in")
             printErrorMessage(e.code)
         }
         setLoading(false)
