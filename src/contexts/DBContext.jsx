@@ -1,6 +1,6 @@
 import {createContext, useContext, useEffect, useState} from "react"
 import {app} from "../db/firebase"
-import {collection, doc, getDocs, getFirestore, query, updateDoc, where} from 'firebase/firestore'
+import {addDoc, collection, doc, getDocs, getFirestore, query, updateDoc, where} from 'firebase/firestore'
 import printErrorMessage from '../printErrorMessage'
 
 const DBContext = createContext(null)
@@ -17,15 +17,22 @@ const DBProvider = ({children, currentUser}) => {
 
     useEffect(() => {
         getUserData()
+            // .then(r => console.log(r))
             .then(r => setUserData(r))
             .catch(e => printErrorMessage(e.message))
     }, [])
+
+    const createUser = (user) => {
+        return addDoc(usersRef, {id: user.uid, email: user.email, zhaner: [], myList: []})
+            .then(() => getUserData())
+            .catch(e => e)
+    }
 
     const getUserData = () => {
         return getDocs(query(
             usersRef, where("id", "==", currentUser.uid)))
             .then(querySnapshot =>
-                querySnapshot.docs[0].data())
+                querySnapshot.empty ? createUser(currentUser) : querySnapshot.docs[0].data())
             .catch(e => e)
     }
 

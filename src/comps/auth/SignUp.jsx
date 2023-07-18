@@ -18,15 +18,17 @@ export default function SignUp() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        if (passwordRef.current.value !== passwordConfirmRef.current.value)
             return setError("Passwords does not match")
-        }
 
         try {
             setError("")
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-            navigate("/", {replace: true})
+            signup(emailRef.current.value, passwordRef.current.value)
+                .then(({user}) => {
+                    if (user)
+                        navigate("/", {replace: true})
+                })
         } catch (e) {
             if (e.code === "auth/email-already-in-use")
                 setError("That email address is already in use")
@@ -59,12 +61,12 @@ export default function SignUp() {
                         <Form.Control type="password" ref={passwordConfirmRef} required/>
                     </Form.Group>
                     <Button disabled={loading} className="w-100" type="submit">
-                        Log In
+                        SIGN UP
                     </Button>
                 </Form>
 
                 <div className="w-100 text-center mt-2">
-                    Already have an account? <Link to="/login">SIGN UP</Link>
+                    Already have an account? <Link to="/login">LOG IN</Link>
                 </div>
             </div>
         </div>
