@@ -48,7 +48,7 @@ const Dashboard = () => {
 
     return (
         <>
-            {!(userData && movies) ? <Loading/> :
+            {!(userData && movies.length > 0) ? <Loading/> :
                 <UserProvider user={userData}>
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
                         <div className="main_all">
