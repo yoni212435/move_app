@@ -1,7 +1,18 @@
-.nav_all {
-    width: 96.5%;
-    position: absolute;
-    padding: 20px;
+.nav-container {
+    background: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-left, .nav-right {
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-center {
+    width: 60vw;
 }
 
 .drop {
@@ -10,17 +21,12 @@
     right: 1px;
 }
 
-.nav_btn {
+.menu-button {
     display: flex;
     float: right;
     justify-content: space-between;
     height: 40px;
     position: relative;
-}
-
-.nav_search {
-    background: white;
-    width: 15%;
 }
 
 .search-input {

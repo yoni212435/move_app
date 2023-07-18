@@ -2,7 +2,7 @@ import {useRef, useState} from "react"
 import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
 import './Search.scss'
 
-const Search = props => {
+const Search = () => {
     const movies = useMovies()
     const setMainMovie = useSetMainMovie()
     const [filteredData, setFilteredData] = useState([])
