@@ -1,23 +1,15 @@
 import {createContext, useContext, useEffect, useState} from "react"
 
 const UserContext = createContext({})
-const SetUserContext = createContext(null)
+const UpdateUserContext = createContext(null)
 const SetGenresContext = createContext(null)
 
 const useUser = () => useContext(UserContext)
-const useSetUser = () => useContext(SetUserContext)
-const useSetUserGenres = () => useContext(SetGenresContext)
+const useUpdateUser = () => useContext(UpdateUserContext)
 
 const UserProvider = ({children, user}) => {
     const [loading, setLoading] = useState(true)
     const [userData, setUserData] = useState({})
-
-    const setGenres = (genres) => {
-        setUserData(user => ({
-            ...user,
-            zhaner: genres
-        }))
-    }
 
     useEffect(() => {
         if (user) {
@@ -26,6 +18,12 @@ const UserProvider = ({children, user}) => {
         }
     }, [user])
 
+    function updateUser (data) {
+        setUserData(prevData => {
+            return {...prevData, ...data}
+        })
+    }
+
     if (loading) {
         // Render a loading state or placeholder while data is being fetched
         return <div>Loading...</div>
@@ -33,13 +31,11 @@ const UserProvider = ({children, user}) => {
 
     return (
         <UserContext.Provider value={userData}>
-            <SetUserContext.Provider value={setUserData}>
-                <SetGenresContext.Provider value={setGenres}>
+            <UpdateUserContext.Provider value={updateUser}>
                     {children}
-                </SetGenresContext.Provider>
-            </SetUserContext.Provider>
+            </UpdateUserContext.Provider>
         </UserContext.Provider>
     )
 }
 
-export {UserProvider, useUser, useSetUser, useSetUserGenres}
+export {UserProvider, useUser, useUpdateUser}

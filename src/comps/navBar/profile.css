@@ -43,7 +43,7 @@
     gap: 8px;
 }
 
-.list_catgeris {
+.genre-list {
     height: 600px;
     width: 1110px;
     display: flex;
@@ -70,7 +70,7 @@
     margin-right: 8px;
 }
 
-.name_of_catgorys_slider {
+.selected-genres {
     right: -12%;
     text-align: center;
     border: 1px solid;
@@ -94,7 +94,7 @@
 
 
 @media only screen and (max-width: 728px) {
-    .list_catgeris {
+    .genre-list {
         width: 300px;
         top: 14%;
         height: 600px;
@@ -106,7 +106,7 @@
         font-size: 25px;
     }
 
-    .name_of_catgorys_slider {
+    .selected-genres {
         top: 65%;
         right: -38%;
     }
@@ -118,7 +118,7 @@
 }
 
 @media only screen and (min-width: 728px) {
-    .list_catgeris {
+    .genre-list {
         width: 300px;
         top: 14%;
         height: 600px;
@@ -130,7 +130,7 @@
         font-size: 25px;
     }
 
-    .name_of_catgorys_slider {
+    .selected-genres {
         top: 65%;
         right: -38%;
     }
@@ -141,7 +141,7 @@
 }
 
 @media only screen and (min-width: 991px) {
-    .list_catgeris {
+    .genre-list {
         width: 300px;
         top: 7%;
         height: 600px;
@@ -154,7 +154,7 @@
         font-size: 25px;
     }
 
-    .name_of_catgorys_slider {
+    .selected-genres {
         top: 1%;
         right: -110%;
     }
@@ -175,7 +175,7 @@
         font-size: 26px;;
     }
 
-    .name_of_catgorys_slider {
+    .selected-genres {
         top: 1%;
         right: 2%;
     }

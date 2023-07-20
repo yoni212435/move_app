@@ -1,17 +1,17 @@
 import {useEffect, useRef, useState} from "react"
 import genres from '../../genres'
-import {useSetUserGenres, useUser} from '../../contexts/userContext'
+import {useUser} from '../../contexts/userContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import {Alert} from 'react-bootstrap'
 import printErrorMessage from '../../printErrorMessage'
 
 const ChangeCategories = () => {
-    const {zhaner: userGenres} = useUser()
+    let {zhaner} = useUser()
+    const [userGenres, setUserGenres] = useState(zhaner)
     const {updateGenres} = useDBFunction()
-    const setUserGenres = useSetUserGenres()
     const checkboxRef = useRef()
-    const {addGenre, removeGenre} = useDBFunction()
     const [error, setError] = useState('')
+    const isMounted = useRef(false)
 
     useEffect(() => {
         if (error) {
@@ -21,28 +21,34 @@ const ChangeCategories = () => {
         }
     }, [error])
 
-    const handleGenreUpdate = genreRef => {
-        if (checkboxRef.current.checked && userGenres.length >= 3) {
-            setError("You exceeded the choices limit")
-            checkboxRef.current.checked = false
-            return
+    useEffect(() => {
+        if (isMounted.current) {
+            updateGenres(userGenres)
+                .then(r => console.log(r))
+                .catch(e => printErrorMessage(e.message))
+        } else {
+            isMounted.current = true
         }
+    }, [userGenres])
 
-        if (checkboxRef.current.checked)
-            setUserGenres([...userGenres, genreRef])
-        else
-            setUserGenres(userGenres.filter(genre => genre !== genreRef))
-
-        updateGenres(userGenres)
-            .then(r => console.log(r))
-            .catch(e => printErrorMessage(e.message))
+    const handleGenreUpdate = genreRef => {
+        setUserGenres(prevGenres => {
+            if (prevGenres.includes(genreRef)) {
+                return prevGenres.filter((genre) => genre !== genreRef)
+            } else if (prevGenres.length < 3) {
+                return [...prevGenres, genreRef]
+            } else {
+                setError("You exceeded the choices limit")
+                return prevGenres
+            }
+        })
     }
 
     return (
         <>
             {error && <Alert variant="danger">{error}</Alert>}
 
-            <div className="list_catgeris">
+            <div className="genre-list">
                 {genres.map((genre, i) => (
                     <div
                         key={i}
@@ -62,7 +68,7 @@ const ChangeCategories = () => {
                 ))}
             </div>
 
-            <div className="name_of_catgorys_slider">
+            <div className="selected-genres">
                 <h5>selected genres</h5>
                 {userGenres.map((_genre, i) => (
                     <div key={i}>{_genre}</div>

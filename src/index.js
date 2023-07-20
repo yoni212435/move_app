@@ -9,12 +9,12 @@ import {AuthProvider} from './contexts/authContext'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <div className="">
-        <React.StrictMode>
+        {/*<React.StrictMode>*/}
             <Router>
                 <AuthProvider>
                     <App/>
                 </AuthProvider>
             </Router>
-        </React.StrictMode>
+        {/*</React.StrictMode>*/}
     </div>
 )

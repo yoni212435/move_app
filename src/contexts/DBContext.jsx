@@ -13,7 +13,7 @@ const DBProvider = ({children, currentUser}) => {
     const db = getFirestore()
     const usersRef = collection(db, "users")
     const userDataDoc = doc(db, "users", currentUser.uid)
-    const [userData, setUserData] = useState(null) // todo update to state after change in db
+    const [userData, setUserData] = useState(null)
 
     useEffect(() => {
         getUserData()
@@ -45,6 +45,12 @@ const DBProvider = ({children, currentUser}) => {
     }
 
     const updateGenres = (genres) => {
+        /* checks */
+        console.log(userDataDoc) // correct user that im trying to update
+        console.log(userData) // correct user
+        console.log(genres) // correct data
+
+        /* returns an error */
         return updateDoc(userDataDoc, {zhaner: genres})
     }
 
