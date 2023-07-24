@@ -1,4 +1,4 @@
-import "./HomePage.css"
+import "./home.css"
 import DropDownMenu from "../navBar/DropDownMenu"
 import Search from "../navBar/Search"
 import ProfileNavBar from '../navBar/ProfileNavBar'

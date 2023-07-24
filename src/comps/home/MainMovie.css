@@ -1,20 +1,22 @@
-.main_watch_info {
+.main-movie-display {
     width: 100%;
     height: 100%;
+    background-color: rgb(5, 5, 35);
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.img_all {
-    height: 100%;
-    width: 100%;
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.btn_div_watch {
-    position: absolute;
-    top: 60%;
-    right: 1%;
-}
-
-.btn_watch {
+.red-button {
     background-color: #d02d2d;
     border: none;
     color: #fff;
@@ -22,104 +24,11 @@
     font-size: 24px;
     border-radius: 5px;
     text-align: center;
-}
-
-.btn_div_info {
-    position: absolute;
-    top: 60%;
-    right: 10%;
-}
-
-.btn_info {
-    background: #d02d2d;
-    color: #fff;
-    font-size: 24px;
-    padding: 8px 8px;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.btn_log {
-    position: absolute;
-    top: 89%;
-    left: 4%;
-    padding: 8px;
-    background: #d02d2d;
-    font-size: 20px;
-    border-radius: 5px;
+    margin: 20px;
 }
 
 .info {
     position: absolute;
     top: 70px;
     left: 180px;
-}
-
-.add-button {
-    position: absolute;
-    top: 71%;
-    left: 89%;
-    /* font-size: 16px; */
-    display: flex;
-    align-items: center;
-}
-
-.add-button-icon {
-    font-size: 48px;
-    color: wheat;
-}
-
-.add-button-icon-label {
-    color: antiquewhite;
-}
-
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 375px) {
-    .btn_div_watch1 {
-        top: 60%;
-        right: 1%;
-    }
-
-    .btn_div_info {
-        right: 30%;
-    }
-
-    .add-button {
-        left: 78%;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .btn_div_info {
-        right: 20%;
-    }
-
-    .add-button {
-        left: 78%;
-    }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .btn_div_info {
-        right: 15%;
-    }
-
-    .add-button {
-        left: 88%;
-    }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    .btn_div_info {
-        right: 10%;
-    }
-
-    .add-button {
-        left: 89%;
-    }
 }
