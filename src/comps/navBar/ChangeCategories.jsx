@@ -8,7 +8,7 @@ import printErrorMessage from '../../printErrorMessage'
 const ChangeCategories = () => {
     let {zhaner} = useUser()
     const [userGenres, setUserGenres] = useState(zhaner)
-    const {updateGenres} = useDBFunction()
+    const {updateGenres, overrideUser} = useDBFunction()
     const checkboxRef = useRef()
     const [error, setError] = useState('')
     const isMounted = useRef(false)
@@ -24,8 +24,11 @@ const ChangeCategories = () => {
     useEffect(() => {
         if (isMounted.current) {
             updateGenres(userGenres)
-                .then(r => console.log(r))
-                .catch(e => printErrorMessage(e.message))
+                .catch(e => {
+                    console.log('update failed. trying to override')
+                    overrideUser({zhaner: userGenres})
+                        .catch(e => printErrorMessage(e))
+                })
         } else {
             isMounted.current = true
         }

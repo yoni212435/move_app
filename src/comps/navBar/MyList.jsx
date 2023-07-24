@@ -1,24 +1,28 @@
 import './MyList.css'
 import {BiTrash} from "react-icons/bi"
-import {useMovies, useSetMainMovie} from '../../contexts/moviesContext'
+import {useSetMainMovie} from '../../contexts/moviesContext'
 import printErrorMessage from '../../printErrorMessage'
 import {useDBFunction} from '../../contexts/DBContext'
+import {useUser} from '../../contexts/userContext'
 
 const MyList = ({}) => {
     const setMainMovie = useSetMainMovie()
-    const movieData = useMovies()
-    const {removeMovie} = useDBFunction()
+    const {myList} = useUser()
+    const {removeMovie, overrideUser} = useDBFunction()
 
     const removeMovieFromMyList = movie => {
         removeMovie(movie)
-            .then(r => console.log(r))
-            .catch(e => printErrorMessage(e.message))
+            .catch(() => {
+                console.log('update failed. trying to override')
+                overrideUser({myList: myList.filter(_movie => _movie !== movie)})
+                    .catch(e => printErrorMessage(e))
+            })
     }
 
     return (
         <div className="list-container">
             <div className="list-row">
-                {movieData.map((movie, i) =>
+                {myList.map((movie, i) =>
                     <div className="list-item"
                          key={i}
                          onClick={() => setMainMovie(movie)}

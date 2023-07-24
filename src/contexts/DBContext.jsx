@@ -45,20 +45,19 @@ const DBProvider = ({children, currentUser}) => {
     }
 
     const updateGenres = (genres) => {
-        /* checks */
-        console.log(userDataDoc) // correct user that im trying to update
-        console.log(userData) // correct user
-        console.log(genres) // correct data
-
-        /* returns an error */
         return updateDoc(userDataDoc, {zhaner: genres})
+    }
+
+    const overrideUser = newData => {
+        return addDoc(usersRef, {...userData, ...newData}, {merge: true})
     }
 
     const methods = {
         getUserData,
         addMovie,
         removeMovie,
-        updateGenres
+        updateGenres,
+        overrideUser
     }
 
     return (

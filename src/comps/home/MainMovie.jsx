@@ -6,18 +6,23 @@ import {useMainMovie} from '../../contexts/moviesContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import printErrorMessage from '../../printErrorMessage'
 import noImage from '../../images/noImage.png'
+import {useUser} from '../../contexts/userContext'
 
 const MainMovie = () => {
     const movie = useMainMovie()
-    const {addMovie} = useDBFunction()
+    const {addMovie, overrideUser} = useDBFunction()
+    const {myList} = useUser()
     const image = movie ? movie.image.original : noImage
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
 
     const addMovieToMyList = () => {
         addMovie(movie)
-            .then(r => console.log(r))
-            .catch(e => printErrorMessage(e.message))
+            .catch(e => {
+                console.log('update failed. trying to override')
+                overrideUser({myList: [...myList, movie]})
+                    .catch(e => printErrorMessage(e))
+            })
     }
 
     return (
