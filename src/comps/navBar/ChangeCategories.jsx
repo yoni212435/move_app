@@ -1,12 +1,13 @@
 import {useEffect, useRef, useState} from "react"
 import genres from '../../genres'
-import {useUser} from '../../contexts/userContext'
+import {useUpdateUser, useUser} from '../../contexts/userContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import {Alert} from 'react-bootstrap'
 import printErrorMessage from '../../printErrorMessage'
 
 const ChangeCategories = () => {
     let {zhaner} = useUser()
+    const updateUser = useUpdateUser()
     const [userGenres, setUserGenres] = useState(zhaner)
     const {updateGenres, overrideUser} = useDBFunction()
     const checkboxRef = useRef()
@@ -29,6 +30,7 @@ const ChangeCategories = () => {
                     overrideUser({zhaner: userGenres})
                         .catch(e => printErrorMessage(e))
                 })
+            updateUser({zhaner: userGenres})
         } else {
             isMounted.current = true
         }

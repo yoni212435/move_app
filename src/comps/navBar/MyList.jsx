@@ -3,11 +3,12 @@ import {BiTrash} from "react-icons/bi"
 import {useSetMainMovie} from '../../contexts/moviesContext'
 import printErrorMessage from '../../printErrorMessage'
 import {useDBFunction} from '../../contexts/DBContext'
-import {useUser} from '../../contexts/userContext'
+import {useUpdateUser, useUser} from '../../contexts/userContext'
 
 const MyList = ({}) => {
     const setMainMovie = useSetMainMovie()
     const {myList} = useUser()
+    const updateUser = useUpdateUser()
     const {removeMovie, overrideUser} = useDBFunction()
 
     const removeMovieFromMyList = movie => {
@@ -17,6 +18,7 @@ const MyList = ({}) => {
                 overrideUser({myList: myList.filter(_movie => _movie !== movie)})
                     .catch(e => printErrorMessage(e))
             })
+        updateUser({myList: myList.filter(_movie => _movie !== movie)})
     }
 
     return (

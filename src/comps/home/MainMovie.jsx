@@ -6,12 +6,13 @@ import {useMainMovie} from '../../contexts/moviesContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import printErrorMessage from '../../printErrorMessage'
 import noImage from '../../images/noImage.png'
-import {useUser} from '../../contexts/userContext'
+import {useUpdateUser, useUser} from '../../contexts/userContext'
 
 const MainMovie = () => {
     const movie = useMainMovie()
     const {addMovie, overrideUser} = useDBFunction()
     const {myList} = useUser()
+    const updateUser = useUpdateUser()
     const image = movie ? movie.image.original : noImage
     const [toggleInfoView, setToggleInfoView] = useState(false)
     const [toggleAddIcon, setToggleAddIcon] = useState(false)
@@ -23,6 +24,7 @@ const MainMovie = () => {
                 overrideUser({myList: [...myList, movie]})
                     .catch(e => printErrorMessage(e))
             })
+        updateUser({myList: [...myList, movie]})
     }
 
     return (
