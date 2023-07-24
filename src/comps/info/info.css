@@ -1,19 +1,26 @@
-.all_info {
-    height: 61vh;
-    margin: 0 auto;
-    width: 70vw;
-    color: aquamarine;
-    background-color: rgb(3, 3, 46);
+.movie-pu-container {
     display: flex;
-
-
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-img {
-    width: 300px;
-    margin-right: 4px;
+.movie-image {
+    min-width: 30%;
+    margin-left: 15px;
+    margin-right: 10px;
 }
 
-.list_info {
-    font-size: 16px;
+.movie-details {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.divider span:not(:last-child):after {
+    content: ' | ';
+    white-space: pre-wrap;
 }

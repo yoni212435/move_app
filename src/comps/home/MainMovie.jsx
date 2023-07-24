@@ -16,7 +16,7 @@ const MainMovie = () => {
     const {myList} = useUser()
     const updateUser = useUpdateUser()
     const image = movie ? movie.image.original : noImage
-    const [toggleInfoView, setToggleInfoView] = useState(false)
+    const [togglePopUp, setTogglePopUp] = useState(false)
 
     const addMovieToMyList = () => {
         addMovie(movie)
@@ -30,26 +30,33 @@ const MainMovie = () => {
 
     return (
         <>
-            <div className="main-movie-display" style={{backgroundImage: `url(${image})`}}>
+            <div className={"main-movie-display"} style={{backgroundImage: `url(${image})`}}>
                 <div className="buttons">
-                    <button className="red-button">
+                    <button
+                        className="red-button"
+                        tabIndex={1}>
                         <Link to={movie.url} target={"_blank"} style={{textDecoration: "none", color: "inherit"}}>
                             <AiOutlinePlayCircle/> WATCH
                         </Link>
                     </button>
 
-                    <button className="red-button" onClick={() => setToggleInfoView(!toggleInfoView)}>
+                    <button className="red-button"
+                            tabIndex={2}
+                            onClick={() => setTogglePopUp(!togglePopUp)}>
                         <AiOutlineInfoCircle/> INFO
                     </button>
 
-                    <button className="red-button" onClick={addMovieToMyList}>
+                    <button
+                        className="red-button"
+                        tabIndex={3}
+                        onClick={addMovieToMyList}>
                         <BsBookmarkPlus/> SAVE
                     </button>
                 </div>
             </div>
 
-            {toggleInfoView &&
-                <Info movie={movie}/>
+            {togglePopUp &&
+                <Info movie={movie} setTogglePopUp={setTogglePopUp}/>
             }
         </>
     )
