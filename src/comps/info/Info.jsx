@@ -48,7 +48,5 @@ const Info = ({movie, setTogglePopUp}) => (
             </div>
         </div>
     </div>
-
-
 )
 export default Info

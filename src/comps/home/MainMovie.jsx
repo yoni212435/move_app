@@ -28,6 +28,15 @@ const MainMovie = () => {
         updateUser({myList: [...myList, movie]})
     }
 
+    const handleESC = e => {
+        if (e.key === 'Escape')
+            setTogglePopUp(false)
+    }
+
+    if (togglePopUp)
+        window.addEventListener('keydown', handleESC)
+    else window.removeEventListener('keydown', handleESC)
+
     return (
         <>
             <div className={"main-movie-display"} style={{backgroundImage: `url(${image})`}}>
