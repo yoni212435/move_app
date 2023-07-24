@@ -5,7 +5,7 @@ import AllCategories from "./AllCategories"
 import ChangeCategories from './ChangeCategories'
 
 const Profile = () => (
-    <div className="main_profile">
+    <div className="content">
         <div className={"flex"}>
             <Routes>
                 <Route path="changeCategories" element={<ChangeCategories/>}/>

@@ -8,7 +8,7 @@ body {
     pointer-events: none;
 }
 
-.main_all {
+.main-container {
     width: 100%;
     height: 70vh;
     position: relative;

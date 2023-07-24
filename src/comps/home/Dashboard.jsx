@@ -51,16 +51,16 @@ const Dashboard = () => {
             {!(userData && movies.length > 0) ? <Loading/> :
                 <UserProvider user={userData}>
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
-                        <div className="main_all">
+                        <div className="main-container">
                             <Nav/>
 
-                            <Routes>
-                                <Route index element={<Movie/>}/>
-                                <Route path="/logout" element={<LogOut/>}/>
-                                <Route path="/profile/*" element={<Profile/>}/>
-                                <Route path="/myList/*" element={<MyList/>}/>
-                                <Route path="*" element={<h2>404 not found</h2>}/>
-                            </Routes>
+                                <Routes>
+                                    <Route index element={<Movie/>}/>
+                                    <Route path="/logout" element={<LogOut/>}/>
+                                    <Route path="/profile/*" element={<Profile/>}/>
+                                    <Route path="/myList/*" element={<MyList/>}/>
+                                    <Route path="*" element={<h2>404 not found</h2>}/>
+                                </Routes>
 
                             <Footer/>
                         </div>

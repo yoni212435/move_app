@@ -22,7 +22,7 @@ const MyList = ({}) => {
     }
 
     return (
-        <div className="list-container">
+        <div className="content">
             <div className="list-row">
                 {myList.map((movie, i) =>
                     <div className="list-item"
