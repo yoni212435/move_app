@@ -13,7 +13,9 @@
     flex-direction: column;
 }
 
-.category {
+.genre {
+    margin-top: 1rem;
+    font-weight: bold;
     color: white;
 }
 

@@ -9,7 +9,7 @@
     opacity: 0.7;
 }
 
-.category-menu {
+.genre-menu {
     width: 304px;
     float: right;
     height: 360px;
@@ -19,7 +19,7 @@
     padding: 3px;
 }
 
-.category-list {
+.genre-list {
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -32,7 +32,7 @@
     border: none;
 }
 
-.category-button {
+.genre-button {
     padding: 6px;
     border-radius: 5px;
 }
@@ -63,13 +63,13 @@
 }
 
 @media (max-width: 1200px) {
-    .category-menu {
+    .genre-menu {
         width: 650px;
         height: 220px;
         /*position: absolute;*/
     }
 
-    .category-list {
+    .genre-list {
         width: 600px;
     }
 
@@ -80,13 +80,13 @@
 }
 
 @media (max-width: 500px) {
-    .category-menu {
+    .genre-menu {
         width: 420px;
         height: 260px;
         /* position: absolute; */
     }
 
-    .category-list {
+    .genre-list {
         width: 420px;
 
     }

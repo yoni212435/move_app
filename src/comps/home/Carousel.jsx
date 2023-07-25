@@ -43,7 +43,7 @@ const Carousel = ({genre}) => {
         <div className="main_slider">
             <div className="main_slider_tow">
                 <div className="sliderA">
-                    <p className="category">{genre}</p>
+                    <div className="genre">{genre}</div>
                     <Slider {...sliderSettings}>
                         {filteredMovies.map(movie => (
                             <div className="item_carousel " key={movie.id}>

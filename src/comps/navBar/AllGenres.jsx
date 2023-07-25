@@ -1,10 +1,10 @@
 import {useState} from "react"
-import "./Allcategory.css"
+import "./allGenres.css"
 import genres from '../../genres'
 import {useMovies} from '../../contexts/moviesContext'
 import MovieList from '../home/MovieList'
 
-const AllCategories = ({}) => {
+const AllGenres = ({}) => {
     const [filteredData, setFilteredData] = useState([])
     const movieData = useMovies()
     const [toggleGenreMovieList, setToggleGenreMovieList] = useState(false)
@@ -20,11 +20,11 @@ const AllCategories = ({}) => {
     }
 
     return (
-        <div className="category-menu">
-            <ul className="category-list">
+        <div className="genre-menu">
+            <ul className="genre-list">
                 {genres.map((genre, i) => (
                     <li key={i}>
-                        <button className="category-button"
+                        <button className="genre-button"
                                 onClick={() => handleGenreClick(genre)}
                         >
                             {genre}
@@ -41,4 +41,4 @@ const AllCategories = ({}) => {
     )
 }
 
-export default AllCategories
+export default AllGenres

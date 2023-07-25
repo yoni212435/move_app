@@ -1,16 +1,16 @@
 import "./profile.css"
 import Details from "./Details"
 import {Route, Routes} from "react-router-dom"
-import AllCategories from "./AllCategories"
-import ChangeCategories from './ChangeCategories'
+import AllGenres from "./AllGenres"
+import ChangeGenres from './ChangeGenres'
 
 const Profile = () => (
     <div className="content">
         <div className={"flex"}>
             <Routes>
-                <Route path="changeCategories" element={<ChangeCategories/>}/>
+                <Route path="changeGenres" element={<ChangeGenres/>}/>
                 <Route path="details" element={<Details/>}/>
-                <Route path="allCategories" element={<AllCategories/>}/>
+                <Route path="allGenres" element={<AllGenres/>}/>
             </Routes>
         </div>
     </div>

@@ -5,7 +5,7 @@ import {useDBFunction} from '../../contexts/DBContext'
 import {Alert} from 'react-bootstrap'
 import printErrorMessage from '../../printErrorMessage'
 
-const ChangeCategories = () => {
+const ChangeGenres = () => {
     let {zhaner} = useUser()
     const updateUser = useUpdateUser()
     const [userGenres, setUserGenres] = useState(zhaner)
@@ -83,4 +83,4 @@ const ChangeCategories = () => {
         </>
     )
 }
-export default ChangeCategories
+export default ChangeGenres

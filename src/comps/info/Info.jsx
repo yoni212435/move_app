@@ -33,7 +33,7 @@ const Info = ({movie, setTogglePopUp}) => (
                             <div><strong>Genres: </strong>
                                 <span className={"divider"}>
                                     {movie.genres.map(genre =>
-                                        <span>{genre}</span>
+                                        <span key={genre}>{genre}</span>
                                     )}
                                 </span>
                             </div>
