@@ -69,13 +69,6 @@ const ChangeGenres = () => {
                     </div>
                 ))}
             </div>
-
-            <div className="selected-genres-list">
-                <h5>Selected genres:</h5>
-                {userGenres.map((_genre, i) => (
-                    <div key={i}>{_genre}</div>
-                ))}
-            </div>
         </>
     )
 }
