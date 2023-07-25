@@ -1,19 +1,36 @@
+//region import
 import {useEffect, useRef, useState} from "react"
-import genres from '../../genres'
+
 import {useUpdateUser, useUser} from '../../contexts/userContext'
 import {useDBFunction} from '../../contexts/DBContext'
+import {useMovies} from '../../contexts/moviesContext'
+
+import genres from '../../genres'
 import {Alert} from 'react-bootstrap'
 import printErrorMessage from '../../printErrorMessage'
-import {FiCheckSquare, FiSquare} from 'react-icons/fi'
 
-const ChangeGenres = () => {
+import {FiCheckSquare, FiSquare} from 'react-icons/fi'
+import {MdOutlineExpandCircleDown} from 'react-icons/md'
+import MovieDropdown from '../home/MovieDropdown'
+//endregion
+
+const Genres = () => {
+    //region variables
     let {zhaner} = useUser()
     const updateUser = useUpdateUser()
+    const movieData = useMovies()
+
     const [userGenres, setUserGenres] = useState(zhaner)
     const {updateGenres, overrideUser} = useDBFunction()
     const [error, setError] = useState('')
-    const isMounted = useRef(false)
+    const [filteredData, setFilteredData] = useState([])
+    const [expandGenre, setExpandGenre] = useState('')
+    const [expand, setExpand] = useState(false)
 
+    const isMounted = useRef(false)
+    //endregion
+
+    //region useEffect
     useEffect(() => {
         if (error) {
             setTimeout(() => {
@@ -35,7 +52,9 @@ const ChangeGenres = () => {
             isMounted.current = true
         }
     }, [userGenres])
+    //endregion
 
+    //region handlers
     const handleGenreUpdate = genreRef => {
         setUserGenres(prevGenres => {
             if (prevGenres.includes(genreRef)) {
@@ -49,6 +68,21 @@ const ChangeGenres = () => {
         })
     }
 
+    const filterByGenre = genre => {
+        return movieData.filter(movie => movie.genres.includes(genre))
+    }
+
+    const handleExpand = genre => {
+        const prevGenre = expandGenre
+        setExpandGenre(genre)
+
+        setExpand(prevGenre === genre ? !expand : true)
+
+        if (expand)
+            setFilteredData(filterByGenre(genre))
+    }
+    //endregion
+
     return (
         <>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -57,19 +91,36 @@ const ChangeGenres = () => {
                 {genres.map((genre, i) => (
                     <div
                         key={i}
+                        tabIndex={i}
                         className={"list-item" + (userGenres.includes(genre) ? " selected-genre" : "")}
-                        onClick={() => handleGenreUpdate(genre)}
+                        id={genre}
                     >
-                        <span id={genre} className="title">
+                        <div
+                            className="expand"
+                            onClick={() => handleExpand(genre)}
+                        >
+                            <MdOutlineExpandCircleDown/>
+                        </div>
+                        {(expandGenre === genre && expand) &&
+                            <MovieDropdown
+                                movies={filteredData}
+                            />
+                        }
+                        <div
+                            className="select"
+                            onClick={() => handleGenreUpdate(genre)}
+                        >
+                            <span className="title">
                             {genre}
-                        </span>
-                        <span className="icon">
-                            {userGenres.includes(genre) ? <FiCheckSquare/> : <FiSquare/>}
-                        </span>
+                            </span>
+                            <span className="select-icon">
+                                {userGenres.includes(genre) ? <FiCheckSquare/> : <FiSquare/>}
+                            </span>
+                        </div>
                     </div>
                 ))}
             </div>
         </>
     )
 }
-export default ChangeGenres
+export default Genres
