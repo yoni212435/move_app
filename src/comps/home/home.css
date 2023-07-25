@@ -16,7 +16,7 @@
 }
 
 .drop {
-    position: absolute;
+    position: absolute;  /* todo check this */
     top: 45%;
     right: 1px;
 }
@@ -37,4 +37,7 @@
 .content {
     background-color: rgb(5, 5, 35);
     min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

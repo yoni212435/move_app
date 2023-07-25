@@ -4,13 +4,13 @@ import {useUpdateUser, useUser} from '../../contexts/userContext'
 import {useDBFunction} from '../../contexts/DBContext'
 import {Alert} from 'react-bootstrap'
 import printErrorMessage from '../../printErrorMessage'
+import {FiCheckSquare, FiSquare} from 'react-icons/fi'
 
 const ChangeGenres = () => {
     let {zhaner} = useUser()
     const updateUser = useUpdateUser()
     const [userGenres, setUserGenres] = useState(zhaner)
     const {updateGenres, overrideUser} = useDBFunction()
-    const checkboxRef = useRef()
     const [error, setError] = useState('')
     const isMounted = useRef(false)
 
@@ -25,7 +25,7 @@ const ChangeGenres = () => {
     useEffect(() => {
         if (isMounted.current) {
             updateGenres(userGenres)
-                .catch(e => {
+                .catch(() => {
                     console.log('update failed. trying to override')
                     overrideUser({zhaner: userGenres})
                         .catch(e => printErrorMessage(e))
@@ -57,29 +57,25 @@ const ChangeGenres = () => {
                 {genres.map((genre, i) => (
                     <div
                         key={i}
-                        className="check-box"
+                        className={"list-item" + (userGenres.includes(genre) ? " selected-genre" : "")}
+                        onClick={() => handleGenreUpdate(genre)}
                     >
-                        <label htmlFor="myCheckbox" className="lable_class">
-                            {` ${genre} `}
-                        </label>
-                        <input
-                            type="checkbox"
-                            ref={checkboxRef}
-                            checked={userGenres.includes(genre)}
-                            name={genre}
-                            onChange={() => handleGenreUpdate(genre)}
-                        />
+                        <span id={genre} className="title">
+                            {genre}
+                        </span>
+                        <span className="icon">
+                            {userGenres.includes(genre) ? <FiCheckSquare/> : <FiSquare/>}
+                        </span>
                     </div>
                 ))}
             </div>
 
-            <div className="selected-genres">
-                <h5>selected genres</h5>
+            <div className="selected-genres-list">
+                <h5>Selected genres:</h5>
                 {userGenres.map((_genre, i) => (
                     <div key={i}>{_genre}</div>
                 ))}
             </div>
-            {/* todo fix flex styling */}
         </>
     )
 }

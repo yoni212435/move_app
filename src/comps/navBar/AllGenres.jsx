@@ -1,5 +1,5 @@
 import {useState} from "react"
-import "./allGenres.css"
+import "./profile.css"
 import genres from '../../genres'
 import {useMovies} from '../../contexts/moviesContext'
 import MovieList from '../home/MovieList'
