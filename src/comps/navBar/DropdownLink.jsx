@@ -1,5 +1,5 @@
 import {NavLink} from 'react-router-dom'
-import {BsDot} from 'react-icons/bs'
+import {GoDotFill} from 'react-icons/go'
 
 const DropdownLink = ({content, to, style}) => {
     return (
@@ -8,9 +8,11 @@ const DropdownLink = ({content, to, style}) => {
             to={to}
             style={style && style}>
             {({isActive}) => (
-                <span style={{color: 'red'}}>{isActive && <BsDot/> + ' '}</span>
+                <>
+                    {isActive && <span className={'active-dot'}>{<GoDotFill/>}</span>}
+                    <span>{content}</span>
+                </>
             )}
-            <span>{content}</span>
         </NavLink>
     )
 }

@@ -41,3 +41,9 @@
     text-decoration: none !important;
     color: #ffffff;
 }
+
+.active-dot {
+    position: absolute;
+    left: 5%;
+    color: red;
+}
