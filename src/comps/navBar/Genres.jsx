@@ -12,6 +12,8 @@ import printErrorMessage from '../../printErrorMessage'
 import {FiCheckSquare, FiSquare} from 'react-icons/fi'
 import {MdOutlineExpandCircleDown} from 'react-icons/md'
 import MovieDropdown from '../home/MovieDropdown'
+
+import "./genres.css"
 //endregion
 
 const Genres = () => {
@@ -84,7 +86,7 @@ const Genres = () => {
     //endregion
 
     return (
-        <>
+        <div className={'content'}>
             {error && <Alert variant="danger">{error}</Alert>}
 
             <div className="genre-list">
@@ -120,7 +122,7 @@ const Genres = () => {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 export default Genres

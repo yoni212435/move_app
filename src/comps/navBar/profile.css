@@ -1,141 +1,20 @@
-.nav-link-container {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-
-.nav-link {
-    height: 100%;
-    flex: 1;
-    text-align: center;
-    margin-right: 0.3em;
-    margin-left: 0.3em;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    font-size: larger !important;
-}
-
-.nav-link:hover {
-    opacity: 0.8;
-}
-
-.nav-link-active {
-    color: darkred !important;
-    background-color: rgba(14, 14, 77, 0.93) !important;
-}
-
-.nav-link-inactive {
-    color: white;
-    background-color: rgb(5, 5, 35) !important;
-}
-
-.alert {
-    margin-top: 1em;
-    margin-bottom: 0 !important;
-}
-
-.genre-list {
-    height: fit-content;
-    width: 90%;
-    padding: 1em;
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1em;
-}
-
-.list-item {
-    height: 2.2em;
-    width: 11em;
-    background: rgb(6, 83, 119);
-    font-size: 1.5em;
-
-    margin-left: .5em;
-
-    border: 1px solid;
-    border-radius: 6px;
-
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-}
-
-.list-item .selected-genre {
-    background: rgb(6, 83, 119);
-    color: white;
-}
-
-.list-item .title, .list-item .select-icon .list-item .expand {
-    font-size: .9em;
-    padding: 8px;
-}
-
-.list-item .expand, .list-item .select-icon {
-    padding-top: 4px;
-}
-
-.list-item .expand:hover, .list-item .select:hover {
-    opacity: 0.8;
-}
-
-.list-item .expand {
-    width: 15%;
-    border-right: 1.5px solid;
-}
-
-.list-item .select {
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.select .title {
-    width: 75%;
-    text-align: center;
-}
-
-.select .select-icon {
-    width: 25%;
-}
-
-.selected-genre {
-    background: rgb(6, 119, 93);
-}
-
-.movie-dropdown {
-    position: absolute;
-    top: 105%;
-    padding: 15px;
-    background-color: white;
-    box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
-    z-index: 1;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.movie-dropdown .movie-entry {
-    cursor: pointer;
-    padding: 3px;
-    border-bottom: .5px solid lightgray;
-
+.profile-wrapper {
+    background-image: url(../auth/auth-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 650px;
     display: flex;
     align-items: center;
 }
 
-.movie-dropdown .movie-entry:hover {
-    opacity: .8;
-}
-
-.movie-entry .movie-title {
-    width: 75%;
-    height: fit-content;
+.profile-container {
+    height: 350px;
+    background-color: black;
+    opacity: 0.7;
+    width: 50%;
+    margin: 0 auto;
     text-align: center;
-}
-
-.movie-entry .movie-image {
-    width: 25%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

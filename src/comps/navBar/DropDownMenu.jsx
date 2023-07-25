@@ -1,7 +1,7 @@
 import './DropDownMenu.css'
 import {useState} from 'react'
 import {ImMenu} from 'react-icons/im'
-import {Link} from 'react-router-dom'
+import DropdownLink from './DropdownLink'
 
 export default function DropDownMenu() {
     const [toggleMenu, setToggleMenu] = useState(false)
@@ -14,9 +14,10 @@ export default function DropDownMenu() {
 
             {toggleMenu &&
                 <div className="dropdown-list">
-                    <div className="dropdown-item"><Link to="/profile/details" className="btn_li">PROFILE</Link></div>
-                    <div className="dropdown-item"><Link to="/myList" className="btn_li">MY LIST</Link></div>
-                    <div className="dropdown-item"><Link to="/logout" className="btn_li" style={{color: "red"}}>LOGOUT</Link></div>
+                    <DropdownLink to="/profile" content={'PROFILE'}/>
+                    <DropdownLink to="/myList" content={'MY LIST'}/>
+                    <DropdownLink to="/genres" content={'GENRES'}/>
+                    <DropdownLink to="/logout" content={'LOGOUT'} style={{color: "red"}}/>
                 </div>}
         </div>
     )

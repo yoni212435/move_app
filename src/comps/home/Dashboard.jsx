@@ -15,6 +15,7 @@ import {UserProvider} from '../../contexts/userContext'
 import Loading from '../info/loading'
 import {useDBFunction} from '../../contexts/DBContext'
 import Nav from './Nav'
+import Genres from '../navBar/Genres'
 //endregion
 
 const Dashboard = () => {
@@ -53,12 +54,12 @@ const Dashboard = () => {
                     <MoviesProvider props={{data: movies, mainMovie: movies[0]}}>
                         <div className="main-container">
                             <Nav/>
-
                                 <Routes>
                                     <Route index element={<Movie/>}/>
                                     <Route path="/logout" element={<LogOut/>}/>
-                                    <Route path="/profile/*" element={<Profile/>}/>
-                                    <Route path="/myList/*" element={<MyList/>}/>
+                                    <Route path="/profile" element={<Profile/>}/>
+                                    <Route path="/genres" element={<Genres/>}/>
+                                    <Route path="/myList" element={<MyList/>}/>
                                     <Route path="*" element={<h2>404 not found</h2>}/>
                                 </Routes>
 
