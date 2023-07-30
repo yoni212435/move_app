@@ -94,7 +94,7 @@ const Genres = () => {
                     <div
                         key={i}
                         tabIndex={i}
-                        className={"list-item" + (userGenres.includes(genre) ? " selected-genre" : "")}
+                        className={"genre-list-item" + (userGenres.includes(genre) ? " selected-genre" : "")}
                         id={genre}
                     >
                         <div

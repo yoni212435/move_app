@@ -11,6 +11,7 @@ const MovieDropdown = ({movies}) => {
         const viewportHeight = window.innerHeight
         const maxHeight = viewportHeight * 0.9 - parentHeight
         dropdownRef.current.style.maxHeight = `${maxHeight}px`
+        dropdownRef.current.style.top = `${parentHeight+5}px`
 
         const contentHeight = dropdownRef.current.scrollHeight
         if (contentHeight > maxHeight) {
@@ -22,6 +23,7 @@ const MovieDropdown = ({movies}) => {
         <div className="movie-dropdown" ref={dropdownRef}>
             {movies.map(movie => (
                 <div className="movie-entry"
+                     key={movie.id}
                      onClick={() => setMainMovie(movie)}>
                     <div className={'movie-title'}>
                         {movie.name}

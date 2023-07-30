@@ -15,7 +15,7 @@
     gap: 1em;
 }
 
-.genre-list .list-item {
+.genre-list .genre-list-item {
     height: 2.2em;
     width: 11em;
     background: rgb(6, 83, 119);
@@ -31,30 +31,30 @@
     text-align: center;
 }
 
-.list-item .selected-genre {
+.genre-list-item .selected-genre {
     background: rgb(6, 83, 119);
     color: white;
 }
 
-.list-item .title, .list-item .select-icon .list-item .expand {
+.genre-list-item .title, .genre-list-item .select-icon .genre-list-item .expand {
     font-size: .9em;
     padding: 8px;
 }
 
-.list-item .expand, .list-item .select-icon {
+.genre-list-item .expand, .genre-list-item .select-icon {
     padding-top: 4px;
 }
 
-.list-item .expand:hover, .list-item .select:hover {
+.genre-list-item .expand:hover, .genre-list-item .select:hover {
     opacity: 0.8;
 }
 
-.list-item .expand {
+.genre-list-item .expand {
     width: 15%;
     border-right: 1.5px solid;
 }
 
-.list-item .select {
+.genre-list-item .select {
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -70,18 +70,17 @@
 }
 
 .selected-genre {
-    background: rgb(6, 119, 93);
+    background: rgb(6, 119, 93) !important;
 }
 
 .movie-dropdown {
     position: absolute;
-    top: 105%;
+    width: inherit;
     padding: 15px;
     background-color: white;
     box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
     z-index: 1;
     border-radius: 5px;
-    width: 100%;
 }
 
 .movie-dropdown .movie-entry {
