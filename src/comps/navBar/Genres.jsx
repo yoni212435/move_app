@@ -54,6 +54,12 @@ const Genres = () => {
             isMounted.current = true
         }
     }, [userGenres])
+
+    useEffect(() => {
+        if (expandGenre && expand) {
+            setFilteredData(filterByGenre(expandGenre));
+        }
+    }, [expandGenre])
     //endregion
 
     //region handlers
@@ -79,9 +85,6 @@ const Genres = () => {
         setExpandGenre(genre)
 
         setExpand(prevGenre === genre ? !expand : true)
-
-        if (expand)
-            setFilteredData(filterByGenre(genre))
     }
     //endregion
 
