@@ -81,6 +81,7 @@
     box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
     z-index: 1;
     border-radius: 5px;
+    overflow-y: auto;
 }
 
 .movie-dropdown .movie-entry {

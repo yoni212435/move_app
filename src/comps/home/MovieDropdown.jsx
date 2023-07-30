@@ -12,11 +12,6 @@ const MovieDropdown = ({movies}) => {
         const maxHeight = viewportHeight * 0.9 - parentHeight
         dropdownRef.current.style.maxHeight = `${maxHeight}px`
         dropdownRef.current.style.top = `${parentHeight+5}px`
-
-        const contentHeight = dropdownRef.current.scrollHeight
-        if (contentHeight > maxHeight) {
-            dropdownRef.current.style.overflowY = "auto"
-        }
     }, [])
 
     return (
