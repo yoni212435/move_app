@@ -41,3 +41,14 @@
     flex-direction: column;
     align-items: center;
 }
+
+.home-button {
+    color: rgb(210, 210, 236);
+    border: 1px solid brown;
+    background-color: brown;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 4px;
+    font-size: 18px;
+}

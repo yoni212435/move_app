@@ -15,7 +15,7 @@
     gap: 1em;
 }
 
-.list-item {
+.genre-list .list-item {
     height: 2.2em;
     width: 11em;
     background: rgb(6, 83, 119);

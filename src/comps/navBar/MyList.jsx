@@ -1,12 +1,14 @@
 import './MyList.css'
-import {BiTrash} from "react-icons/bi"
+import Button from 'react-bootstrap/button'
 import {useSetMainMovie} from '../../contexts/moviesContext'
 import printErrorMessage from '../../printErrorMessage'
 import {useDBFunction} from '../../contexts/DBContext'
 import {useUpdateUser, useUser} from '../../contexts/userContext'
+import {BiTrash} from 'react-icons/bi'
+import {useState} from 'react'
+import MyListItem from './MyListItem'
 
 const MyList = ({}) => {
-    const setMainMovie = useSetMainMovie()
     const {myList} = useUser()
     const updateUser = useUpdateUser()
     const {removeMovie, overrideUser} = useDBFunction()
@@ -23,17 +25,9 @@ const MyList = ({}) => {
 
     return (
         <div className="content">
-            <div className="list-row">
-                {myList.map((movie, i) =>
-                    <div className="list-item"
-                         key={i}
-                         onClick={() => setMainMovie(movie)}
-                    >
-                        <img src={movie.image.medium} alt="movie-cover" height="250px"/>
-                        <button onClick={() => removeMovieFromMyList(movie)} className="trash-button">
-                            <BiTrash/>
-                        </button>
-                    </div>
+            <div className="myList-container">
+                {myList.map(
+                    movie => <MyListItem movie={movie} deleteMovie={removeMovieFromMyList}/>
                 )}
             </div>
         </div>
