@@ -1,5 +1,5 @@
-import "../home/popup.css"
-import "./info.css"
+import "../../../stylesheets/popup.css"
+import "../../../stylesheets/info.css"
 import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import Rating from 'react-rating'
 import {CloseButton} from 'react-bootstrap'

@@ -1,21 +1,21 @@
 //region import
 import axios from 'axios'
-import "../../App.css"
+import "../App.css"
 import {Route, Routes} from "react-router-dom"
 import {useEffect, useState} from "react"
-import {app} from "../../db/firebase"
-import LogOut from '../auth/LogOut'
-import Movie from './Movie'
-import MyList from '../navBar/MyList'
-import Profile from '../navBar/Profile'
-import Footer from './Footer'
-import printErrorMessage from '../../printErrorMessage'
-import {MoviesProvider} from '../../contexts/moviesContext'
-import {UserProvider} from '../../contexts/userContext'
-import Loading from '../info/loading'
-import {useDBFunction} from '../../contexts/DBContext'
-import Nav from './Nav'
-import Genres from '../navBar/Genres'
+import {app} from "../db/firebase"
+import LogOut from './auth/LogOut'
+import Movie from './pages/home/Movie'
+import MyList from './pages/myList/MyList'
+import Profile from './pages/Profile'
+import Footer from './navigation/Footer'
+import printErrorMessage from '../printErrorMessage'
+import {MoviesProvider} from '../contexts/moviesContext'
+import {UserProvider} from '../contexts/userContext'
+import Loading from './Loading'
+import {useDBFunction} from '../contexts/DBContext'
+import Nav from './navigation/Nav'
+import Genres from './pages/genres/Genres'
 //endregion
 
 const Dashboard = () => {

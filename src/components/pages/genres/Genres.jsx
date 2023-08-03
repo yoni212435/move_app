@@ -1,19 +1,19 @@
 //region import
 import {useEffect, useRef, useState} from "react"
 
-import {useUpdateUser, useUser} from '../../contexts/userContext'
-import {useDBFunction} from '../../contexts/DBContext'
-import {useMovies} from '../../contexts/moviesContext'
+import {useUpdateUser, useUser} from '../../../contexts/userContext'
+import {useDBFunction} from '../../../contexts/DBContext'
+import {useMovies} from '../../../contexts/moviesContext'
 
-import genres from '../../genres'
+import genres from '../../../genres'
 import {Alert} from 'react-bootstrap'
-import printErrorMessage from '../../printErrorMessage'
+import printErrorMessage from '../../../printErrorMessage'
 
 import {FiCheckSquare, FiSquare} from 'react-icons/fi'
 import {MdOutlineExpandCircleDown} from 'react-icons/md'
-import MovieDropdown from '../home/MovieDropdown'
+import MovieDropdown from './MovieDropdown'
 
-import "./genres.css"
+import "../../../stylesheets/genres.css"
 //endregion
 
 const Genres = () => {

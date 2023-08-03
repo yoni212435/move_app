@@ -1,4 +1,4 @@
-import "./profile.css"
+import "../../stylesheets/profile.css"
 import {useAuth} from '../../contexts/authContext'
 import {useUser} from '../../contexts/userContext'
 

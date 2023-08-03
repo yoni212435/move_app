@@ -1,13 +1,13 @@
 import {useState} from "react"
-import "./MainMovie.css"
-import Info from "../info/Info"
+import "../../../stylesheets/MainMovie.css"
+import Info from "./Info"
 import {AiOutlineInfoCircle, AiOutlinePlayCircle} from "react-icons/ai"
 import {BsBookmarkPlus} from 'react-icons/bs'
-import {useMainMovie} from '../../contexts/moviesContext'
-import {useDBFunction} from '../../contexts/DBContext'
-import printErrorMessage from '../../printErrorMessage'
-import noImage from '../../images/noImage.png'
-import {useUpdateUser, useUser} from '../../contexts/userContext'
+import {useMainMovie} from '../../../contexts/moviesContext'
+import {useDBFunction} from '../../../contexts/DBContext'
+import printErrorMessage from '../../../printErrorMessage'
+import noImage from '../../../images/noImage.png'
+import {useUpdateUser, useUser} from '../../../contexts/userContext'
 import {Link} from 'react-router-dom'
 
 const MainMovie = () => {

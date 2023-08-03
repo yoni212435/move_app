@@ -1,16 +1,16 @@
 import {useRef, useState} from 'react'
-import './auth.css'
+import '../../stylesheets/auth.css'
 import {Link, useNavigate} from 'react-router-dom'
 import {useAuth} from '../../contexts/authContext'
 import {Alert, Button, Form} from "react-bootstrap"
 import printErrorMessage from '../../printErrorMessage'
 
 
-export default function LogIn() {
+export default function ForgotPassword() {
     const navigate = useNavigate()
     const emailRef = useRef()
     const passwordRef = useRef()
-    const {login} = useAuth()
+    const {resetPassword} = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState("")
@@ -19,19 +19,14 @@ export default function LogIn() {
         e.preventDefault()
 
         try {
+            setMessage("")
             setError("")
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            setMessage("You are successfully logged in")
-            navigate('/', {replace: true})
+            await resetPassword(emailRef.current.value)
+            setMessage("Check your inbox for further instructions")
         } catch (e) {
-            if (e.code === "auth/wrong-password")
-                setError("Wrong password")
-            else if (e.code === "auth/user-not-found")
-                setError("User not found")
-            else
-                setError("Failed to log in")
-            printErrorMessage(e.code)
+            setError("Failed to reset password")
+            printErrorMessage(e)
         }
         setLoading(false)
     }
@@ -40,7 +35,7 @@ export default function LogIn() {
     return (
         <div className="all_sign_in">
             <div className="sun_sign_in">
-                <h2 className="text-center mb-4">The movie library</h2>
+                <h2 className="text-center mb-4">Reset Password</h2>
 
                 {error && <Alert variant="danger">{error}</Alert>}
                 {message && <Alert variant="success">{message}</Alert>}
@@ -50,21 +45,13 @@ export default function LogIn() {
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" ref={emailRef} required/>
                     </Form.Group>
-                    <Form.Group id="password" className="mb-3">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" ref={passwordRef} required/>
-                    </Form.Group>
                     <Button disabled={loading} className="w-100" type="submit">
-                        LOG IN
+                        Reset Password
                     </Button>
                 </Form>
 
                 <div className="w-100 text-center mt-3">
-                    <Link to="/forgot-password">Forgot Password?</Link>
-                </div>
-
-                <div className="w-100 text-center mt-2">
-                    Need an account? <Link to="/signup">SIGN UP</Link>
+                    <Link to="/login">LOG IN</Link>
                 </div>
             </div>
         </div>

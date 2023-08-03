@@ -1,4 +1,4 @@
-import {useSetMainMovie} from '../../contexts/moviesContext'
+import {useSetMainMovie} from '../../../contexts/moviesContext'
 import {useEffect, useRef} from 'react'
 
 const MovieDropdown = ({movies}) => {

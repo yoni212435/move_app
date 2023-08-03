@@ -2,8 +2,8 @@ import Slider from "react-slick"
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import MainMovie from "./MainMovie"
-import {useUser} from '../../contexts/userContext'
-import {useMovies} from '../../contexts/moviesContext'
+import {useUser} from '../../../contexts/userContext'
+import {useMovies} from '../../../contexts/moviesContext'
 import CarouselItemTemplate from './CarouselItemTemplate'
 
 const Movie = () => {

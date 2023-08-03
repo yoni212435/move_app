@@ -1,6 +1,6 @@
-import "./home.css"
-import DropDownMenu from "../navBar/DropDownMenu"
-import Search from "../navBar/Search"
+import "../../stylesheets/home.css"
+import DropDownMenu from "./DropDownMenu"
+import Search from "./Search"
 import {useLocation} from 'react-router-dom'
 
 const Nav = () => {

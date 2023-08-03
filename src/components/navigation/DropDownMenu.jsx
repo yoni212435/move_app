@@ -1,4 +1,4 @@
-import './DropDownMenu.css'
+import '../../stylesheets/DropDownMenu.css'
 import {useEffect, useState} from 'react'
 import {ImMenu} from 'react-icons/im'
 import DropdownLink from './DropdownLink'

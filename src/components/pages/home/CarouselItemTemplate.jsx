@@ -1,4 +1,4 @@
-import {useSetMainMovie} from '../../contexts/moviesContext'
+import {useSetMainMovie} from '../../../contexts/moviesContext'
 
 const CarouselItemTemplate = ({movie}) => {
     const setMainMovie = useSetMainMovie()

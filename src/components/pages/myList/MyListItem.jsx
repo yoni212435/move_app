@@ -1,9 +1,9 @@
 import {useState} from "react"
 import Button from 'react-bootstrap/Button'
-import {useUpdateUser} from '../../contexts/userContext'
-import {useDBFunction} from '../../contexts/DBContext'
-import printErrorMessage from '../../printErrorMessage'
-import {useSetMainMovie} from '../../contexts/moviesContext'
+import {useUpdateUser} from '../../../contexts/userContext'
+import {useDBFunction} from '../../../contexts/DBContext'
+import printErrorMessage from '../../../printErrorMessage'
+import {useSetMainMovie} from '../../../contexts/moviesContext'
 import {TbTrashX} from 'react-icons/tb'
 
 const MyListItem = ({movie, deleteMovie}) => {
