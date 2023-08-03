@@ -1,45 +1,45 @@
 .dropdown {
     float: right;
-}
 
-.dropdown .dropdown-btn {
-    cursor: pointer;
-    color: red;
-    margin: 10px;
-    padding: 5px;
-    box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 3px;
-    min-width: 80px;
-}
+    & .dropdown-btn {
+        cursor: pointer;
+        color: red;
+        margin: 10px;
+        padding: 5px;
+        box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 3px;
+        min-width: 80px;
+    }
 
-.dropdown .dropdown-list {
-    position: absolute;
-    top: 125%;
-    padding: 15px;
-    background-color: white;
-    box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
-    z-index: 1;
-    border-radius: 5px;
-    width: 100%;
-}
+    & .dropdown-list {
+        position: absolute;
+        top: 125%;
+        width: 100%;
+        padding: 15px;
 
-.dropdown .dropdown-item {
-    padding: 3px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-}
+        z-index: 1;
+        border-radius: 5px;
+        box-shadow: rgba(104, 109, 113, 0.73) 3px 3px 10px;
+    }
 
-.dropdown .dropdown-item:hover {
-    background-color: #f5f5f5;
-}
+    & .dropdown-item {
+        padding: 3px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
 
-.dropdown .dropdown-item a {
-    text-decoration: none !important;
-    color: #ffffff;
+        & a {
+            text-decoration: none !important;
+            color: #ffffff;
+        }
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
 }
 
 .active-dot {

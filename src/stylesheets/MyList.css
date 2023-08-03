@@ -4,18 +4,18 @@
     flex-wrap: wrap;
     padding: 12px 8px;
     gap: 1em;
-}
 
-.myList-container .list-item {
-    position: relative;
-    height: fit-content;
-    width: fit-content;
-    background: rgb(6, 83, 119);
+    & .list-item {
+        position: relative;
+        height: fit-content;
+        width: fit-content;
+        background: rgb(6, 83, 119);
 
-    padding: 5px;
+        padding: 5px;
 
-    border: 1px solid;
-    border-radius: 6px;
+        border: 1px solid;
+        border-radius: 6px;
+    }
 }
 
 .trash-button {
@@ -27,8 +27,8 @@
     right: 10px;
     border-radius: 20%;
     padding: 5px;
-}
 
-.trash-icon {
-    font-size: 1.3em;
+    & .trash-icon {
+        font-size: 1.3em;
+    }
 }
