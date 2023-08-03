@@ -43,8 +43,8 @@ export default function SignUp() {
     }
 
     return (
-        <div className="all_sign_in">
-            <div className="sun_sign_in">
+        <div className="auth-wrapper">
+            <div className="auth-container">
                 <h2 className="text-center mb-4">Sign Up Now</h2>
 
                 {error && <Alert variant="danger">{error}</Alert>}

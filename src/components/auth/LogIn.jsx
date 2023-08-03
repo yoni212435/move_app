@@ -38,8 +38,8 @@ export default function LogIn() {
 
 
     return (
-        <div className="all_sign_in">
-            <div className="sun_sign_in">
+        <div className="auth-wrapper">
+            <div className="auth-container">
                 <h2 className="text-center mb-4">The movie library</h2>
 
                 {error && <Alert variant="danger">{error}</Alert>}
