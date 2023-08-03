@@ -15,6 +15,7 @@
     }
 
     & .dropdown-list {
+        background-color: rgb(5, 5, 35);
         position: absolute;
         top: 125%;
         width: 100%;
