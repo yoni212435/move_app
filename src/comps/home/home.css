@@ -52,3 +52,15 @@
     padding: 4px;
     font-size: 18px;
 }
+
+.slider-container {
+    height: fit-content;
+    background-color: rgb(5, 5, 35) !important;
+    padding: 30px 30px calc(30px + 1em);
+}
+
+.slider-item {
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+}

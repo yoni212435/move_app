@@ -15,3 +15,4 @@ const Nav = () => {
     )
 }
 export default Nav
+//todo move home button to nav
