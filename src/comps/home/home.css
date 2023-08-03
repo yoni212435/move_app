@@ -15,20 +15,6 @@
     width: 60vw;
 }
 
-.drop {
-    position: absolute;  /* todo check this */
-    top: 45%;
-    right: 1px;
-}
-
-.menu-button {
-    display: flex;
-    float: right;
-    justify-content: space-between;
-    height: 40px;
-    position: relative;
-}
-
 .search-input {
     padding: 8px;
     border: none;
