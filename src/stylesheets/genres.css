@@ -37,12 +37,14 @@
         & .expand {
             width: 15%;
             border-right: 1.5px solid;
+            cursor: pointer;
         }
 
         & .select {
             width: 85%;
             display: flex;
             justify-content: space-between;
+            cursor: pointer;
 
             & .title {
                 width: 75%;
